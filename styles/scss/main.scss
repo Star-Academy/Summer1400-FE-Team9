@@ -1,3 +1,66 @@
-p {
-  color: wheat;
+$primary:#4C956C;
+$secondary:#2C6E49;
+$text-color:#000000;
+
+* {
+  margin: 0;
+  padding: 0;
 }
+
+html {
+  font-size: 62.5%;
+  font-family: "B Yekan",sans-serif;
+}
+
+@font-face {
+  font-family: "B Yekan";
+  src: url("assets/fonts/B Yekan.TTF");
+}
+
+body{
+  width: 100vw;
+  color: $text-color;
+  background-color: $primary;
+  word-wrap: normal;
+}
+
+nav{
+  gap: 7%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 150%;
+  background-color: $secondary;
+  h1{
+    display: inline;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  ul{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 7%;
+    li{
+      list-style: none;
+      transition: all 0.35s;
+      padding: 0.85rem;
+      border-radius: 999rem;
+    }
+    li:hover{
+      background-color: $primary;
+    }
+  }
+}
+
+@media (min-width: 360px) {
+  nav{
+    flex-direction: row;
+    ul{
+      flex-direction: row;
+    }
+  }
+}
+
+

@@ -1,5 +1,61 @@
-p {
-  color: wheat;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "B Yekan", sans-serif;
+}
+
+@font-face {
+  font-family: "B Yekan";
+  src: url("assets/fonts/B Yekan.TTF");
+}
+body {
+  width: 100vw;
+  color: #000000;
+  background-color: #4C956C;
+  word-wrap: normal;
+}
+
+nav {
+  gap: 7%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 150%;
+  background-color: #2C6E49;
+}
+nav h1 {
+  display: inline;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav ul {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 7%;
+}
+nav ul li {
+  list-style: none;
+  transition: all 0.35s;
+  padding: 0.85rem;
+  border-radius: 999rem;
+}
+nav ul li:hover {
+  background-color: #4C956C;
+}
+
+@media (min-width: 360px) {
+  nav {
+    flex-direction: row;
+  }
+  nav ul {
+    flex-direction: row;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
