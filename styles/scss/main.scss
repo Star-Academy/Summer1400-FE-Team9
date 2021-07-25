@@ -22,12 +22,18 @@ body{
   color: $text-color;
   background-color: $primary;
   word-wrap: normal;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 nav{
   gap: 7%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 1rem;
   font-size: 150%;
   background-color: $secondary;
@@ -40,7 +46,7 @@ nav{
   }
   ul{
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 7%;
     li{
       list-style: none;
@@ -50,15 +56,6 @@ nav{
     }
     li:hover{
       background-color: $primary;
-    }
-  }
-}
-
-@media (min-width: 360px) {
-  nav{
-    flex-direction: row;
-    ul{
-      flex-direction: row;
     }
   }
 }
