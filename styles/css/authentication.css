@@ -28,10 +28,10 @@ article .submit {
   color: white;
 }
 article header h1 {
-  font-size: 200%;
+  font-size: 2rem;
 }
 article header h6 {
-  font-size: 120%;
+  font-size: 1rem;
 }
 article h6 {
   margin-top: 4%;
@@ -48,6 +48,20 @@ article h6 a {
   margin-left: auto;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.checkbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (min-width: 600px) {
+  article header h1 {
+    font-size: 4rem;
+  }
+  article header h6 {
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=authentication.css.map */

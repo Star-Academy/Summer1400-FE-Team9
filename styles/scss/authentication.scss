@@ -40,10 +40,10 @@ article {
 
   header {
     h1 {
-      font-size: 200%;
+      font-size: 2rem;
     }
     h6 {
-      font-size: 120%;
+      font-size: 1rem;
     }
   }
 
@@ -63,4 +63,22 @@ article {
   margin-left: auto;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.checkbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (min-width: 600px) {
+  article {
+    header {
+      h1 {
+        font-size: 4rem;
+      }
+      h6 {
+        font-size: 2rem;
+      }
+    }
+  }
 }
