@@ -2,6 +2,12 @@ $primary: #4C956C;
 $secondary: #2C6E49;
 $text-color: #000000;
 
+section > ul {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 ul.music-list {
   display: grid;
   grid-gap: 1rem;
