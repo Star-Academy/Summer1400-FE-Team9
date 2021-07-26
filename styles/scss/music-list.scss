@@ -2,6 +2,15 @@ $primary: #4C956C;
 $secondary: #2C6E49;
 $text-color: #000000;
 
+.cover{
+  transition: all 1s;
+  border-radius: 10rem;
+  margin-bottom: 2rem;
+}
+.cover:hover{
+  border-radius: 2rem;
+}
+
 section > ul {
   display: flex;
   justify-content: center;
@@ -24,6 +33,7 @@ ul.music-list {
     border-radius: 2em;
     padding: 7%;
     margin: 8%;
+    max-width: 60%;
 
     span.music-cell-header {
       display: flex;
@@ -50,7 +60,7 @@ ul.music-list {
       display: flex;
       flex-direction: row-reverse;
       margin-right: auto;
-      justify-content: space-between;
+      justify-content: flex-start;
 
       button {
         padding: 1rem;
