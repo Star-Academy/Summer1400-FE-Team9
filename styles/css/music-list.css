@@ -12,8 +12,8 @@ ul.music-list li {
   list-style: none;
   background-color: wheat;
   border-radius: 2em;
-  padding: 5%;
-  margin: 10%;
+  padding: 7%;
+  margin: 8%;
 }
 ul.music-list li span.music-cell-header {
   display: flex;
