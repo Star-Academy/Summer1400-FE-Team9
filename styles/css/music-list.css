@@ -12,8 +12,8 @@ ul.music-list li {
   list-style: none;
   background-color: wheat;
   border-radius: 2em;
-  padding: 5%;
-  margin: 10%;
+  padding: 7%;
+  margin: 8%;
 }
 ul.music-list li span.music-cell-header {
   display: flex;
@@ -88,6 +88,20 @@ ul.music-list li span.music-singer {
   ul.music-list {
     grid-template-columns: auto auto auto auto auto;
   }
+}
+#search {
+  width: 40%;
+  margin: auto;
+  transition: all 1s;
+}
+
+input {
+  width: 100%;
+  font-family: "B Yekan", sans-serif !important;
+}
+
+::placeholder {
+  font-family: "B Yekan", sans-serif;
 }
 
 /*# sourceMappingURL=music-list.css.map */

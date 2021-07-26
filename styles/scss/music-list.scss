@@ -1,6 +1,6 @@
-$primary:#4C956C;
-$secondary:#2C6E49;
-$text-color:#000000;
+$primary: #4C956C;
+$secondary: #2C6E49;
+$text-color: #000000;
 
 ul.music-list {
   display: grid;
@@ -32,6 +32,7 @@ ul.music-list {
       span.music-title-and-singer {
         display: flex;
         flex-direction: column;
+
         span.music-singer {
           margin-top: 0.5rem;
         }
@@ -77,6 +78,7 @@ ul.music-list {
     span.music-title {
       font-size: large;
     }
+
     span.music-singer {
       font-size: medium;
     }
@@ -105,4 +107,19 @@ ul.music-list {
   ul.music-list {
     grid-template-columns: auto auto auto auto auto;
   }
+}
+
+#search {
+  width: 40%;
+  margin: auto;
+  transition: all 1s;
+}
+
+input {
+  width: 100%;
+  font-family: "B Yekan", sans-serif !important;
+}
+
+::placeholder {
+  font-family: "B Yekan", sans-serif;
 }
