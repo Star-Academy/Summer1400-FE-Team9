@@ -1,0 +1,53 @@
+article {
+  margin: 15%;
+  background-color: wheat;
+  border-radius: 2em;
+  padding: 5% 5% 5% 7.2%;
+  opacity: 86%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+article input {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  width: 100%;
+  padding: 2%;
+  border-radius: 0.25em;
+  border-style: none;
+  font-family: "B Yekan", sans-serif;
+}
+article input[type=checkbox] {
+  display: inline;
+}
+article .submit {
+  padding: 3.5%;
+  border-radius: 999rem;
+  background-color: #4C956C;
+  opacity: 86%;
+  color: white;
+}
+article header h1 {
+  font-size: 200%;
+}
+article header h6 {
+  font-size: 120%;
+}
+article h6 {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  display: flex;
+  gap: 2%;
+}
+article h6 a {
+  color: black;
+}
+
+.checkbox-with-label {
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/*# sourceMappingURL=authentication.css.map */
