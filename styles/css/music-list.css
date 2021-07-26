@@ -1,3 +1,93 @@
+ul.music-list {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: auto;
+  list-style: none;
+}
+ul.music-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10%;
+  list-style: none;
+  background-color: wheat;
+  border-radius: 2em;
+  padding: 5%;
+  margin: 10%;
+}
+ul.music-list li span.music-cell-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5%;
+}
+ul.music-list li span.music-cell-header img {
+  border-radius: 1rem;
+}
+ul.music-list li span.music-cell-header span.music-title-and-singer {
+  display: flex;
+  flex-direction: column;
+}
+ul.music-list li span.music-cell-header span.music-title-and-singer span.music-singer {
+  margin-top: 0.5rem;
+}
+ul.music-list li span.music-cell-controls {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: auto;
+  justify-content: space-between;
+}
+ul.music-list li span.music-cell-controls button {
+  padding: 1rem;
+  margin: 0.5rem;
+  color: #4C956C;
+  border: 2px solid #4C956C;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+ul.music-list li span.music-cell-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+ul.music-list li span.music-cell-controls a {
+  border-radius: 0.75rem;
+  background-color: #4C956C;
+  padding: 1rem;
+  margin: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+ul.music-list li span.music-cell-controls a:hover {
+  opacity: 80%;
+}
+ul.music-list li span.music-title {
+  font-size: large;
+}
+ul.music-list li span.music-singer {
+  font-size: medium;
+}
 
+@media (min-width: 360px) {
+  ul.music-list {
+    grid-template-columns: auto auto;
+  }
+}
+@media (min-width: 480px) {
+  ul.music-list {
+    grid-template-columns: auto auto auto;
+  }
+}
+@media (min-width: 720px) {
+  ul.music-list {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+@media (min-width: 1080px) {
+  ul.music-list {
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
 
 /*# sourceMappingURL=music-list.css.map */
