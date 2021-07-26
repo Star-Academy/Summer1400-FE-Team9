@@ -13,25 +13,20 @@ html {
   src: url("assets/fonts/B Yekan.TTF");
 }
 body {
-  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   color: #000000;
   background-color: #4C956C;
   word-wrap: normal;
 }
-body header {
+body > header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
-nav {
-  gap: 7%;
-  display: flex;
-  flex-direction: row;
-  padding: 1rem;
-  font-size: 150%;
-  background-color: #2C6E49;
-}
 nav h1 {
   display: inline;
 }
@@ -40,11 +35,10 @@ nav a {
   text-decoration: none;
 }
 nav ul {
-  display: inline-flex;
-  flex-direction: row;
   gap: 7%;
 }
 nav ul li {
+  display: inline;
   list-style: none;
   transition: all 0.35s;
   padding: 0.85rem;
@@ -52,6 +46,20 @@ nav ul li {
 }
 nav ul li:hover {
   background-color: #4C956C;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "B Yekan", sans-serif;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 5%;
 }
 
 /*# sourceMappingURL=main.css.map */
