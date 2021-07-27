@@ -27,16 +27,18 @@ body > header {
   justify-content: space-between;
 }
 
-logo {
+.logo {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-logo img {
+.logo img {
   width: 20%;
+  margin-left: 1.5rem;
 }
-logo h1 {
-  color: orangered;
+.logo h1 {
+  color: wheat;
+  font-size: x-large;
 }
 
 header {
