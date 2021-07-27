@@ -27,25 +27,48 @@ body > header {
   justify-content: space-between;
 }
 
-nav h1 {
-  display: inline;
+header {
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
 }
-nav a {
-  color: white;
-  text-decoration: none;
+header .site-title {
+  color: whitesmoke;
+  font-size: xx-large;
 }
-nav ul {
-  gap: 7%;
+header ul {
+  display: flex;
+  flex-direction: row;
 }
-nav ul li {
-  display: inline;
+header ul li {
   list-style: none;
   transition: all 0.35s;
   padding: 0.85rem;
   border-radius: 999rem;
+  font-size: large;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
-nav ul li:hover {
-  background-color: #4C956C;
+header ul li.primary-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: #2C6E49;
+}
+header ul li.primary-button a {
+  padding: 4%;
+}
+header ul li.primary-button > a:hover {
+  opacity: 60%;
+}
+header ul li a {
+  color: white;
+  text-decoration: none;
+}
+header ul li:hover {
+  background-color: #2C6E49;
 }
 
 button {
