@@ -22,11 +22,17 @@ html {
   margin-left: 2rem;
   margin-right: 2rem;
   margin-top: 1rem;
+  transition: all 0.35s;
+  padding: 0.85rem;
+  border-radius: 999rem;
 }
 .more-buttons ul li a {
   text-decoration: none;
   color: white;
   font-size: medium;
+}
+.more-buttons ul li:hover {
+  background-color: #2C6E49;
 }
 
 .hidden .hidden-text {
