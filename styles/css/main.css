@@ -41,6 +41,19 @@ body > header {
   font-size: x-large;
 }
 
+ul .unhidden {
+  display: none;
+}
+ul #hidden {
+  display: block;
+}
+ul #hidden ul {
+  display: none;
+}
+ul #hidden:hover ul {
+  display: block;
+}
+
 header {
   padding: 2%;
   display: flex;

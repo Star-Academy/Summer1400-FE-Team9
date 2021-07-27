@@ -50,6 +50,26 @@ body {
   }
 }
 
+ul {
+  .unhidden {
+    display: none;
+  }
+
+  #hidden {
+    display: block;
+
+    ul {
+      display: none;
+    }
+  }
+
+  #hidden:hover {
+    ul {
+      display: block;
+    }
+  }
+}
+
 
 header {
   padding: 2%;
