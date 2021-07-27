@@ -46,38 +46,85 @@ logo {
   }
 }
 
-nav {
-  //gap: 7%;
-  //display: flex;
-  //flex-direction: row;
-  //padding: 1rem;
-  //font-size: 150%;
-  //background-color: $secondary;
-  h1 {
-    display: inline;
-  }
 
-  a {
-    color: white;
-    text-decoration: none;
+header {
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+
+  .site-title {
+    color: whitesmoke;
+    font-size: xx-large;
   }
 
   ul {
-    gap: 7%;
+    display: flex;
+    flex-direction: row;
 
     li {
-      display: inline;
       list-style: none;
       transition: all 0.35s;
       padding: 0.85rem;
       border-radius: 999rem;
+      font-size: large;
+      margin-left: 1rem;
+      margin-right: 1rem;
+
+      &.primary-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background-color: $secondary;
+
+        a {
+          padding: 4%;
+        }
+
+        & > a:hover {
+          opacity: 60%;
+        }
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
 
     li:hover {
-      background-color: $primary;
+      background-color: $secondary;
     }
   }
+
+
+
+  //nav {
+  //  padding: 1%;
+  //
+  //
+  //
+  //  a {
+  //    color: white;
+  //    text-decoration: none;
+  //  }
+  //  ul {
+  //    gap: 7%;
+  //    li {
+  //      display: inline;
+  //      list-style: none;
+  //      transition: all 0.35s;
+  //      padding: 0.85rem;
+  //      border-radius: 999rem;
+  //    }
+  //    li:hover {
+  //      background-color: $primary;
+  //    }
+  //  }
+  //}
 }
+
 
 button {
   border: none;
