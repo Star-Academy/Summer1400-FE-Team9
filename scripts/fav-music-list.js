@@ -73,7 +73,7 @@ musics.forEach((value) => {
     a.innerHTML = "▷";
 
     let button = document.createElement("button");
-    button.innerHTML = "افزودن به علاقه‌مندی‌ها";
+    button.innerHTML = "حذف از علاقه‌مندی‌ها";
 
     musicCellControlsSpan.appendChild(a);
     musicCellControlsSpan.appendChild(button);
