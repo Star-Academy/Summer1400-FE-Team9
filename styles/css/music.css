@@ -17,4 +17,40 @@
   border-radius: 999rem;
 }
 
+#music-box {
+  width: 100%;
+  padding-top: 2%;
+}
+
+@media (min-width: 600px) {
+  #music-box {
+    width: 90%;
+  }
+}
+@media (min-width: 720px) {
+  #music-box {
+    width: 80%;
+  }
+}
+@media (min-width: 840px) {
+  #music-box {
+    width: 70%;
+  }
+}
+@media (min-width: 960px) {
+  #music-box {
+    width: 60%;
+  }
+}
+@media (min-width: 1080px) {
+  #music-box {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  #music-box {
+    width: 40%;
+  }
+}
+
 /*# sourceMappingURL=music.css.map */
