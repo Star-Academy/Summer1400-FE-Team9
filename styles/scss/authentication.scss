@@ -31,13 +31,26 @@ article {
     }
   }
 
-  .submit {
-    padding: 3.5%;
-    border-radius: 999rem;
-    background-color: $primary;
-    font-size: large;
-    opacity: 86%;
-    color: white;
+  .authenticate-button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    .submit {
+      padding: 3.5%;
+      border-radius: 999rem;
+      background-color: $primary;
+      font-size: large;
+      opacity: 86%;
+      color: white;
+      transition: all 0.25s;
+      align-self: center;
+
+      &:hover {
+        opacity: 80%;
+      }
+    }
   }
 
   .header {
