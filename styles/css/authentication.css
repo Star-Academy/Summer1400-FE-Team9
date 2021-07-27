@@ -41,8 +41,11 @@ article h6 {
   gap: 2%;
 }
 article h6 a {
-  color: blue;
+  color: #2C6E49;
   text-decoration: none;
+}
+article h6 a:hover {
+  cursor: pointer;
 }
 
 .checkbox-with-label {

@@ -56,8 +56,12 @@ article {
     gap: 2%;
 
     a {
-      color: blue;
+      color: $secondary;
       text-decoration: none;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
