@@ -2,16 +2,8 @@
   font-size: 160%;
 }
 
-#play-button {
-  cursor: pointer;
-}
-
-#two-x-button {
-  cursor: pointer;
-  border: 0 solid limegreen;
-  background-color: #4C956C;
-  color: #fff;
-  font-family: sans-serif;
+#music {
+  width: 75%;
 }
 
 /*# sourceMappingURL=music.css.map */
