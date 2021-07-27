@@ -41,7 +41,8 @@ article h6 {
   gap: 2%;
 }
 article h6 a {
-  color: black;
+  color: blue;
+  text-decoration: none;
 }
 
 .checkbox-with-label {

@@ -1,6 +1,6 @@
-$primary:#4C956C;
-$secondary:#2C6E49;
-$text-color:#000000;
+$primary: #4C956C;
+$secondary: #2C6E49;
+$text-color: #000000;
 
 @mixin margin-top-and-bottom($n: 4%) {
   margin-top: $n;
@@ -25,6 +25,7 @@ article {
     border-radius: 0.25em;
     border-style: none;
     font-family: "B Yekan", sans-serif;
+
     &[type="checkbox"] {
       display: inline;
     }
@@ -43,6 +44,7 @@ article {
     h1 {
       font-size: 4rem;
     }
+
     h6 {
       font-size: 2rem;
     }
@@ -54,7 +56,8 @@ article {
     gap: 2%;
 
     a {
-      color: black;
+      color: blue;
+      text-decoration: none;
     }
   }
 }
@@ -77,6 +80,7 @@ article {
       h1 {
         font-size: 4rem;
       }
+
       h6 {
         font-size: 2rem;
       }
