@@ -12,6 +12,23 @@ html {
   font-family: "B Yekan";
   src: url("assets/fonts/B Yekan.TTF");
 }
+.more-buttons ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  list-style: none;
+}
+.more-buttons ul li {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+}
+.more-buttons ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: medium;
+}
+
 .hidden .hidden-text {
   color: white;
 }
@@ -91,7 +108,7 @@ header ul li {
   margin-right: 1rem;
 }
 header ul li.primary-button {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -135,6 +152,14 @@ footer {
 }
 
 @media (min-width: 675px) {
+  .primary-button {
+    display: flex;
+  }
+
+  .more-buttons {
+    display: none;
+  }
+
   ul .unhidden {
     display: block;
   }

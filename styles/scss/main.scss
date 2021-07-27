@@ -17,6 +17,27 @@ html {
   src: url("assets/fonts/B Yekan.TTF");
 }
 
+.more-buttons {
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    list-style: none;
+
+    li {
+      margin-left: 2rem;
+      margin-right: 2rem;
+      margin-top: 1rem;
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: medium;
+      }
+    }
+  }
+}
+
 .hidden {
   .hidden-text {
     color: white;
@@ -114,7 +135,7 @@ header {
       margin-right: 1rem;
 
       &.primary-button {
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         align-content: center;
@@ -166,6 +187,14 @@ footer {
 }
 
 @media (min-width: 675px) {
+  .primary-button {
+    display: flex;
+  }
+
+  .more-buttons {
+    display: none;
+  }
+
   ul {
     .unhidden {
       display: block;
