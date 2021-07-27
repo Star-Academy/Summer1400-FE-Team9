@@ -24,14 +24,15 @@ article .submit {
   padding: 3.5%;
   border-radius: 999rem;
   background-color: #4C956C;
+  font-size: large;
   opacity: 86%;
   color: white;
 }
-article header h1 {
-  font-size: 2rem;
+article .header h1 {
+  font-size: 4rem;
 }
-article header h6 {
-  font-size: 1rem;
+article .header h6 {
+  font-size: 2rem;
 }
 article h6 {
   margin-top: 4%;

@@ -34,16 +34,17 @@ article {
     padding: 3.5%;
     border-radius: 999rem;
     background-color: $primary;
+    font-size: large;
     opacity: 86%;
     color: white;
   }
 
-  header {
+  .header {
     h1 {
-      font-size: 2rem;
+      font-size: 4rem;
     }
     h6 {
-      font-size: 1rem;
+      font-size: 2rem;
     }
   }
 
