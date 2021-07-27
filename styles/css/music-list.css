@@ -113,10 +113,28 @@ ul.music-list li span.music-singer {
   transition: all 1s;
 }
 
+.page-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.page-title {
+  align-self: center;
+  font-size: xxx-large;
+  color: whitesmoke;
+  margin-bottom: 2.75rem;
+}
+
 input {
   width: 100%;
-  padding: 0.25rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  border-radius: 1.5rem;
+  border: none;
   font-family: "B Yekan", sans-serif !important;
+  font-size: medium;
 }
 
 ::placeholder {
