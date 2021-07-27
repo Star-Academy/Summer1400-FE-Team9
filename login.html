@@ -15,17 +15,26 @@
 <body>
 <header>
     <a href="index.html">
-        <logo>
-            <img src="images/musix.png">
+        <div class="logo">
+            <img src="images/musix.png" alt="logo">
             <h1>آهنگدان</h1>
-        </logo>
+        </div>
     </a>
     <nav id>
         <ul>
-            <li><a href="index.html">خانه</a></li>
-            <li><a href="music-list.html">موزیک‌ها</a></li>
-            <li><a href="fav-music-list.html">علاقه‌مندی‌ها</a></li>
-            <li><a href="about.html">درباره‌ی ما</a></li>
+            <li id="hidden">
+                Menu
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="music-list.html">موزیک‌ها</a></li>
+                    <li><a href="fav-music-list.html">علاقه‌مندی‌ها</a></li>
+                    <li><a href="about.html">درباره</a></li>
+                </ul>
+            </li>
+            <li class="unhidden"><a href="index.html">خانه</a></li>
+            <li class="unhidden"><a href="music-list.html">موزیک‌ها</a></li>
+            <li class="unhidden"><a href="fav-music-list.html">علاقه‌مندی‌ها</a></li>
+            <li class="unhidden"><a href="about.html">درباره</a></li>
         </ul>
     </nav>
     <button>ثبت‌نام</button>
