@@ -1,5 +1,17 @@
 let audio = new Audio('assets/audios/music.mp3');
 
+let progressBar = document.getElementById("progress-bar");
+progressBar.setAttribute("value", "0");
+
+progressBar.onchange = ev => {
+    audio.currentTime = progressBar.value * audio.duration / 100;
+}
+
+setTimeout(() => {
+    // progressBar.value = 100 * audio.currentTime / audio.duration;
+    progressBar.setAttribute("value", "" + 100 * audio.currentTime / audio.duration);
+}, 0.1);
+
 let playButton = document.getElementById("play-button");
 playButton.onclick = ev => {
     if (playButton.innerHTML === "▷") {
