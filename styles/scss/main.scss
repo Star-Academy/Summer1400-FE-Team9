@@ -1,6 +1,6 @@
-$primary:#4C956C;
-$secondary:#2C6E49;
-$text-color:#000000;
+$primary: #4C956C;
+$secondary: #2C6E49;
+$text-color: #000000;
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@ $text-color:#000000;
 
 html {
   font-size: 62.5%;
-  font-family: "B Yekan",sans-serif;
+  font-family: "B Yekan", sans-serif;
 }
 
 @font-face {
@@ -17,7 +17,7 @@ html {
   src: url("assets/fonts/B Yekan.TTF");
 }
 
-body{
+body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,19 @@ body{
   }
 }
 
+logo {
+  display: flex;
+  flex-direction: row;
+
+  img {
+    
+  }
+
+  h1 {
+    color: red;
+  }
+}
+
 nav {
   //gap: 7%;
   //display: flex;
@@ -40,15 +53,18 @@ nav {
   //padding: 1rem;
   //font-size: 150%;
   //background-color: $secondary;
-  h1{
+  h1 {
     display: inline;
   }
-  a{
+
+  a {
     color: white;
     text-decoration: none;
   }
+
   ul {
     gap: 7%;
+
     li {
       display: inline;
       list-style: none;
@@ -56,6 +72,7 @@ nav {
       padding: 0.85rem;
       border-radius: 999rem;
     }
+
     li:hover {
       background-color: $primary;
     }
