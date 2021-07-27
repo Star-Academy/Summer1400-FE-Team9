@@ -17,6 +17,21 @@ html {
   src: url("assets/fonts/B Yekan.TTF");
 }
 
+.hidden {
+  .hidden-text {
+    color: white;
+
+    .down-arrow {
+      font-size: 0.65em;
+    }
+  }
+
+  ul {
+    display: inline-block;
+    position: absolute;
+  }
+}
+
 body {
   min-height: 100vh;
   display: flex;

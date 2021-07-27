@@ -12,6 +12,17 @@ html {
   font-family: "B Yekan";
   src: url("assets/fonts/B Yekan.TTF");
 }
+.hidden .hidden-text {
+  color: white;
+}
+.hidden .hidden-text .down-arrow {
+  font-size: 0.65em;
+}
+.hidden ul {
+  display: inline-block;
+  position: absolute;
+}
+
 body {
   min-height: 100vh;
   display: flex;
