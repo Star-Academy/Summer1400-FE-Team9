@@ -20,6 +20,7 @@ ul.music-list {
   grid-gap: 1rem;
   grid-template-columns: 100%;
   list-style: none;
+  margin-right: 2rem;
 }
 ul.music-list li {
   display: flex;
@@ -94,7 +95,7 @@ ul.music-list li span.music-singer {
 }
 @media (min-width: 480px) {
   ul.music-list {
-    grid-template-columns: 34% 33% 33%;
+    grid-template-columns: 33.3% 33.4% 33.3%;
   }
 }
 @media (min-width: 720px) {
