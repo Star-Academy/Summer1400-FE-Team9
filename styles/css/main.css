@@ -130,6 +130,10 @@ footer {
   font-size: medium;
 }
 
+.login-link {
+  margin-right: 0;
+}
+
 @media (min-width: 675px) {
   ul .unhidden {
     display: block;
