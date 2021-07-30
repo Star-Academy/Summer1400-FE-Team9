@@ -75,7 +75,7 @@ body > header {
   font-size: x-large;
 }
 
-ul .unhidden {
+ul .nav-link-item {
   display: none;
 }
 ul #hidden {
@@ -166,7 +166,7 @@ footer {
     display: none;
   }
 
-  ul .unhidden {
+  ul .nav-link-item {
     display: block;
   }
   ul #hidden {
