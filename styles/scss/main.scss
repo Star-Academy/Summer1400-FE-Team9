@@ -14,7 +14,7 @@ html {
 
 @font-face {
   font-family: "B Yekan";
-  src: url("assets/fonts/B Yekan.TTF");
+  src: url("../../assets/fonts/B-Yekan.TTF");
 }
 
 .more-buttons {
@@ -94,7 +94,7 @@ body {
 }
 
 ul {
-  .unhidden {
+  .nav-link-item {
     display: none;
   }
 
@@ -203,7 +203,7 @@ footer {
   }
 
   ul {
-    .unhidden {
+    .nav-link-item {
       display: block;
     }
 

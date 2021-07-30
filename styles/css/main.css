@@ -10,7 +10,7 @@ html {
 
 @font-face {
   font-family: "B Yekan";
-  src: url("assets/fonts/B Yekan.TTF");
+  src: url("../../assets/fonts/B-Yekan.TTF");
 }
 .more-buttons ul {
   display: flex;
@@ -75,7 +75,7 @@ body > header {
   font-size: x-large;
 }
 
-ul .unhidden {
+ul .nav-link-item {
   display: none;
 }
 ul #hidden {
@@ -166,7 +166,7 @@ footer {
     display: none;
   }
 
-  ul .unhidden {
+  ul .nav-link-item {
     display: block;
   }
   ul #hidden {
