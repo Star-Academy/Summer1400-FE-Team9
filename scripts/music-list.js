@@ -91,7 +91,13 @@ musics.forEach((value) => {
     musicTitleAndSingerSpan.appendChild(musicTitleSpan);
     musicTitleAndSingerSpan.appendChild(musicSingerSpan);
     span.appendChild(img);
-    span.appendChild(musicTitleAndSingerSpan);
+
+    let musicTitleAndSingerLink = document.createElement("a");
+    musicTitleAndSingerLink.setAttribute("href", "music.html");
+    musicTitleAndSingerLink.setAttribute("class", "music-title-and-singer-link");
+    musicTitleAndSingerLink.appendChild(musicTitleAndSingerSpan)
+
+    span.appendChild(musicTitleAndSingerLink);
     li.appendChild(span);
     li.appendChild(musicCellControlsSpan);
     ul.appendChild(li);

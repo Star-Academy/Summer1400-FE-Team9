@@ -121,6 +121,11 @@ ul.music-list li span.music-singer {
   transition: all 1s;
 }
 
+.music-title-and-singer-link {
+  text-decoration: none;
+  color: black;
+}
+
 .page-title-container {
   display: flex;
   justify-content: center;
