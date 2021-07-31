@@ -12,6 +12,13 @@ html {
   font-family: "B Yekan";
   src: url("../../assets/fonts/B-Yekan.TTF");
 }
+body > header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #4C956C;
+}
+
 .more-buttons ul {
   display: flex;
   justify-content: center;
