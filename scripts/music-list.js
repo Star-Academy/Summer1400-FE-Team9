@@ -45,8 +45,6 @@ let musics = [
     }
 ]
 
-let audios = musics.map((music) => new Audio(music.audioURL));
-
 // MARK: UI Functions
 
 function setWidthOfSearch(width){

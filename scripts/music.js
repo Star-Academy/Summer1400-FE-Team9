@@ -10,6 +10,6 @@ function changePlaybackRate() {
     setPlaybackRate(music.playbackRate === 2 ? 1 : 2);
 }
 
-document.getElementById("add-to-favorites-button").onclick = ev => {
+document.getElementById("add-to-favorites-button").onclick = () => {
     // TODO: Add to favorites
 }
