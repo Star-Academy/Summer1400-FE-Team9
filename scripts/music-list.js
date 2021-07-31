@@ -12,41 +12,51 @@ let musics = [
     {
         title: "عنوان آهنگ ۱",
         singer: "خواننده آهنگ ۱",
-        imageURL: "images/music-art.png"
+        imageURL: "images/music-art.png",
+        audioURL: "assets/audios/music.mp3"
     },
     {
         title: "عنوان آهنگ ۲",
         singer: "خواننده آهنگ ۲",
-        imageURL: "images/music-art.png"
+        imageURL: "images/music-art.png",
+        audioURL: "assets/audios/music.mp3"
     },
     {
         title: "عنوان آهنگ ۳",
         singer: "خواننده آهنگ ۳",
-        imageURL: "images/music-art.png"
+        imageURL: "images/music-art.png",
+        audioURL: "assets/audios/music.mp3"
     },
     {
         title: "عنوان آهنگ ۴",
         singer: "خواننده آهنگ ۴",
-        imageURL: "images/music-art.png"
+        imageURL: "images/music-art.png",
+        audioURL: "assets/audios/music.mp3"
     },
     {
         title: "عنوان آهنگ ۵",
         singer: "خواننده آهنگ ۵",
-        imageURL: "images/music-art.png"
+        imageURL: "images/music-art.png",
+        audioURL: "assets/audios/music.mp3"
     },
     {
         title: "عنوان آهنگ ۶",
         singer: "خواننده آهنگ ۶",
-        imageURL: "images/music-art.png"
+        imageURL: "images/music-art.png",
+        audioURL: "assets/audios/music.mp3"
     },
     {
         title: "عنوان آهنگ ۷",
         singer: "خواننده آهنگ ۷",
-        imageURL: "images/music-art.png"
+        imageURL: "images/music-art.png",
+        audioURL: "assets/audios/music.mp3"
     }
 ]
 
-musics.forEach((value) => {
+let audios = musics.map((music) => new Audio(music.audioURL));
+
+for (let i = 0; i < musics.length; i++){
+    const music = musics[i];
     let ul = document.getElementsByClassName("music-list")[0];
     let li = document.createElement("li");
     let span = document.createElement("span");
@@ -54,16 +64,16 @@ musics.forEach((value) => {
     let img = document.createElement("img");
     img.setAttribute("height", "60");
     img.setAttribute("width", "60");
-    img.setAttribute("src", value.imageURL);
+    img.setAttribute("src", music.imageURL);
     img.setAttribute("alt", "عکس موزیک");
     let musicTitleAndSingerSpan = document.createElement("span");
     musicTitleAndSingerSpan.setAttribute("class", "music-title-and-singer");
     let musicTitleSpan = document.createElement("span");
     musicTitleSpan.setAttribute("class", "music-title");
-    musicTitleSpan.innerHTML = value.title;
+    musicTitleSpan.innerHTML = music.title;
     let musicSingerSpan = document.createElement("span");
     musicSingerSpan.setAttribute("class", "music-singer");
-    musicSingerSpan.innerHTML = value.singer;
+    musicSingerSpan.innerHTML = music.singer;
 
     let musicCellControlsSpan = document.createElement("span");
     musicCellControlsSpan.setAttribute("class", "music-cell-controls");
@@ -101,5 +111,5 @@ musics.forEach((value) => {
     li.appendChild(span);
     li.appendChild(musicCellControlsSpan);
     ul.appendChild(li);
-})
+}
 
