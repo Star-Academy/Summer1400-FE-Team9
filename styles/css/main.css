@@ -17,6 +17,7 @@ html {
   justify-content: center;
   flex-direction: row;
   list-style: none;
+  margin-top: -3%;
 }
 .more-buttons ul li {
   margin-left: 2rem;
