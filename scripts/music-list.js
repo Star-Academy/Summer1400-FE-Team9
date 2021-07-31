@@ -11,37 +11,37 @@ function setWidthOfSearch(width){
 let musics = [
     {
         title: "عنوان آهنگ ۱",
-        singer: "خواننده‌ی آهنگ ۱",
+        singer: "خواننده آهنگ ۱",
         imageURL: "images/music-art.png"
     },
     {
         title: "عنوان آهنگ ۲",
-        singer: "خواننده‌ی آهنگ ۲",
+        singer: "خواننده آهنگ ۲",
         imageURL: "images/music-art.png"
     },
     {
         title: "عنوان آهنگ ۳",
-        singer: "خواننده‌ی آهنگ ۳",
+        singer: "خواننده آهنگ ۳",
         imageURL: "images/music-art.png"
     },
     {
         title: "عنوان آهنگ ۴",
-        singer: "خواننده‌ی آهنگ ۴",
+        singer: "خواننده آهنگ ۴",
         imageURL: "images/music-art.png"
     },
     {
         title: "عنوان آهنگ ۵",
-        singer: "خواننده‌ی آهنگ ۵",
+        singer: "خواننده آهنگ ۵",
         imageURL: "images/music-art.png"
     },
     {
         title: "عنوان آهنگ ۶",
-        singer: "خواننده‌ی آهنگ ۶",
+        singer: "خواننده آهنگ ۶",
         imageURL: "images/music-art.png"
     },
     {
         title: "عنوان آهنگ ۷",
-        singer: "خواننده‌ی آهنگ ۷",
+        singer: "خواننده آهنگ ۷",
         imageURL: "images/music-art.png"
     }
 ]
