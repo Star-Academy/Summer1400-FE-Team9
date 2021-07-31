@@ -8,7 +8,7 @@ $text-color: #000000;
 }
 
 article {
-  margin: 15%;
+  margin: 5% 11% 5% 12%;
   background-color: wheat;
   border-radius: 2em;
   padding: 5% 5% 5% 7.2%;
@@ -25,6 +25,7 @@ article {
     border-radius: 0.25em;
     border-style: none;
     font-family: "B Yekan", sans-serif;
+    font-size: 1.5rem;
 
     &[type="checkbox"] {
       display: inline;
@@ -36,9 +37,10 @@ article {
     justify-content: center;
     align-content: center;
     align-items: center;
+    margin-bottom: -6.5%;
 
     .submit {
-      padding: 3.5%;
+      padding: 2.5%;
       border-radius: 999rem;
       background-color: $primary;
       font-size: large;
@@ -93,7 +95,17 @@ article {
 
 @media (min-width: 600px) {
   article {
-    margin: 25%;
+    margin: 2% 15%;
+
+    .authenticate-button {
+      .submit {
+        font-size: x-large;
+      }
+    }
+
+    input {
+      font-size: 2rem;
+    }
 
     header {
       h1 {
