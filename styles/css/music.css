@@ -6,13 +6,18 @@
   text-justify: inter-word;
 }
 
+#music-details {
+  margin-top: -4%;
+}
+
 h3.lyric {
-  font-size: 300%;
+  font-size: 250%;
   margin-top: 5%;
 }
 
 #music {
   width: 75%;
+  margin-top: 1%;
 }
 
 #two-x-button, #add-to-favorites-button {
@@ -57,7 +62,7 @@ h3.lyric {
   margin-top: 5%;
 }
 #music-box .music-cell-header .music-title-and-singer .music-title {
-  font-size: xxx-large;
+  font-size: xx-large;
 }
 #music-box .music-cell-header .music-title-and-singer .music-singer {
   font-size: x-large;
@@ -71,6 +76,15 @@ h3.lyric {
   margin-bottom: 5%;
 }
 
+@media (min-width: 458px) {
+  h3.lyric {
+    font-size: 300%;
+  }
+
+  #music-box .music-cell-header .music-title-and-singer .music-title {
+    font-size: xxx-large;
+  }
+}
 @media (min-width: 600px) {
   #music-box {
     width: 90%;
