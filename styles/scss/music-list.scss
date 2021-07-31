@@ -103,25 +103,25 @@ ul.music-list {
   }
 }
 
-@media (min-width: 360px) {
+@media (min-width: 584px) {
   ul.music-list {
     grid-template-columns: 50% 50%;
   }
 }
 
-@media (min-width: 480px) {
+@media (min-width: 864px) {
   ul.music-list {
     grid-template-columns: 33.3% 33.4% 33.3%;
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 1140px) {
   ul.music-list {
     grid-template-columns: 25% 25% 25% 25%;
   }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1420px) {
   ul.music-list {
     grid-template-columns: 20% 20% 20% 20% 20%;
   }
@@ -157,6 +157,7 @@ ul.music-list {
   font-size: xxx-large;
   color: whitesmoke;
   margin-bottom: 2.75rem;
+  margin-top: 2.5rem;
 }
 
 input {
