@@ -72,6 +72,19 @@ article {
   margin-top: -7%;
 }
 
+@media (min-width: 1028px) {
+  .content-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    section:first-of-type {
+      margin-left: 5%;
+    }
+  }
+}
+
 @media (min-width: 675px) {
   #musics-image {
     width: 35rem;
