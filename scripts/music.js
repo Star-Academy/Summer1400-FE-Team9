@@ -3,20 +3,11 @@ let twoXButton = document.getElementById("two-x-button");
 
 function setPlaybackRate(rate) {
     music.playbackRate = rate;
-    if (rate === 2) {
-        twoXButton.style.borderColor = "limegreen";
-    } else {
-        twoXButton.style.borderColor = "wheat";
-    }
+    twoXButton.style.borderColor = rate === 2 ? "limegreen" : "wheat";
 }
 
 function changePlaybackRate() {
-    if (music.playbackRate === 2) {
-        setPlaybackRate(1);
-    }
-    else {
-        setPlaybackRate(2);
-    }
+    setPlaybackRate(music.playbackRate === 2 ? 1 : 2);
 }
 
 document.getElementById("add-to-favorites-button").onclick = ev => {

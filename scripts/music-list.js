@@ -1,12 +1,4 @@
-function setWidthOfSearch(width){
-    let searchBox = document.getElementById("search");
-    searchBox.style.width=width+"%";
-    if (width === 40) {
-        searchBox.style.borderRadius = "999rem";
-    } else {
-        searchBox.style.borderRadius = "0";
-    }
-}
+// MARK: Fields and variables
 
 let musics = [
     {
@@ -55,61 +47,138 @@ let musics = [
 
 let audios = musics.map((music) => new Audio(music.audioURL));
 
-for (let i = 0; i < musics.length; i++){
-    const music = musics[i];
-    let ul = document.getElementsByClassName("music-list")[0];
-    let li = document.createElement("li");
-    let span = document.createElement("span");
-    span.setAttribute("class", "music-cell-header");
+// MARK: UI Functions
+
+function setWidthOfSearch(width){
+    let searchBox = document.getElementById("search");
+    searchBox.style.width=width+"%";
+    if (width === 40) {
+        searchBox.style.borderRadius = "999rem";
+    } else {
+        searchBox.style.borderRadius = "0";
+    }
+}
+
+// MARK: Main functions
+
+function renderImage(music) {
     let img = document.createElement("img");
     img.setAttribute("height", "60");
     img.setAttribute("width", "60");
     img.setAttribute("src", music.imageURL);
     img.setAttribute("alt", "عکس موزیک");
-    let musicTitleAndSingerSpan = document.createElement("span");
-    musicTitleAndSingerSpan.setAttribute("class", "music-title-and-singer");
-    let musicTitleSpan = document.createElement("span");
-    musicTitleSpan.setAttribute("class", "music-title");
-    musicTitleSpan.innerHTML = music.title;
-    let musicSingerSpan = document.createElement("span");
-    musicSingerSpan.setAttribute("class", "music-singer");
-    musicSingerSpan.innerHTML = music.singer;
+    return img;
+}
 
-    let musicCellControlsSpan = document.createElement("span");
-    musicCellControlsSpan.setAttribute("class", "music-cell-controls");
-
-    let a = document.createElement("a");
-    a.setAttribute("href", "music.html");
-
+function renderPlayIcon() {
     let playI = document.createElement("i");
     playI.setAttribute("class", "fa fa-play");
     playI.setAttribute("aria-hidden", "true");
+    return playI;
+}
 
-    a.appendChild(playI);
-
-    let button = document.createElement("button");
-
+function renderFavoriteIcon() {
     let addToFavoritesI = document.createElement("i");
     addToFavoritesI.setAttribute("class", "fa fa-heart-o");
     addToFavoritesI.setAttribute("aria-hidden", "true");
+    return addToFavoritesI;
+}
 
-    button.appendChild(addToFavoritesI);
+function renderLinkToMusicPage() {
+    let a = document.createElement("a");
+    a.setAttribute("href", "music.html");
+    a.appendChild(renderPlayIcon());
+    return a;
+}
 
+function renderFavoriteButton() {
+    let button = document.createElement("button");
+    button.appendChild(renderFavoriteIcon());
+    return button;
+}
+
+function renderMusicCellControls() {
+    let musicCellControlsSpan = document.createElement("span");
+    musicCellControlsSpan.setAttribute("class", "music-cell-controls");
+    return musicCellControlsSpan;
+}
+
+function renderMusicControls() {
+    let musicCellControlsSpan = renderMusicCellControls();
+    let a = renderLinkToMusicPage();
+    let button = renderFavoriteButton();
     musicCellControlsSpan.appendChild(a);
     musicCellControlsSpan.appendChild(button);
+    return musicCellControlsSpan;
+}
 
-    musicTitleAndSingerSpan.appendChild(musicTitleSpan);
-    musicTitleAndSingerSpan.appendChild(musicSingerSpan);
-    span.appendChild(img);
-
+function renderTitleAndSingerLink(musicTitleAndSingerSpan) {
     let musicTitleAndSingerLink = document.createElement("a");
     musicTitleAndSingerLink.setAttribute("href", "music.html");
     musicTitleAndSingerLink.setAttribute("class", "music-title-and-singer-link");
     musicTitleAndSingerLink.appendChild(musicTitleAndSingerSpan)
+    return musicTitleAndSingerLink;
+}
 
-    span.appendChild(musicTitleAndSingerLink);
+function renderMusicTitle(music) {
+    let musicTitleSpan = document.createElement("span");
+    musicTitleSpan.setAttribute("class", "music-title");
+    musicTitleSpan.innerHTML = music.title;
+    return musicTitleSpan;
+}
+
+function renderMusicSinger(music) {
+    let musicSingerSpan = document.createElement("span");
+    musicSingerSpan.setAttribute("class", "music-singer");
+    musicSingerSpan.innerHTML = music.singer;
+    return musicSingerSpan;
+}
+
+function renderMusicCellHeader() {
+    let span = document.createElement("span");
+    span.setAttribute("class", "music-cell-header");
+    return span;
+}
+
+function renderMusicTitleAndSingerSpan() {
+    let musicTitleAndSingerSpan = document.createElement("span");
+    musicTitleAndSingerSpan.setAttribute("class", "music-title-and-singer");
+    return musicTitleAndSingerSpan;
+}
+
+function renderMusicTitleAndSinger(music) {
+    let musicTitleAndSingerSpan = renderMusicTitleAndSingerSpan();
+    let musicTitleSpan = renderMusicTitle(music);
+    let musicSingerSpan = renderMusicSinger(music);
+    musicTitleAndSingerSpan.appendChild(musicTitleSpan);
+    musicTitleAndSingerSpan.appendChild(musicSingerSpan);
+    return musicTitleAndSingerSpan;
+}
+
+function renderMainListItemSpan(music) {
+    let span = renderMusicCellHeader();
+    let img = renderImage(music);
+    span.appendChild(img);
+    span.appendChild(renderTitleAndSingerLink(renderMusicTitleAndSinger(music)));
+    return span;
+}
+
+function renderListItem(music) {
+    let li = document.createElement("li");
+    let span = renderMainListItemSpan(music);
     li.appendChild(span);
-    li.appendChild(musicCellControlsSpan);
+    li.appendChild(renderMusicControls());
+    return li;
+}
+
+function renderMusic(music) {
+    let ul = document.getElementsByClassName("music-list")[0];
+    let li = renderListItem(music);
     ul.appendChild(li);
 }
 
+function renderMusicList(musics) {
+    musics.forEach((music) => renderMusic(music));
+}
+
+renderMusicList(musics);
