@@ -1,19 +1,38 @@
 .lyric {
   font-size: medium;
   margin-top: 2rem;
-  margin-bottom: 2rem;
   line-height: 200%;
-  text-align: justify;
+  text-align: center;
   text-justify: inter-word;
+}
+
+h3.lyric {
+  font-size: 300%;
+  margin-top: 5%;
 }
 
 #music {
   width: 75%;
 }
 
+#two-x-button, #add-to-favorites-button {
+  width: 4rem;
+  height: 4rem;
+  font-size: 150%;
+}
+
 #two-x-button {
   font-family: sans-serif;
   transition: all 0.25s;
+  margin-right: 2%;
+}
+
+.lyric-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
 }
 
 #music-box {
