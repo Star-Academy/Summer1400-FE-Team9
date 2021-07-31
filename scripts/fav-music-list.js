@@ -70,10 +70,20 @@ musics.forEach((value) => {
 
     let a = document.createElement("a");
     a.setAttribute("href", "music.html");
-    a.innerHTML = "▷";
+
+    let playI = document.createElement("i");
+    playI.setAttribute("class", "fa fa-play");
+    playI.setAttribute("aria-hidden", "true");
+
+    a.appendChild(playI);
 
     let button = document.createElement("button");
-    button.innerHTML = "حذف از علاقه‌مندی‌ها";
+
+    let addToFavoritesI = document.createElement("i");
+    addToFavoritesI.setAttribute("class", "fa fa-heart");
+    addToFavoritesI.setAttribute("aria-hidden", "true");
+
+    button.appendChild(addToFavoritesI);
 
     musicCellControlsSpan.appendChild(a);
     musicCellControlsSpan.appendChild(button);
@@ -86,4 +96,3 @@ musics.forEach((value) => {
     li.appendChild(musicCellControlsSpan);
     ul.appendChild(li);
 })
-

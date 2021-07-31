@@ -4,9 +4,9 @@ let twoXButton = document.getElementById("two-x-button");
 function setPlaybackRate(rate) {
     music.playbackRate = rate;
     if (rate === 2) {
-        twoXButton.style.borderColor="limegreen";
+        twoXButton.style.borderColor = "limegreen";
     } else {
-        twoXButton.style.borderColor="wheat";
+        twoXButton.style.borderColor = "wheat";
     }
 }
 
