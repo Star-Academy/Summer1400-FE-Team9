@@ -3,7 +3,13 @@ let twoXButton = document.getElementById("two-x-button");
 
 function setPlaybackRate(rate) {
     music.playbackRate = rate;
-    twoXButton.style.borderColor = rate === 2 ? "limegreen" : "wheat";
+    if (rate === 2) {
+        twoXButton.style.backgroundColor = "#4C956C";
+        twoXButton.style.color = "#fff";
+    } else {
+        twoXButton.style.backgroundColor = "transparent";
+        twoXButton.style.color = "#4C956C";
+    }
 }
 
 function changePlaybackRate() {

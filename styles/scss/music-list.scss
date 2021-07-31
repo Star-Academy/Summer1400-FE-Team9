@@ -3,7 +3,7 @@ $secondary: #2C6E49;
 $text-color: #000000;
 
 .cover{
-  transition: all 1s;
+  transition: all 0.5s;
   border-radius: 25rem;
   margin-bottom: 2rem;
 }
@@ -103,31 +103,6 @@ ul.music-list {
   }
 }
 
-@media (min-width: 584px) {
-  ul.music-list {
-    grid-template-columns: 50% 50%;
-  }
-}
-
-@media (min-width: 864px) {
-  ul.music-list {
-    grid-template-columns: 33.3% 33.4% 33.3%;
-  }
-}
-
-@media (min-width: 1140px) {
-  ul.music-list {
-    grid-template-columns: 25% 25% 25% 25%;
-  }
-}
-
-@media (min-width: 1420px) {
-  ul.music-list {
-    grid-template-columns: 20% 20% 20% 20% 20%;
-  }
-}
-
-
 #all-musics {
   margin-right: 1%;
   margin-left: 1%;
@@ -172,4 +147,28 @@ input {
 
 ::placeholder {
   font-family: "B Yekan", sans-serif;
+}
+
+@media (min-width: 584px) {
+  ul.music-list {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (min-width: 864px) {
+  ul.music-list {
+    grid-template-columns: 33.3% 33.4% 33.3%;
+  }
+}
+
+@media (min-width: 1140px) {
+  ul.music-list {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
+
+@media (min-width: 1420px) {
+  ul.music-list {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
 }

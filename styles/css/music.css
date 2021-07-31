@@ -1,5 +1,10 @@
 .lyric {
-  font-size: 160%;
+  font-size: medium;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 200%;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 #music {
@@ -7,19 +12,44 @@
 }
 
 #two-x-button {
-  padding: 1%;
-  cursor: pointer;
-  border: 0.35rem solid wheat;
-  background-color: #4C956C;
-  color: #fff;
   font-family: sans-serif;
-  font-weight: bold;
-  border-radius: 999rem;
+  transition: all 0.25s;
 }
 
 #music-box {
   width: 100%;
   padding-top: 2%;
+}
+#music-box .cover {
+  width: 60%;
+  height: 60%;
+}
+#music-box .music-cell-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#music-box .music-cell-header .music-title-and-singer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+#music-box .music-cell-header .music-title-and-singer .music-title {
+  font-size: xxx-large;
+}
+#music-box .music-cell-header .music-title-and-singer .music-singer {
+  font-size: x-large;
+  margin-top: 15%;
+  margin-bottom: 10%;
+}
+#music-box .music-cell-controls {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-bottom: 5%;
 }
 
 @media (min-width: 600px) {

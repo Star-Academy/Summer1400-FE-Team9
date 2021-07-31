@@ -141,6 +141,7 @@ button {
   background-color: transparent;
   outline: none;
   font-family: "B Yekan", sans-serif;
+  transition: all 0.5s;
 }
 
 footer {
