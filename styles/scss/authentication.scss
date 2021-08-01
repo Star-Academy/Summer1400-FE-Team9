@@ -57,11 +57,11 @@ article {
 
   .header {
     h1 {
-      font-size: 4rem;
+      font-size: 2.5rem;
     }
 
     h6 {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -91,6 +91,20 @@ article {
 .checkbox {
   display: inline-block;
   vertical-align: middle;
+}
+
+@media (min-width: 420px) {
+  article {
+    .header {
+      h1 {
+        font-size: 4rem;
+      }
+
+      h6 {
+        font-size: 2rem;
+      }
+    }
+  }
 }
 
 @media (min-width: 600px) {
