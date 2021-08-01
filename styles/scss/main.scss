@@ -24,6 +24,10 @@ body > header {
   background-color: $primary;
 }
 
+#selected-tab, #main-selected-tab {
+  color: wheat;
+}
+
 .more-buttons {
   ul {
     display: flex;

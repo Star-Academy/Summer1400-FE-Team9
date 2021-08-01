@@ -19,6 +19,10 @@ body > header {
   background-color: #4C956C;
 }
 
+#selected-tab, #main-selected-tab {
+  color: wheat;
+}
+
 .more-buttons ul {
   display: flex;
   justify-content: center;
