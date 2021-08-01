@@ -20,7 +20,8 @@ ul.music-list {
   grid-gap: 1rem;
   grid-template-columns: 100%;
   list-style: none;
-  margin-right: 2rem;
+  margin-right: 8%;
+  margin-left: 8%;
 }
 ul.music-list li {
   display: flex;
@@ -135,22 +136,22 @@ input {
   font-family: "B Yekan", sans-serif;
 }
 
-@media (min-width: 584px) {
+@media (min-width: 667px) {
   ul.music-list {
     grid-template-columns: 50% 50%;
   }
 }
-@media (min-width: 864px) {
+@media (min-width: 995px) {
   ul.music-list {
     grid-template-columns: 33.3% 33.4% 33.3%;
   }
 }
-@media (min-width: 1140px) {
+@media (min-width: 1333px) {
   ul.music-list {
     grid-template-columns: 25% 25% 25% 25%;
   }
 }
-@media (min-width: 1420px) {
+@media (min-width: 1600px) {
   ul.music-list {
     grid-template-columns: 20% 20% 20% 20% 20%;
   }
