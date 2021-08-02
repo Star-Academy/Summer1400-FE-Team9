@@ -1,10 +1,8 @@
-$primary: #4C956C;
-$secondary: #2C6E49;
-$text-color: #000000;
+@import "colors.scss";
 
-@import url("//fonts.googleapis.com/css?family=Pacifico&text=Pure");
-@import url("//fonts.googleapis.com/css?family=Roboto:700&text=css");
-@import url("//fonts.googleapis.com/css?family=Kaushan+Script&text=!");
+//@import url("//fonts.googleapis.com/css?family=Pacifico&text=Pure");
+//@import url("//fonts.googleapis.com/css?family=Roboto:700&text=css");
+//@import url("//fonts.googleapis.com/css?family=Kaushan+Script&text=!");
 
 .stage {
   height: 300px;

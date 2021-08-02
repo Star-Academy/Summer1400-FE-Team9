@@ -1,12 +1,10 @@
-$primary: #4C956C;
-$secondary: #2C6E49;
-$text-color: #000000;
+@import "colors.scss";
 
 article {
   display: flex;
   flex-direction: column;
 
-  background-color: wheat;
+  background-color: $content-color;
   border-radius: 2em;
   padding: 7%;
   margin: 1% 6% 3%;

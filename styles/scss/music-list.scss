@@ -1,13 +1,12 @@
-$primary: #4C956C;
-$secondary: #2C6E49;
-$text-color: #000000;
+@import "colors.scss";
 
-.cover{
+.cover {
   transition: all 0.5s;
   border-radius: 25rem;
   margin-bottom: 2rem;
 }
-.cover:hover{
+
+.cover:hover {
   border-radius: 2rem;
 }
 
@@ -17,6 +16,7 @@ section > ul {
   align-content: center;
   align-items: center;
 }
+
 ul.music-list {
   display: grid;
   grid-gap: 1rem;
@@ -31,7 +31,7 @@ ul.music-list {
     justify-content: space-between;
     gap: 10%;
     list-style: none;
-    background-color: wheat;
+    background-color: $content-color;
     border-radius: 2em;
     padding: 7%;
     margin: 8%;

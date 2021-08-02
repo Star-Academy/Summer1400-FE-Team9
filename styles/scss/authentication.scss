@@ -1,6 +1,4 @@
-$primary: #4C956C;
-$secondary: #2C6E49;
-$text-color: #000000;
+@import "colors.scss";
 
 @mixin margin-top-and-bottom($n: 4%) {
   margin-top: $n;
@@ -9,7 +7,7 @@ $text-color: #000000;
 
 article {
   margin: 5% 11% 5% 12%;
-  background-color: wheat;
+  background-color: $content-color;
   border-radius: 2em;
   padding-top: 3%;
   padding-right: 5%;
