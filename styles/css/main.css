@@ -20,7 +20,7 @@ body > header {
 }
 
 #selected-tab, #main-selected-tab {
-  color: #000000;
+  color: wheat;
 }
 
 .more-buttons ul {
@@ -82,7 +82,7 @@ body > header {
   margin-left: 1.5rem;
 }
 .logo h1 {
-  color: #000000;
+  color: wheat;
   font-size: x-large;
 }
 

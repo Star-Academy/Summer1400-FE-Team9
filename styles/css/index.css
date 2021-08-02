@@ -1,7 +1,7 @@
 article {
   display: flex;
   flex-direction: column;
-  background-color: #000000;
+  background-color: wheat;
   border-radius: 2em;
   padding: 7%;
   margin: 1% 6% 3%;
