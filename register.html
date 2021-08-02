@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/css/main.css">
     <link rel="stylesheet" href="styles/css/authentication.css">
     <link rel="icon" href="images/musix.png">
+    <script src="scripts/register.js" defer></script>
     <title>ثبت‌نام</title>
 </head>
 <body>
@@ -59,13 +60,12 @@
         </div>
         <section>
             <form action="">
-                <input type="text" name="name" placeholder="نام و نام خانوادگی"> <br>
-                <input type="email" name="email" placeholder="ایمیل"> <br>
-                <input type="number" name="phone-number" placeholder="شماره تلفن"> <br>
-                <input type="password" name="password" placeholder="رمز عبور"> <br>
-                <input type="password" name="password" placeholder="تکرار رمز عبور"> <br>
+                <input id="firstName-input" type="text" name="name" placeholder="نام و نام خانوادگی"> <br>
+                <input id="email-input" type="email" name="email" placeholder="ایمیل"> <br>
+                <input id="password-input" type="password" name="password" placeholder="رمز عبور"> <br>
+                <input id="repeat-password-input" type="password" name="password" placeholder="تکرار رمز عبور"> <br>
                 <div class="authenticate-button">
-                    <input class="submit" type="submit" name="submit" value="ثبت‌نام">
+                    <input id="submit-button" class="submit" type="submit" name="submit" value="ثبت‌نام">
                 </div>
             </form>
         </section>
