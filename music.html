@@ -13,7 +13,7 @@
     <script src="scripts/music.js" defer></script>
     <link rel="icon" href="images/musix.png">
     <link rel="stylesheet" href="styles/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    <title>عنوان موزیک</title>
+    <title id="title"></title>
 </head>
 <body>
 <header>
@@ -54,11 +54,11 @@
         <ul class="music-list" style="display: flex; justify-content: center; align-content: center">
             <li id="music-box">
                 <center>
-                    <img src="images/music-art.png" alt="عکس موزیک" class="cover"/>
+                    <img id="music-cover-image" src="images/music-art.png" alt="عکس موزیک" class="cover"/>
                     <span class="music-cell-header">
                         <span class="music-title-and-singer">
-                            <span class="music-title">عنوان آهنگ</span>
-                            <span class="music-singer">اسم خواننده</span>
+                            <span id="music-title-text" class="music-title"></span>
+                            <span id="music-singer-text" class="music-singer"></span>
                         </span>
                     </span>
 
@@ -68,112 +68,91 @@
                     </span>
 
                     <audio controls id="music">
-                        <source src="assets/audios/music.ogg" type="audio/ogg">
-                        <source src="assets/audios/music.mp3" type="audio/mpeg">
-                        <b id="warning">Audios are unsupported on your browser</b>
+                        <source id="music-playback-source" src="" type="audio/mpeg"> <!-- TODO: Better placeholder -->
+                        <b id="warning">مرورگر شما از امکان پخش صدا پشتیبانی نمی‌کند</b>
                     </audio>
                 </center>
                 <div class="lyric-box">
                     <h3 class="lyric">متن آهنگ</h3>
-                    <p class="lyric">
-                        همه میگن که تو رفتی همه میگن که تو نیستی
-                        <br>
-                        همه میگن که
-                        <br>
-                        دوباره دل تنگمو شکستی …دروغه…
-                        <br>
-                        چه جوری دلت می اومد منو اینجوری ببینی
-                        <br>
-                        با ستاره ها چه نزدیک منو تو دوری ببینی
-                        <br>
-                        همه گفتن که تو رفتی ولی گفتم که
-                        <br>
-                        دروغه …
-                        <br>
-                        همه میگن که عجیبه اگه منتظر بمونم
-                        <br>
-                        همه حرفاشون دروغه تا ابد
-                        <br>
-                        اینجا میمونم
-                    </p>
+                    <p id="lyrics-text" class="lyric"></p>
                 </div>
             </li>
         </ul>
     </section>
-    <section id="musics-list">
-        <ul class="music-list">
-            <li>
-                    <span class="music-cell-header">
-                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
-                        <span class="music-title-and-singer">
-                            <span class="music-title">عنوان آهنگ</span>
-                            <span class="music-singer">اسم خواننده</span>
-                        </span>
-                    </span>
+<!--    <section id="musics-list">-->
+<!--        <ul class="music-list">-->
+<!--            <li>-->
+<!--                    <span class="music-cell-header">-->
+<!--                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>-->
+<!--                        <span class="music-title-and-singer">-->
+<!--                            <span class="music-title">عنوان آهنگ</span>-->
+<!--                            <span class="music-singer">اسم خواننده</span>-->
+<!--                        </span>-->
+<!--                    </span>-->
 
-                <span class="music-cell-controls">
-                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-                    </span>
-            </li>
-            <li>
-                    <span class="music-cell-header">
-                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
-                        <span class="music-title-and-singer">
-                            <span class="music-title">عنوان آهنگ</span>
-                            <span class="music-singer">اسم خواننده</span>
-                        </span>
-                    </span>
+<!--                <span class="music-cell-controls">-->
+<!--                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>-->
+<!--                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>-->
+<!--                    </span>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                    <span class="music-cell-header">-->
+<!--                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>-->
+<!--                        <span class="music-title-and-singer">-->
+<!--                            <span class="music-title">عنوان آهنگ</span>-->
+<!--                            <span class="music-singer">اسم خواننده</span>-->
+<!--                        </span>-->
+<!--                    </span>-->
 
-                <span class="music-cell-controls">
-                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-                    </span>
-            </li>
-            <li>
-                    <span class="music-cell-header">
-                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
-                        <span class="music-title-and-singer">
-                            <span class="music-title">عنوان آهنگ</span>
-                            <span class="music-singer">اسم خواننده</span>
-                        </span>
-                    </span>
+<!--                <span class="music-cell-controls">-->
+<!--                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>-->
+<!--                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>-->
+<!--                    </span>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                    <span class="music-cell-header">-->
+<!--                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>-->
+<!--                        <span class="music-title-and-singer">-->
+<!--                            <span class="music-title">عنوان آهنگ</span>-->
+<!--                            <span class="music-singer">اسم خواننده</span>-->
+<!--                        </span>-->
+<!--                    </span>-->
 
-                <span class="music-cell-controls">
-                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-                    </span>
-            </li>
-            <li>
-                    <span class="music-cell-header">
-                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
-                        <span class="music-title-and-singer">
-                            <span class="music-title">عنوان آهنگ</span>
-                            <span class="music-singer">اسم خواننده</span>
-                        </span>
-                    </span>
+<!--                <span class="music-cell-controls">-->
+<!--                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>-->
+<!--                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>-->
+<!--                    </span>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                    <span class="music-cell-header">-->
+<!--                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>-->
+<!--                        <span class="music-title-and-singer">-->
+<!--                            <span class="music-title">عنوان آهنگ</span>-->
+<!--                            <span class="music-singer">اسم خواننده</span>-->
+<!--                        </span>-->
+<!--                    </span>-->
 
-                <span class="music-cell-controls">
-                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-                    </span>
-            </li>
-            <li>
-                    <span class="music-cell-header">
-                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
-                        <span class="music-title-and-singer">
-                            <span class="music-title">عنوان آهنگ</span>
-                            <span class="music-singer">اسم خواننده</span>
-                        </span>
-                    </span>
+<!--                <span class="music-cell-controls">-->
+<!--                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>-->
+<!--                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>-->
+<!--                    </span>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                    <span class="music-cell-header">-->
+<!--                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>-->
+<!--                        <span class="music-title-and-singer">-->
+<!--                            <span class="music-title">عنوان آهنگ</span>-->
+<!--                            <span class="music-singer">اسم خواننده</span>-->
+<!--                        </span>-->
+<!--                    </span>-->
 
-                <span class="music-cell-controls">
-                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-                    </span>
-            </li>
-        </ul>
-    </section>
+<!--                <span class="music-cell-controls">-->
+<!--                        <a href="music.html"><i class="fa fa-play" aria-hidden="true"></i></a>-->
+<!--                        <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>-->
+<!--                    </span>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </section>-->
 </main>
 
 <footer>تمامی حقوق برای تیم ۹ پروژه محفوظ است</footer>
