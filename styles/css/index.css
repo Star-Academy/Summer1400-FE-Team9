@@ -80,5 +80,13 @@ article section p {
     width: 35rem;
   }
 }
+@media (prefers-color-scheme: dark) {
+  article {
+    background-color: lightgray;
+  }
+  article header a {
+    background-color: #3a3f55;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */

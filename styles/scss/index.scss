@@ -98,3 +98,14 @@ article {
     width: 35rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  article {
+    background-color: $content-color-dark;
+    header {
+      a {
+        background-color: $primary-dark;
+      }
+    }
+  }
+}
