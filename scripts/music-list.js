@@ -56,9 +56,9 @@ let musics = [
 
 // MARK: UI Functions
 
-function setWidthOfSearch(width){
+function setWidthOfSearch(width) {
     let searchBox = document.getElementById("search");
-    searchBox.style.width=width+"%";
+    searchBox.style.width = width + "%";
     if (width === 40) {
         searchBox.style.borderRadius = "999rem";
     } else {
@@ -178,14 +178,22 @@ function renderListItem(music) {
     return li;
 }
 
-function renderMusic(music) {
-    let ul = document.getElementsByClassName("music-list")[0];
-    let li = renderListItem(music);
-    ul.appendChild(li);
+function renderMusic(ul, music) {
+    ul.appendChild(renderListItem(music));
 }
 
-function renderMusicList(musics) {
-    musics.forEach((music) => renderMusic(music));
+function renderMusicList(musics, predicate = "") {
+    let ul = document.getElementsByClassName("music-list")[0];
+    ul.innerHTML = "";
+    if (predicate == null || predicate === "") {
+        musics
+            .forEach((music) => renderMusic(ul, music));
+    } else {
+        musics
+            .filter((music) => music.name.toLowerCase().includes(predicate.toLowerCase())
+                || music.artist.toLowerCase().includes(predicate.toLowerCase()))
+            .forEach((music) => renderMusic(ul, music));
+    }
 }
 
 async function loadAllMusics() {
@@ -197,6 +205,9 @@ async function loadAllMusics() {
         console.log("Server error");
     }
 }
+
+let searchBox = document.getElementById("search-input");
+searchBox.oninput = () => renderMusicList(musics, searchBox.value);
 
 renderMusicList(musics);
 
