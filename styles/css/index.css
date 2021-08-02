@@ -1,7 +1,7 @@
 article {
   display: flex;
   flex-direction: column;
-  background-color: wheat;
+  background-color: #000000;
   border-radius: 2em;
   padding: 7%;
   margin: 1% 6% 3%;
@@ -27,7 +27,7 @@ article header a {
   margin-top: 2rem;
   margin-bottom: 5%;
   border-radius: 0.75rem;
-  background-color: #4C956C;
+  background-color: #ff7e44;
   padding: 1.75rem;
   color: white;
   text-decoration: none;

@@ -29,7 +29,7 @@ ul.music-list li {
   justify-content: space-between;
   gap: 10%;
   list-style: none;
-  background-color: wheat;
+  background-color: #000000;
   border-radius: 2em;
   padding: 7%;
   margin: 8%;
@@ -61,8 +61,8 @@ ul.music-list li span.music-cell-controls {
 ul.music-list li span.music-cell-controls button {
   padding: 1rem;
   margin: 0.5rem;
-  color: #4C956C;
-  border: 2px solid #4C956C;
+  color: #ff7e44;
+  border: 2px solid #ff7e44;
   border-radius: 0.75rem;
   cursor: pointer;
 }
@@ -71,7 +71,7 @@ ul.music-list li span.music-cell-controls button:hover {
 }
 ul.music-list li span.music-cell-controls a {
   border-radius: 0.75rem;
-  background-color: #4C956C;
+  background-color: #ff7e44;
   padding: 1rem;
   margin: 0.5rem;
   color: white;

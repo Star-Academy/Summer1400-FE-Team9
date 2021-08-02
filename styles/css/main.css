@@ -16,11 +16,11 @@ body > header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: #4C956C;
+  background-color: #ff7e44;
 }
 
 #selected-tab, #main-selected-tab {
-  color: wheat;
+  color: #000000;
 }
 
 .more-buttons ul {
@@ -43,7 +43,7 @@ body > header {
   font-size: medium;
 }
 .more-buttons ul li:hover {
-  background-color: #2C6E49;
+  background-color: #3a3f55;
 }
 
 .hidden .hidden-text {
@@ -62,7 +62,7 @@ body {
   display: flex;
   flex-direction: column;
   color: #000000;
-  background-color: #4C956C;
+  background-color: #ff7e44;
   word-wrap: normal;
 }
 body > header {
@@ -82,7 +82,7 @@ body > header {
   margin-left: 1.5rem;
 }
 .logo h1 {
-  color: wheat;
+  color: #000000;
   font-size: x-large;
 }
 
@@ -135,7 +135,7 @@ header ul li.primary-button {
   justify-content: center;
   align-content: center;
   align-items: center;
-  background-color: #2C6E49;
+  background-color: #3a3f55;
 }
 header ul li.primary-button a {
   padding: 4%;
@@ -148,7 +148,7 @@ header ul li a {
   text-decoration: none;
 }
 header ul li:hover {
-  background-color: #2C6E49;
+  background-color: #3a3f55;
 }
 
 button {

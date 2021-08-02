@@ -1,6 +1,6 @@
 article {
   margin: 5% 11% 5% 12%;
-  background-color: wheat;
+  background-color: #000000;
   border-radius: 2em;
   padding: 3% 5% 5% 7.2%;
   opacity: 86%;
@@ -39,7 +39,7 @@ article .authenticate-button {
 article .authenticate-button .submit {
   padding: 2.5%;
   border-radius: 999rem;
-  background-color: #4C956C;
+  background-color: #ff7e44;
   font-size: large;
   opacity: 86%;
   color: white;
@@ -62,7 +62,7 @@ article h6 {
   gap: 2%;
 }
 article h6 a {
-  color: #2C6E49;
+  color: #3a3f55;
   text-decoration: none;
 }
 article h6 a:hover {
