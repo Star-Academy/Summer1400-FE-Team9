@@ -1,51 +1,51 @@
 // MARK: Fields and variables
 
-// let musics = []
+let musics = []
 
-let musics = [
-    {
-        name: "عنوان آهنگ ۱",
-        artist: "خواننده آهنگ ۱",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3"
-    },
-    {
-        name: "عنوان آهنگ ۲",
-        artist: "خواننده آهنگ ۲",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3"
-    },
-    {
-        name: "عنوان آهنگ ۳",
-        artist: "خواننده آهنگ ۳",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3"
-    },
-    {
-        name: "عنوان آهنگ ۴",
-        artist: "خواننده آهنگ ۴",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3"
-    },
-    {
-        name: "عنوان آهنگ ۵",
-        artist: "خواننده آهنگ ۵",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3"
-    },
-    {
-        name: "عنوان آهنگ ۶",
-        artist: "خواننده آهنگ ۶",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3"
-    },
-    {
-        name: "عنوان آهنگ ۷",
-        artist: "خواننده آهنگ ۷",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3"
-    }
-];
+// let musics = [
+//     {
+//         name: "عنوان آهنگ ۱",
+//         artist: "خواننده آهنگ ۱",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3"
+//     },
+//     {
+//         name: "عنوان آهنگ ۲",
+//         artist: "خواننده آهنگ ۲",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3"
+//     },
+//     {
+//         name: "عنوان آهنگ ۳",
+//         artist: "خواننده آهنگ ۳",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3"
+//     },
+//     {
+//         name: "عنوان آهنگ ۴",
+//         artist: "خواننده آهنگ ۴",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3"
+//     },
+//     {
+//         name: "عنوان آهنگ ۵",
+//         artist: "خواننده آهنگ ۵",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3"
+//     },
+//     {
+//         name: "عنوان آهنگ ۶",
+//         artist: "خواننده آهنگ ۶",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3"
+//     },
+//     {
+//         name: "عنوان آهنگ ۷",
+//         artist: "خواننده آهنگ ۷",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3"
+//     }
+// ];
 
 // MARK: UI Functions
 
@@ -181,16 +181,16 @@ function renderMusicList(musics) {
     musics.forEach((music) => renderMusic(music));
 }
 
+async function loadAllMusics() {
+    let response = await fetch('http://130.185.120.192:5000/song/all');
+    if (response.ok) {
+        musics = await response.json();
+        renderMusicList(musics);
+    } else {
+        console.log("Server error");
+    }
+}
+
 renderMusicList(musics);
 
-// async function loadAllMusics() {
-//     let response = await fetch('http://130.185.120.192:5000/song/all');
-//     if (response.ok) {
-//         musics = await response.json();
-//         renderMusicList(musics);
-//     } else {
-//         console.log("Server error");
-//     }
-// }
-//
 // loadAllMusics();
