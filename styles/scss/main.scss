@@ -43,7 +43,7 @@ body > header {
 
       a {
         text-decoration: none;
-        color: white;
+        color: $nav-color;
         font-size: medium;
       }
     }
@@ -56,7 +56,7 @@ body > header {
 
 .hidden {
   .hidden-text {
-    color: white;
+    color: $nav-color;
 
     .down-arrow {
       font-size: 0.65em;
@@ -172,7 +172,7 @@ header {
       }
 
       a {
-        color: white;
+        color: $nav-color;
         text-decoration: none;
       }
     }
@@ -254,5 +254,148 @@ footer {
   }
 }
 @media (prefers-color-scheme: dark) {
-  
+  body > header {
+    background-color: $primary;
+  }
+
+  #selected-tab, #main-selected-tab {
+    color: $content-color;
+  }
+
+  .more-buttons {
+    ul {
+      li:hover {
+        background-color: $secondary;
+      }
+    }
+  }
+
+  .hidden {
+    .hidden-text {
+      color: $nav-color;
+
+      .down-arrow {
+        font-size: 0.65em;
+      }
+    }
+
+    ul {
+      display: inline-block;
+      position: absolute;
+    }
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: $text-color;
+    background-color: $primary;
+    word-wrap: normal;
+
+    > header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+    img {
+      width: 20%;
+      margin-left: 1.5rem;
+    }
+
+    h1 {
+      color: $content-color;
+      font-size: x-large;
+    }
+  }
+
+  ul {
+    .nav-link-item {
+      display: none;
+    }
+
+    #hidden {
+      display: block;
+
+      ul {
+        display: none;
+      }
+    }
+
+    #hidden:hover {
+      ul {
+        display: block;
+      }
+    }
+  }
+
+  main {
+    z-index: 1;
+  }
+
+  header {
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+
+    a {
+      text-decoration: none;
+    }
+
+    .site-title {
+      color: whitesmoke;
+      font-size: xx-large;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+
+      li {
+        list-style: none;
+        transition: all 0.35s;
+        padding: 0.85rem;
+        border-radius: 999rem;
+        font-size: large;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        &.primary-button {
+          display: none;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+          background-color: $secondary;
+
+          a {
+            padding: 4%;
+          }
+
+          & > a:hover {
+            opacity: 60%;
+          }
+        }
+
+        a {
+          color: $nav-color;
+          text-decoration: none;
+        }
+      }
+
+      li:hover {
+        background-color: $secondary;
+      }
+    }
+  }
 }
