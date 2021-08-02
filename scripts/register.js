@@ -10,7 +10,16 @@ async function register() {
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
     let response = await fetch(url);
     if (response.ok) document.location = "index.html";
-    else console.log("Server error"); // TODO: Alert error
+    else {
+        swal({ // TODO: Better failed messages (wrong data, connection,...)
+            title: 'Register failed',
+            text: 'Please try again',
+            type: 'error',
+            confirmButtonColor: '#4C956C',
+            confirmButtonText: 'Cancel',
+        }).then(() => {
+        });
+    }
 }
 
 submitButton.onclick = () => {
