@@ -173,3 +173,22 @@ input {
     grid-template-columns: 20% 20% 20% 20% 20%;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  ul.music-list {
+    li {
+      background-color: $content-color-dark;
+
+      span.music-cell-controls {
+        button {
+          color: $primary-dark;
+          border: 2px solid $primary-dark;
+        }
+
+        a {
+          background-color: $primary-dark;
+        }
+      }
+    }
+  }
+}

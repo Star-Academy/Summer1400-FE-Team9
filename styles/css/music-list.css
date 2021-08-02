@@ -156,5 +156,17 @@ input {
     grid-template-columns: 20% 20% 20% 20% 20%;
   }
 }
+@media (prefers-color-scheme: dark) {
+  ul.music-list li {
+    background-color: lightgray;
+  }
+  ul.music-list li span.music-cell-controls button {
+    color: #3a3f55;
+    border: 2px solid #3a3f55;
+  }
+  ul.music-list li span.music-cell-controls a {
+    background-color: #3a3f55;
+  }
+}
 
 /*# sourceMappingURL=music-list.css.map */
