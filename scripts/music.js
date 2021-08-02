@@ -1,4 +1,6 @@
-let music = document.getElementById("music");
+let music = {};
+
+let musicHTML = document.getElementById("music");
 let twoXButton = document.getElementById("two-x-button");
 
 let titleTag = document.getElementById("title");
@@ -17,10 +19,24 @@ function renderPageItems(music) {
     lyricsText.innerHTML = music.lyrics.replace(/\n/g, '<br>');
 }
 
+async function loadMusic() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get('id');
+    let response = await fetch('http://130.185.120.192:5000/song/one/' + id);
+    if (response.ok) {
+        music = await response.json();
+        renderPageItems(music);
+    } else {
+        console.log("Server error");
+    }
+}
+
 renderPageItems(musics[0]);
 
+// loadMusic();
+
 function setPlaybackRate(rate) {
-    music.playbackRate = rate;
+    musicHTML.playbackRate = rate;
     if (rate === 2) {
         twoXButton.style.backgroundColor = "#4C956C";
         twoXButton.style.color = "#fff";
@@ -31,7 +47,7 @@ function setPlaybackRate(rate) {
 }
 
 function changePlaybackRate() {
-    setPlaybackRate(music.playbackRate === 2 ? 1 : 2);
+    setPlaybackRate(musicHTML.playbackRate === 2 ? 1 : 2);
 }
 
 document.getElementById("add-to-favorites-button").onclick = () => {
