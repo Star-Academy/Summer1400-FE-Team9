@@ -9,10 +9,7 @@ article {
   margin: 5% 11% 5% 12%;
   background-color: $content-color;
   border-radius: 2em;
-  padding-top: 3%;
-  padding-right: 5%;
-  padding-left: 7.2%;
-  padding-bottom: 5%;
+  padding: 3% 5% 5% 7.2%;
   opacity: 86%;
 
   display: flex;
@@ -30,6 +27,15 @@ article {
     &[type="checkbox"] {
       display: inline;
     }
+  }
+
+  button {
+    @include margin-top-and-bottom(4%);
+    width: 100%;
+    padding: 2%;
+    border-radius: 0.25em;
+    border-style: none;
+    font-family: "B Yekan", sans-serif;
   }
 
   .authenticate-button {
@@ -116,6 +122,10 @@ article {
     }
 
     input {
+      @include margin-top-and-bottom(2%);
+    }
+
+    button {
       @include margin-top-and-bottom(2%);
     }
 
