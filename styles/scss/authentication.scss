@@ -146,3 +146,19 @@ article {
     margin: 2% 25%;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  article {
+    background-color: $content-color-dark;
+    .authenticate-button {
+      .submit {
+        background-color: $primary-dark;
+      }
+    }
+    h6 {
+      a {
+        color: $secondary-dark;
+      }
+    }
+  }
+}

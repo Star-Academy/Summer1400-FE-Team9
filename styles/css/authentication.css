@@ -113,5 +113,16 @@ article h6 a:hover {
     margin: 2% 25%;
   }
 }
+@media (prefers-color-scheme: dark) {
+  article {
+    background-color: lightgray;
+  }
+  article .authenticate-button .submit {
+    background-color: #3a3f55;
+  }
+  article h6 a {
+    color: #ff7e44;
+  }
+}
 
 /*# sourceMappingURL=authentication.css.map */
