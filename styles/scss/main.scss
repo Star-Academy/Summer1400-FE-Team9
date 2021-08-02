@@ -216,7 +216,7 @@ footer {
   padding: 1%;
   background-color: black;
   opacity: 50%;
-  color: white;
+  color: $footer-color;
   font-size: medium;
 }
 
@@ -256,30 +256,30 @@ footer {
 
 @media (prefers-color-scheme: dark) {
   body > header {
-    background-color: $primary;
+    background-color: $primary-dark;
   }
   #selected-tab, #main-selected-tab {
-    color: $content-color;
+    color: $content-color-dark;
   }
   .more-buttons {
     ul {
       li:hover {
-        background-color: $secondary;
+        background-color: $secondary-dark;
       }
     }
   }
   .hidden {
     .hidden-text {
-      color: $nav-color;
+      color: $nav-color-dark;
     }
   }
   body {
-    color: $text-color;
-    background-color: $primary;
+    color: $text-color-dark;
+    background-color: $primary-dark;
   }
   .logo {
     h1 {
-      color: $content-color;
+      color: $content-color-dark;
     }
   }
   header {
@@ -290,17 +290,20 @@ footer {
     ul {
       li {
         &.primary-button {
-          background-color: $secondary;
+          background-color: $secondary-dark;
         }
 
         a {
-          color: $nav-color;
+          color: $nav-color-dark;
         }
       }
 
       li:hover {
-        background-color: $secondary;
+        background-color: $secondary-dark;
       }
     }
+  }
+  footer {
+    color: $footer-color-dark;
   }
 }

@@ -214,15 +214,15 @@ footer {
 }
 @media (prefers-color-scheme: dark) {
   body > header {
-    background-color: #ff7e44;
+    background-color: #3a3f55;
   }
 
   #selected-tab, #main-selected-tab {
-    color: #000000;
+    color: lightgray;
   }
 
   .more-buttons ul li:hover {
-    background-color: #3a3f55;
+    background-color: #ff7e44;
   }
 
   .hidden .hidden-text {
@@ -231,24 +231,28 @@ footer {
 
   body {
     color: #000000;
-    background-color: #ff7e44;
+    background-color: #3a3f55;
   }
 
   .logo h1 {
-    color: #000000;
+    color: lightgray;
   }
 
   header .site-title {
     color: whitesmoke;
   }
   header ul li.primary-button {
-    background-color: #3a3f55;
+    background-color: #ff7e44;
   }
   header ul li a {
     color: white;
   }
   header ul li:hover {
-    background-color: #3a3f55;
+    background-color: #ff7e44;
+  }
+
+  footer {
+    color: white;
   }
 }
 
