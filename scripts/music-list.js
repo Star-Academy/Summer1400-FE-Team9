@@ -220,18 +220,20 @@ async function loadAllPlaylists() {
     else console.log("Server error");
 }
 
+let pageTitleNameTag = document.getElementById("page-title-name");
+
 async function loadAllMusics() {
     let response = await fetch('http://130.185.120.192:5000/song/all');
     if (response.ok) {
         musics = await response.json();
         await loadAllPlaylists();
-        renderMusicList(musics, searchBox.value, );
+        renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
     } else {
         console.log("Server error");
     }
 }
 
 let searchBox = document.getElementById("search-input");
-searchBox.oninput = () => renderMusicList(musics, searchBox.value, );
+searchBox.oninput = () => renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
 
 loadAllMusics();
