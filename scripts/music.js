@@ -13,12 +13,12 @@ let musicTitleText = document.getElementById("music-title-text");
 let musicSingerText = document.getElementById("music-singer-text");
 let lyricsText = document.getElementById("lyrics-text");
 let audioTag = document.getElementById("music");
+let addToFavoritesI = document.getElementById("add-to-favorites-i");
 
 function addMusicSource(music) {
     let sourceTag = document.createElement("source");
     sourceTag.setAttribute("id", "music-playback-source");
-    // sourceTag.setAttribute("src", music.file);
-    sourceTag.setAttribute("src", "assets/audios/music.mp3");
+    sourceTag.setAttribute("src", music.file);
     sourceTag.setAttribute("type", "audio/mpeg");
     audioTag.innerHTML = "";
     audioTag.appendChild(sourceTag);
@@ -30,6 +30,9 @@ function renderPageItems(music) {
     musicTitleText.innerHTML = music.name;
     musicSingerText.innerHTML = music.artist;
     lyricsText.innerHTML = music.lyrics.replace(/\n/g, '<br>');
+    if (favoriteMusics != null) {
+        addToFavoritesI.setAttribute("class", favoriteMusics.includes(music) ? "fa fa-heart" : "fa fa-heart-o");
+    }
     addMusicSource(music);
 }
 
@@ -67,6 +70,7 @@ async function loadMusic() {
     let response = await fetch('http://130.185.120.192:5000/song/one/' + id);
     if (response.ok) {
         music = await response.json();
+        await loadAllPlaylists();
         renderPageItems(music.song);
     } else {
         console.log("Server error");
