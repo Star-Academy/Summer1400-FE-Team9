@@ -13,9 +13,9 @@ function createRipple(event) {
 }
 
 async function logoutUser() {
-    // TODO: Logout
-
+    let response = await fetch('http://130.185.120.192:5000/user/logout', { method: 'POST' });
     localStorage.setItem("is-logged-in", "false");
+    document.location = "index.html";
 }
 
 const buttons = document.getElementsByTagName("button");
