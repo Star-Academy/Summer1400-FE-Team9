@@ -57,6 +57,22 @@ let favoriteMusicsPlayListID = 0;
 //     }
 // ];
 
+function isFavorite(music) {
+    let flag = false;
+    Array.prototype.forEach.call(favoriteMusics, eachMusic => {
+        try {
+            if (eachMusic.rest.id === music.id) {
+                flag = true;
+            }
+        } catch {
+            if (eachMusic.id === music.id) {
+                flag = true;
+            }
+        }
+    });
+    return flag;
+}
+
 // MARK: UI Functions
 
 function setWidthOfSearch(width) {
@@ -90,7 +106,7 @@ function renderPlayIcon() {
 
 function renderFavoriteIcon(music) {
     let addToFavoritesI = document.createElement("i");
-    if (favoriteMusics != null && favoriteMusics.includes(music)) {
+    if (favoriteMusics != null && isFavorite(music)) {
         addToFavoritesI.setAttribute("class", "fa fa-heart");
     } else {
         addToFavoritesI.setAttribute("class", "fa fa-heart-o");
@@ -109,6 +125,7 @@ function renderLinkToMusicPage(music) {
 function renderFavoriteButton(music) {
     let button = document.createElement("button");
     button.appendChild(renderFavoriteIcon(music));
+    button.onclick = () => toggleFavoriteStatus(music);
     return button;
 }
 
@@ -190,11 +207,22 @@ function renderMusic(ul, music) {
     ul.appendChild(renderListItem(music));
 }
 
+function populateFavoritesPlaylist() {
+    if (playlists != null && playlists !== []) {
+        playlists.forEach((playlist) => {
+            if (playlist.name === "favorites") {
+                playlist.songs = favoriteMusics;
+                playlist.id = favoriteMusicsPlayListID;
+            }
+        })
+    }
+}
+
 function populateFavoritesList() {
     if (playlists != null && playlists !== []) {
         playlists.forEach((playlist) => {
             if (playlist.name === "favorites") {
-                // TODO: Set favoriteMusicsPlayListID
+                favoriteMusicsPlayListID = playlist.id;
                 favoriteMusics = playlist.songs;
             }
         })
@@ -204,7 +232,7 @@ function populateFavoritesList() {
 function populateSelectedMusics(musics, onlyShowFavorites) {
     let selectedMusics = musics;
     if (favoriteMusics != null && onlyShowFavorites) {
-        selectedMusics.songs = selectedMusics.songs.filter((music) => favoriteMusics.includes(music));
+        selectedMusics.songs = selectedMusics.songs.filter((music) => isFavorite(music));
     }
     return selectedMusics;
 }
@@ -223,6 +251,41 @@ function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
                 || music.artist.toLowerCase().includes(predicate.toLowerCase()))
             .forEach((music) => renderMusic(ul, music));
     }
+}
+
+function toggleFavoriteStatusForMusicObject(music, includes) {
+    if (includes) {
+        favoriteMusics = Object.values(favoriteMusics).filter((eachMusic) => {
+            try {
+                return eachMusic.rest.id !== music.id;
+            } catch {
+                return eachMusic.id !== music.id;
+            }
+        });
+    } else {
+        favoriteMusics.push(music);
+    }
+    populateFavoritesPlaylist();
+    renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
+}
+
+async function toggleFavoriteStatus(music) {
+    let includes = isFavorite(music);
+    let url = 'http://130.185.120.192:5000/playlist/' + (includes ? 'remove-song' : 'add-song');
+    let response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            token: localStorage.getItem("token"),
+            playlistId: favoriteMusicsPlayListID,
+            songId: music.id
+        })
+    });
+    if (response.ok) toggleFavoriteStatusForMusicObject(music, includes);
+    else console.log("Server error");
 }
 
 async function loadAllPlaylists() {

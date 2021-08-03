@@ -15,6 +15,16 @@ let lyricsText = document.getElementById("lyrics-text");
 let audioTag = document.getElementById("music");
 let addToFavoritesI = document.getElementById("add-to-favorites-i");
 
+function isFavorite(music) {
+    let flag = false;
+    Array.prototype.forEach.call(favoriteMusics, eachMusic => {
+        if (eachMusic.rest.id === music.id) {
+            flag = true;
+        }
+    });
+    return flag;
+}
+
 function addMusicSource(music) {
     let sourceTag = document.createElement("source");
     sourceTag.setAttribute("id", "music-playback-source");
@@ -31,7 +41,7 @@ function renderPageItems(music) {
     musicSingerText.innerHTML = music.artist;
     lyricsText.innerHTML = music.lyrics.replace(/\n/g, '<br>');
     if (favoriteMusics != null) {
-        addToFavoritesI.setAttribute("class", favoriteMusics.includes(music) ? "fa fa-heart" : "fa fa-heart-o");
+        addToFavoritesI.setAttribute("class", isFavorite(music) ? "fa fa-heart" : "fa fa-heart-o");
     }
     addMusicSource(music);
 }
@@ -40,7 +50,7 @@ function populateFavoritesList() {
     if (playlists != null && playlists !== []) {
         playlists.forEach((playlist) => {
             if (playlist.name === "favorites") {
-                // TODO: Set favoriteMusicsPlayListID
+                favoriteMusicsPlayListID = playlist.id;
                 favoriteMusics = playlist.songs;
             }
         })
