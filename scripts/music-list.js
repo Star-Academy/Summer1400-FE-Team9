@@ -99,9 +99,9 @@ function renderFavoriteIcon(music) {
     return addToFavoritesI;
 }
 
-function renderLinkToMusicPage() {
+function renderLinkToMusicPage(music) {
     let a = document.createElement("a");
-    a.setAttribute("href", "music.html");
+    a.setAttribute("href", "music.html?id=" + music.id);
     a.appendChild(renderPlayIcon());
     return a;
 }
@@ -120,16 +120,16 @@ function renderMusicCellControls() {
 
 function renderMusicControls(music) {
     let musicCellControlsSpan = renderMusicCellControls();
-    let a = renderLinkToMusicPage();
+    let a = renderLinkToMusicPage(music);
     let button = renderFavoriteButton(music);
     musicCellControlsSpan.appendChild(a);
     musicCellControlsSpan.appendChild(button);
     return musicCellControlsSpan;
 }
 
-function renderTitleAndSingerLink(musicTitleAndSingerSpan) {
+function renderTitleAndSingerLink(musicTitleAndSingerSpan, music) {
     let musicTitleAndSingerLink = document.createElement("a");
-    musicTitleAndSingerLink.setAttribute("href", "music.html");
+    musicTitleAndSingerLink.setAttribute("href", "music.html?id=" + music.id);
     musicTitleAndSingerLink.setAttribute("class", "music-title-and-singer-link");
     musicTitleAndSingerLink.appendChild(musicTitleAndSingerSpan)
     return musicTitleAndSingerLink;
@@ -174,7 +174,7 @@ function renderMainListItemSpan(music) {
     let span = renderMusicCellHeader();
     let img = renderImage(music);
     span.appendChild(img);
-    span.appendChild(renderTitleAndSingerLink(renderMusicTitleAndSinger(music)));
+    span.appendChild(renderTitleAndSingerLink(renderMusicTitleAndSinger(music), music));
     return span;
 }
 
