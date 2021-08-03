@@ -76,6 +76,7 @@ function renderImage(music) {
     img.setAttribute("height", "60");
     img.setAttribute("width", "60");
     img.setAttribute("src", music.cover);
+    img.setAttribute("loading", "lazy");
     img.setAttribute("alt", "عکس موزیک");
     return img;
 }
@@ -189,7 +190,7 @@ function renderMusic(ul, music) {
     ul.appendChild(renderListItem(music));
 }
 
-function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
+function populateFavoritesList() {
     if (playlists != null && playlists !== []) {
         playlists.forEach((playlist) => {
             if (playlist.name === "favorites") {
@@ -198,12 +199,21 @@ function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
             }
         })
     }
-    let ul = document.getElementsByClassName("music-list")[0];
-    ul.innerHTML = "";
+}
+
+function populateSelectedMusics(musics, onlyShowFavorites) {
     let selectedMusics = musics;
     if (favoriteMusics != null && onlyShowFavorites) {
         selectedMusics.songs = selectedMusics.songs.filter((music) => favoriteMusics.includes(music));
     }
+    return selectedMusics;
+}
+
+function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
+    populateFavoritesList();
+    let ul = document.getElementsByClassName("music-list")[0];
+    ul.innerHTML = "";
+    let selectedMusics = populateSelectedMusics(musics, onlyShowFavorites);
     if (predicate == null || predicate === "") {
         selectedMusics.songs
             .forEach((music) => renderMusic(ul, music));
