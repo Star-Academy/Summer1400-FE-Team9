@@ -12,6 +12,14 @@ async function login() {
         body: JSON.stringify({email: emailInput.value, password: passwordInput.value})
     });
     if (response.ok) {
+        await fetch('http://130.185.120.192:5000/playlist/create', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: "favorites"})
+        });
         localStorage.setItem("is-logged-in", "true");
         document.location = "index.html";
     } else {

@@ -35,7 +35,7 @@ if (localStorage.getItem("is-logged-in") === "true") {
     registerLink.innerHTML = "خروج";
     registerLink.setAttribute("href", "#");
     registerLink.style.cursor = "pointer";
-    registerLink.onclick = () => async() => await logoutUser();
+    registerLink.onclick = () => logoutUser();
 } else {
     favLink.style.display = "none";
 }

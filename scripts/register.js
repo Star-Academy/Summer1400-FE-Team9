@@ -1,5 +1,6 @@
 let submitButton = document.getElementById("submit-button");
 let firstNameInput = document.getElementById("firstName-input");
+let usernameInput = document.getElementById("username-input");
 let emailInput = document.getElementById("email-input");
 let passwordInput = document.getElementById("password-input");
 let repeatPasswordInput = document.getElementById("repeat-password-input");
@@ -11,7 +12,8 @@ async function register() {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email: emailInput.value, password: passwordInput.value}) // TODO: Send first name also...
+        body: JSON.stringify({email: emailInput.value, password: passwordInput.value, username: usernameInput.value})
+        // TODO: Send first name also...
     });
     if (response.ok) {
         await fetch('http://130.185.120.192:5000/playlist/create', {
