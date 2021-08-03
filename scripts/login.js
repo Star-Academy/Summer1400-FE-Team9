@@ -21,6 +21,7 @@ async function login() {
             body: JSON.stringify({name: "favorites"})
         });
         localStorage.setItem("is-logged-in", "true");
+        localStorage.setItem("token", response.json().token);
         document.location = "index.html";
     } else {
         swal({ // TODO: Better failed messages (wrong data, connection,...)

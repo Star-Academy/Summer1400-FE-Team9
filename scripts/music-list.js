@@ -209,6 +209,4 @@ async function loadAllMusics() {
 let searchBox = document.getElementById("search-input");
 searchBox.oninput = () => renderMusicList(musics, searchBox.value);
 
-renderMusicList(musics);
-
-// loadAllMusics();
+loadAllMusics();
