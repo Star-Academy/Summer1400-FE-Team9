@@ -20,3 +20,10 @@ for (const button of inputButtons) {
         button.onmousedown = ev => createRipple(ev);
     }
 }
+
+let favLink = document.getElementById("fav-link");
+if (localStorage.getItem("is-logged-in") === true) {
+
+} else {
+    favLink.style.display = "none";
+}
