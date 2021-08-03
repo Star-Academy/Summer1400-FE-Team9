@@ -3,6 +3,7 @@
 let musics = [];
 let playlists = [];
 let favoriteMusics = null;
+let favoriteMusicsPlayListID = 0;
 
 // let musics = [
 //     {
@@ -191,7 +192,10 @@ function renderMusic(ul, music) {
 function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
     if (playlists != null && playlists !== []) {
         playlists.forEach((playlist) => {
-            if (playlist.name === "favorites") favoriteMusics = playlist.songs;
+            if (playlist.name === "favorites") {
+                // TODO: Set favoriteMusicsPlayListID
+                favoriteMusics = playlist.songs;
+            }
         })
     }
     let ul = document.getElementsByClassName("music-list")[0];
