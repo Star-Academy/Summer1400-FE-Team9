@@ -1,58 +1,58 @@
 // MARK: Fields and variables
 
-// let musics = []
+let musics = []
 
-let musics = [
-    {
-        name: "عنوان آهنگ ۱",
-        artist: "خواننده آهنگ ۱",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3",
-        lyrics: ""
-    },
-    {
-        name: "عنوان آهنگ ۲",
-        artist: "خواننده آهنگ ۲",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3",
-        lyrics: ""
-    },
-    {
-        name: "عنوان آهنگ ۳",
-        artist: "خواننده آهنگ ۳",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3",
-        lyrics: ""
-    },
-    {
-        name: "عنوان آهنگ ۴",
-        artist: "خواننده آهنگ ۴",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3",
-        lyrics: ""
-    },
-    {
-        name: "عنوان آهنگ ۵",
-        artist: "خواننده آهنگ ۵",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3",
-        lyrics: ""
-    },
-    {
-        name: "عنوان آهنگ ۶",
-        artist: "خواننده آهنگ ۶",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3",
-        lyrics: ""
-    },
-    {
-        name: "عنوان آهنگ ۷",
-        artist: "خواننده آهنگ ۷",
-        cover: "images/music-art.png",
-        file: "assets/audios/music.mp3",
-        lyrics: ""
-    }
-];
+// let musics = [
+//     {
+//         name: "عنوان آهنگ ۱",
+//         artist: "خواننده آهنگ ۱",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3",
+//         lyrics: ""
+//     },
+//     {
+//         name: "عنوان آهنگ ۲",
+//         artist: "خواننده آهنگ ۲",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3",
+//         lyrics: ""
+//     },
+//     {
+//         name: "عنوان آهنگ ۳",
+//         artist: "خواننده آهنگ ۳",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3",
+//         lyrics: ""
+//     },
+//     {
+//         name: "عنوان آهنگ ۴",
+//         artist: "خواننده آهنگ ۴",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3",
+//         lyrics: ""
+//     },
+//     {
+//         name: "عنوان آهنگ ۵",
+//         artist: "خواننده آهنگ ۵",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3",
+//         lyrics: ""
+//     },
+//     {
+//         name: "عنوان آهنگ ۶",
+//         artist: "خواننده آهنگ ۶",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3",
+//         lyrics: ""
+//     },
+//     {
+//         name: "عنوان آهنگ ۷",
+//         artist: "خواننده آهنگ ۷",
+//         cover: "images/music-art.png",
+//         file: "assets/audios/music.mp3",
+//         lyrics: ""
+//     }
+// ];
 
 // MARK: UI Functions
 
@@ -186,10 +186,10 @@ function renderMusicList(musics, predicate = "") {
     let ul = document.getElementsByClassName("music-list")[0];
     ul.innerHTML = "";
     if (predicate == null || predicate === "") {
-        musics
+        musics.songs
             .forEach((music) => renderMusic(ul, music));
     } else {
-        musics
+        musics.songs
             .filter((music) => music.name.toLowerCase().includes(predicate.toLowerCase())
                 || music.artist.toLowerCase().includes(predicate.toLowerCase()))
             .forEach((music) => renderMusic(ul, music));
