@@ -12,16 +12,17 @@ async function login() {
         body: JSON.stringify({email: emailInput.value, password: passwordInput.value})
     });
     if (response.ok) {
+        let json = await response.json();
         await fetch('http://130.185.120.192:5000/playlist/create', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name: "favorites"})
+            body: JSON.stringify({name: "favorites", token: json.token})
         });
         localStorage.setItem("is-logged-in", "true");
-        localStorage.setItem("token", response.json().token);
+        localStorage.setItem("token", json.token);
         document.location = "index.html";
     } else {
         swal({ // TODO: Better failed messages (wrong data, connection,...)

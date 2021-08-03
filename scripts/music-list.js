@@ -1,6 +1,7 @@
 // MARK: Fields and variables
 
-let musics = []
+let musics = [];
+let playlists = [];
 
 // let musics = [
 //     {
@@ -182,31 +183,55 @@ function renderMusic(ul, music) {
     ul.appendChild(renderListItem(music));
 }
 
-function renderMusicList(musics, predicate = "") {
+function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
+    let favoriteMusics = null;
+    if (playlists != null && playlists !== []) {
+        playlists.forEach((playlist) => {
+            if (playlist.name === "favorites") favoriteMusics = playlist.songs;
+        })
+    }
     let ul = document.getElementsByClassName("music-list")[0];
     ul.innerHTML = "";
+    let selectedMusics = musics;
+    if (favoriteMusics != null && onlyShowFavorites) {
+        selectedMusics.songs = selectedMusics.songs.filter((music) => favoriteMusics.includes(music));
+    }
     if (predicate == null || predicate === "") {
-        musics.songs
+        selectedMusics.songs
             .forEach((music) => renderMusic(ul, music));
     } else {
-        musics.songs
+        selectedMusics.songs
             .filter((music) => music.name.toLowerCase().includes(predicate.toLowerCase())
                 || music.artist.toLowerCase().includes(predicate.toLowerCase()))
             .forEach((music) => renderMusic(ul, music));
     }
 }
 
+async function loadAllPlaylists() {
+    let response = await fetch('http://130.185.120.192:5000/playlist/all', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ token: localStorage.getItem("token") })
+    });
+    if (response.ok) playlists = await response.json();
+    else console.log("Server error");
+}
+
 async function loadAllMusics() {
     let response = await fetch('http://130.185.120.192:5000/song/all');
     if (response.ok) {
         musics = await response.json();
-        renderMusicList(musics);
+        await loadAllPlaylists();
+        renderMusicList(musics, searchBox.value, );
     } else {
         console.log("Server error");
     }
 }
 
 let searchBox = document.getElementById("search-input");
-searchBox.oninput = () => renderMusicList(musics, searchBox.value);
+searchBox.oninput = () => renderMusicList(musics, searchBox.value, );
 
 loadAllMusics();
