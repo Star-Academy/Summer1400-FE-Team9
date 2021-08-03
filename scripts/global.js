@@ -12,6 +12,10 @@ function createRipple(event) {
     button.appendChild(circle);
 }
 
+async function logoutUser() {
+    // TODO: Logout
+}
+
 const buttons = document.getElementsByTagName("button");
 for (const button of buttons) button.onmousedown = ev => createRipple(ev);
 const inputButtons = document.getElementsByTagName("input");
@@ -22,8 +26,14 @@ for (const button of inputButtons) {
 }
 
 let favLink = document.getElementById("fav-link");
-if (localStorage.getItem("is-logged-in") === true) {
-
-} else {
-    favLink.style.display = "none";
-}
+let loginLink = document.getElementById("login-link");
+let registerLink = document.getElementById("register-link");
+// if (localStorage.getItem("is-logged-in") === true) {
+    loginLink.style.display = "none";
+    registerLink.innerHTML = "خروج";
+    registerLink.setAttribute("href", "#");
+    registerLink.style.cursor = "pointer";
+    registerLink.onclick = () => async() => await logoutUser();
+// } else {
+//     favLink.style.display = "none";
+// }
