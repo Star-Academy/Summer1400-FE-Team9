@@ -2,6 +2,7 @@
 
 let musics = [];
 let playlists = [];
+let favoriteMusics = null;
 
 // let musics = [
 //     {
@@ -85,9 +86,13 @@ function renderPlayIcon() {
     return playI;
 }
 
-function renderFavoriteIcon() {
+function renderFavoriteIcon(music) {
     let addToFavoritesI = document.createElement("i");
-    addToFavoritesI.setAttribute("class", "fa fa-heart-o");
+    if (favoriteMusics != null && favoriteMusics.includes(music)) {
+        addToFavoritesI.setAttribute("class", "fa fa-heart");
+    } else {
+        addToFavoritesI.setAttribute("class", "fa fa-heart-o");
+    }
     addToFavoritesI.setAttribute("aria-hidden", "true");
     return addToFavoritesI;
 }
@@ -99,9 +104,9 @@ function renderLinkToMusicPage() {
     return a;
 }
 
-function renderFavoriteButton() {
+function renderFavoriteButton(music) {
     let button = document.createElement("button");
-    button.appendChild(renderFavoriteIcon());
+    button.appendChild(renderFavoriteIcon(music));
     return button;
 }
 
@@ -111,10 +116,10 @@ function renderMusicCellControls() {
     return musicCellControlsSpan;
 }
 
-function renderMusicControls() {
+function renderMusicControls(music) {
     let musicCellControlsSpan = renderMusicCellControls();
     let a = renderLinkToMusicPage();
-    let button = renderFavoriteButton();
+    let button = renderFavoriteButton(music);
     musicCellControlsSpan.appendChild(a);
     musicCellControlsSpan.appendChild(button);
     return musicCellControlsSpan;
@@ -175,7 +180,7 @@ function renderListItem(music) {
     let li = document.createElement("li");
     let span = renderMainListItemSpan(music);
     li.appendChild(span);
-    li.appendChild(renderMusicControls());
+    li.appendChild(renderMusicControls(music));
     return li;
 }
 
@@ -184,7 +189,6 @@ function renderMusic(ul, music) {
 }
 
 function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
-    let favoriteMusics = null;
     if (playlists != null && playlists !== []) {
         playlists.forEach((playlist) => {
             if (playlist.name === "favorites") favoriteMusics = playlist.songs;
