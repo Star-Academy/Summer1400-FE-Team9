@@ -14,6 +14,8 @@ function createRipple(event) {
 
 async function logoutUser() {
     // TODO: Logout
+
+    localStorage.setItem("is-logged-in", "false");
 }
 
 const buttons = document.getElementsByTagName("button");
@@ -28,12 +30,12 @@ for (const button of inputButtons) {
 let favLink = document.getElementById("fav-link");
 let loginLink = document.getElementById("login-link");
 let registerLink = document.getElementById("register-link");
-// if (localStorage.getItem("is-logged-in") === true) {
+if (localStorage.getItem("is-logged-in") === "true") {
     loginLink.style.display = "none";
     registerLink.innerHTML = "خروج";
     registerLink.setAttribute("href", "#");
     registerLink.style.cursor = "pointer";
     registerLink.onclick = () => async() => await logoutUser();
-// } else {
-//     favLink.style.display = "none";
-// }
+} else {
+    favLink.style.display = "none";
+}

@@ -11,8 +11,10 @@ async function login() {
         },
         body: JSON.stringify({email: emailInput.value, password: passwordInput.value})
     });
-    if (response.ok) document.location = "index.html";
-    else {
+    if (response.ok) {
+        localStorage.setItem("is-logged-in", "true");
+        document.location = "index.html";
+    } else {
         swal({ // TODO: Better failed messages (wrong data, connection,...)
             title: 'Login failed',
             text: 'Please try again',
