@@ -309,6 +309,7 @@ async function loadAllMusics() {
         musics = await response.json();
         await loadAllPlaylists();
         renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
+        document.getElementsByClassName("loader")[0].style.display="none"; // preloader
     } else {
         console.log("Server error");
     }

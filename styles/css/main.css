@@ -276,6 +276,7 @@ body {
   border: 4px solid #Fff;
   top: 50%;
   animation: loader 2s infinite ease;
+  margin-top: 5%;
 }
 
 .loader-inner {
