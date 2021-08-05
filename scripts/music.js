@@ -107,3 +107,15 @@ document.getElementById("add-to-favorites-button").onclick = () => {
 }
 
 loadMusic();
+
+// toggle:
+
+let checkbox = document.getElementById("toggle");
+
+checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        console.log("Checkbox is checked..");
+    } else {
+        console.log("Checkbox is not checked..");
+    }
+});

@@ -319,3 +319,15 @@ let searchBox = document.getElementById("search-input");
 searchBox.oninput = () => renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
 
 loadAllMusics();
+
+// toggle:
+
+let checkbox = document.getElementById("toggle");
+
+checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        console.log("Checkbox is checked..");
+    } else {
+        console.log("Checkbox is not checked..");
+    }
+});

@@ -6,3 +6,15 @@ if (localStorage.getItem("is-logged-in") === "true") {
     registerIndexLink.innerHTML = "ثبت‌نام";
     registerIndexLink.setAttribute("href", "login.html");
 }
+
+// toggle:
+
+let checkbox = document.getElementById("toggle");
+
+checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        console.log("Checkbox is checked..");
+    } else {
+        console.log("Checkbox is not checked..");
+    }
+});
