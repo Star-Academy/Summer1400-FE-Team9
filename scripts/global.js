@@ -40,3 +40,15 @@ if (localStorage.getItem("is-logged-in") === "true") {
 } else {
     favLink.style.display = "none";
 }
+
+let checkbox = document.getElementById("toggle");
+
+console.log(checkbox);
+
+checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        console.log("Checkbox is checked..");
+    } else {
+        console.log("Checkbox is not checked..");
+    }
+});
