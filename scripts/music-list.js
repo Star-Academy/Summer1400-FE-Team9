@@ -224,6 +224,10 @@ function renderMainListItemSpan(music) {
 function renderListItem(music) {
     let li = document.createElement("li");
     li.setAttribute("class", "mdc-elevation--z1");
+    // li.onclick = (ev) => {
+    //     if (ev.target)
+    //     showMusic(music)
+    // };
     let span = renderMainListItemSpan(music);
     li.appendChild(span);
     li.appendChild(renderMusicControls(music));
