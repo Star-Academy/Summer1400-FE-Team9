@@ -26,16 +26,14 @@ section > ul {
 
 ul.music-list {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 0;
   grid-template-columns: 100%;
   list-style: none;
   margin-right: 8%;
   margin-left: 8%;
 }
 ul.music-list li {
-  padding: 10px;
-  border: 1px solid #77aaff;
-  box-shadow: -1px 1px #77aaff, -2px 2px #77aaff, -3px 3px #77aaff, -4px 4px #77aaff, -5px 5px #77aaff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,14 +73,14 @@ ul.music-list li span.music-cell-controls button {
   margin: 0.5rem;
   color: #ff7e44;
   border: 2px solid #ff7e44;
-  border-radius: 0.75rem;
+  border-radius: 50%;
   cursor: pointer;
 }
 ul.music-list li span.music-cell-controls button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 ul.music-list li span.music-cell-controls a {
-  border-radius: 0.75rem;
+  border-radius: 50%;
   background-color: #ff7e44;
   padding: 1rem;
   margin: 0.5rem;

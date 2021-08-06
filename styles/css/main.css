@@ -24,6 +24,7 @@ html {
 body > header {
   position: -webkit-sticky;
   position: sticky;
+  opacity: 95%;
   top: 0;
   background-color: #ff7e44;
 }

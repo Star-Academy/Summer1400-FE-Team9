@@ -29,14 +29,14 @@ section > ul {
 
 ul.music-list {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 0;
   grid-template-columns: 100%;
   list-style: none;
   margin-right: 8%;
   margin-left: 8%;
 
   li {
-    @include raised-box;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -80,7 +80,7 @@ ul.music-list {
         margin: 0.5rem;
         color: $primary;
         border: 2px solid $primary;
-        border-radius: 0.75rem;
+        border-radius: 50%;//0.75rem;
         cursor: pointer;
 
         &:hover {
@@ -89,7 +89,7 @@ ul.music-list {
       }
 
       a {
-        border-radius: 0.75rem;
+        border-radius: 50%;//0.75rem;
         background-color: $primary;
         padding: 1rem;
         margin: 0.5rem;

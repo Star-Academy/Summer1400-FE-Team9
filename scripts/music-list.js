@@ -105,6 +105,7 @@ function renderPlayIcon() {
 }
 
 function renderFavoriteIcon(music) {
+    let center = document.createElement("center");
     let addToFavoritesI = document.createElement("i");
     if (favoriteMusics != null && isFavorite(music)) {
         addToFavoritesI.setAttribute("class", "fa fa-heart");
@@ -112,12 +113,16 @@ function renderFavoriteIcon(music) {
         addToFavoritesI.setAttribute("class", "fa fa-heart-o");
     }
     addToFavoritesI.setAttribute("aria-hidden", "true");
-    return addToFavoritesI;
+    addToFavoritesI.style.textAlign = "center";
+    center.style.textAlign = "center";
+    center.appendChild(addToFavoritesI);
+    return center;
 }
 
 function renderLinkToMusicPage(music) {
-    let a = document.createElement("a");
-    a.setAttribute("href", "music.html?id=" + music.id);
+    let a = document.createElement("button");
+    a.onclick = () => window.location = "music.html?id=" + music.id;
+    // a.setAttribute("href", "music.html?id=" + music.id);
     a.appendChild(renderPlayIcon());
     return a;
 }
@@ -137,9 +142,9 @@ function renderMusicCellControls() {
 
 function renderMusicControls(music) {
     let musicCellControlsSpan = renderMusicCellControls();
-    let a = renderLinkToMusicPage(music);
+    // let a = renderLinkToMusicPage(music);
     let button = renderFavoriteButton(music);
-    musicCellControlsSpan.appendChild(a);
+    // musicCellControlsSpan.appendChild(a);
     musicCellControlsSpan.appendChild(button);
     return musicCellControlsSpan;
 }
@@ -197,6 +202,7 @@ function renderMainListItemSpan(music) {
 
 function renderListItem(music) {
     let li = document.createElement("li");
+    li.setAttribute("class", "mdc-elevation--z1");
     let span = renderMainListItemSpan(music);
     li.appendChild(span);
     li.appendChild(renderMusicControls(music));
