@@ -64,6 +64,7 @@ let musicListElement = document.getElementById("music-list-ul");
 
 function isFavorite(music) {
     let flag = false;
+    if (favoriteMusics == null || favoriteMusics === []) return false;
     Array.prototype.forEach.call(favoriteMusics, eachMusic => {
         try {
             if (eachMusic.rest.id === music.id) {
