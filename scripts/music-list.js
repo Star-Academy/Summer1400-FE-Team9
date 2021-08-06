@@ -7,6 +7,7 @@ let favoriteMusicsPlayListID = 0;
 
 let overlay = document.getElementById("overlay");
 let allMusicsElement = document.getElementById("all-musics");
+let favMusicsElement = document.getElementById("fav-musics");
 let musicDetailsElement = document.getElementById("music-details");
 let musicListElement = document.getElementById("music-list-ul");
 
@@ -159,7 +160,8 @@ function makeOverlayVisible() {
     overlay.style.visibility = "visible";
     overlay.style.opacity = "1";
     overlay.style.transform = "scale(1) translate(0, -25%)";
-    allMusicsElement.style.opacity = "20%";
+    if (allMusicsElement != null) allMusicsElement.style.opacity = "20%";
+    if (favMusicsElement != null) favMusicsElement.style.opacity = "20%";
 }
 
 function makeOverlayHidden() {
@@ -167,7 +169,8 @@ function makeOverlayHidden() {
     overlay.style.visibility = "hidden";
     overlay.style.opacity = "0";
     overlay.style.transform = "scale(0.5) translate(0, -25%)";
-    allMusicsElement.style.opacity = "100%";
+    if (allMusicsElement != null) allMusicsElement.style.opacity = "100%";
+    if (favMusicsElement != null) favMusicsElement.style.opacity = "100%";
     image.src = "images/music-art.png";
 }
 
