@@ -92,9 +92,11 @@ ul.music-list li span.music-cell-controls a:hover {
   opacity: 80%;
 }
 ul.music-list li span.music-title {
+  text-align: right;
   font-size: large;
 }
 ul.music-list li span.music-singer {
+  text-align: right;
   font-size: medium;
   color: gray;
 }
