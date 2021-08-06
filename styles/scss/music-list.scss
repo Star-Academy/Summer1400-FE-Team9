@@ -1,5 +1,15 @@
 @import "colors.scss";
 
+@mixin raised-box {
+  padding: 10px;
+  border: 1px solid #77aaff;
+  box-shadow:  -1px 1px #77aaff,
+  -2px 2px #77aaff,
+  -3px 3px #77aaff,
+  -4px 4px #77aaff,
+  -5px 5px #77aaff;
+}
+
 .cover {
   transition: all 0.5s;
   border-radius: 25rem;
@@ -26,6 +36,7 @@ ul.music-list {
   margin-left: 8%;
 
   li {
+    @include raised-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
