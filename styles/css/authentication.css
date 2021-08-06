@@ -45,7 +45,7 @@ article .authenticate-button {
   align-items: center;
   margin-bottom: -6.5%;
 }
-article .authenticate-button .submit {
+article .authenticate-button .submit-button {
   padding: 2.5%;
   border-radius: 999rem;
   background-color: #ff7e44;
@@ -55,7 +55,7 @@ article .authenticate-button .submit {
   transition: all 0.25s;
   align-self: center;
 }
-article .authenticate-button .submit:hover {
+article .authenticate-button .submit-button:hover {
   opacity: 80%;
 }
 article .header h1 {
@@ -99,7 +99,7 @@ article h6 a:hover {
   }
 }
 @media (min-width: 600px) {
-  article .authenticate-button .submit {
+  article .authenticate-button .submit-button {
     font-size: x-large;
   }
   article input {
@@ -126,7 +126,7 @@ article h6 a:hover {
   article {
     background-color: lightgray;
   }
-  article .authenticate-button .submit {
+  article .authenticate-button .submit-button {
     background-color: #3a3f55;
   }
   article h6 a {
