@@ -155,17 +155,39 @@ function renderMusicControls(music) {
     return musicCellControlsSpan;
 }
 
-function showMusic(music) {
+function makeOverlayVisible() {
     overlay.style.visibility = "visible";
     overlay.style.opacity = "1";
     overlay.style.transform = "scale(1) translate(0, -25%)";
     allMusicsElement.style.opacity = "20%";
+}
+
+function makeOverlayHidden() {
+    let image = document.getElementById("music-overlay-image");
+    overlay.style.visibility = "hidden";
+    overlay.style.opacity = "0";
+    overlay.style.transform = "scale(0.5) translate(0, -25%)";
+    allMusicsElement.style.opacity = "100%";
+    image.src = "images/music-art.png";
+}
+
+function populateOverlay(music) {
+    let title = document.getElementById("music-title-text");
+    let singer = document.getElementById("music-singer-text");
+    let image = document.getElementById("music-overlay-image");
+    let lyrics = document.getElementById("lyrics-text");
+    title.innerHTML = music.name ?? "";
+    singer.innerHTML = music.artist ?? "";
+    image.src = music.cover ?? "";
+    lyrics.innerHTML = music.lyrics ?? "";
+}
+
+function showMusic(music) {
+    populateOverlay(music);
+    makeOverlayVisible();
     overlay.onclick = (ev) => {
         if (ev.target === musicDetailsElement || ev.target === musicListElement) {
-            overlay.style.visibility = "hidden";
-            overlay.style.opacity = "0";
-            overlay.style.transform = "scale(0.5) translate(0, -25%)";
-            allMusicsElement.style.opacity = "100%";
+            makeOverlayHidden();
         }
     };
 }
