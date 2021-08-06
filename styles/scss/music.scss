@@ -2,9 +2,8 @@
 
 .lyric {
   font-size: medium;
-  margin-top: 2rem;
   line-height: 200%;
-  text-align: center;
+  text-align: right;
   text-justify: inter-word;
 }
 
@@ -18,8 +17,8 @@ h3.lyric {
 }
 
 #music {
-  width: 75%;
-  margin-top: 1%;
+  width: 100%;
+  margin-top: 7.5%;
 }
 
 #two-x-button, #add-to-favorites-button {
@@ -35,53 +34,52 @@ h3.lyric {
 }
 
 .lyric-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 21rem;
+  overflow: scroll;
   margin-top: 5%;
+  margin-right: 2%;
 }
 
 #music-box {
-  width: 100%;
-  padding-top: 2%;
+  //width: 100%;
+  //padding-top: 2%;
+  //
+  //.cover {
+  //  width: 60%;
+  //  height: 60%;
+  //}
 
-  .cover {
-    width: 60%;
-    height: 60%;
-  }
+  //.music-cell-header {
+  //  display: flex;
+  //  flex-direction: column;
+  //  justify-content: center;
+  //  align-items: center;
+  //
+  //  .music-title-and-singer {
+  //    display: flex;
+  //    flex-direction: column;
+  //    justify-content: center;
+  //    align-items: center;
+  //    margin-top: 5%;
+  //
+  //    .music-title {
+  //      font-size: xx-large;
+  //    }
+  //
+  //    .music-singer {
+  //      font-size: x-large;
+  //      margin-top: 15%;
+  //      margin-bottom: 10%;
+  //    }
+  //  }
+  //}
 
-  .music-cell-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .music-title-and-singer {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-top: 5%;
-
-      .music-title {
-        font-size: xx-large;
-      }
-
-      .music-singer {
-        font-size: x-large;
-        margin-top: 15%;
-        margin-bottom: 10%;
-      }
-    }
-  }
-
-  .music-cell-controls {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    margin-bottom: 5%;
-  }
+  //.music-cell-controls {
+  //  display: flex;
+  //  flex-direction: row-reverse;
+  //  justify-content: center;
+  //  margin-bottom: 5%;
+  //}
 }
 
 @media (min-width: 458px) {
@@ -93,7 +91,11 @@ h3.lyric {
     .music-cell-header {
       .music-title-and-singer {
         .music-title {
-          font-size: xxx-large;
+          font-size: xx-large;
+        }
+        .music-singer {
+          font-size: large;
+          margin-top: 5%;
         }
       }
     }

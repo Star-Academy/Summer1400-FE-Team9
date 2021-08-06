@@ -5,6 +5,11 @@ let playlists = [];
 let favoriteMusics = null;
 let favoriteMusicsPlayListID = 0;
 
+let overlay = document.getElementById("overlay");
+let allMusicsElement = document.getElementById("all-musics");
+let musicDetailsElement = document.getElementById("music-details");
+let musicListElement = document.getElementById("music-list-ul");
+
 // let musics = [
 //     {
 //         name: "عنوان آهنگ ۱",
@@ -149,9 +154,25 @@ function renderMusicControls(music) {
     return musicCellControlsSpan;
 }
 
+function showMusic(music) {
+    overlay.style.visibility = "visible";
+    overlay.style.opacity = "1";
+    overlay.style.transform = "scale(1) translate(0, -25%)";
+    allMusicsElement.style.opacity = "20%";
+    overlay.onclick = (ev) => {
+        if (ev.target === musicDetailsElement || ev.target === musicListElement) {
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.transform = "scale(0.5) translate(0, -25%)";
+            allMusicsElement.style.opacity = "100%";
+        }
+    };
+}
+
 function renderTitleAndSingerLink(musicTitleAndSingerSpan, music) {
     let musicTitleAndSingerLink = document.createElement("a");
-    musicTitleAndSingerLink.setAttribute("href", "music.html?id=" + music.id);
+    // musicTitleAndSingerLink.setAttribute("href", "music.html?id=" + music.id);
+    musicTitleAndSingerLink.onclick = () => showMusic(music);
     musicTitleAndSingerLink.setAttribute("class", "music-title-and-singer-link");
     musicTitleAndSingerLink.appendChild(musicTitleAndSingerSpan)
     return musicTitleAndSingerLink;
@@ -301,7 +322,7 @@ async function loadAllPlaylists() {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ token: localStorage.getItem("token") })
+        body: JSON.stringify({token: localStorage.getItem("token")})
     });
     if (response.ok) playlists = await response.json();
     else console.log("Server error");
@@ -315,7 +336,7 @@ async function loadAllMusics() {
         musics = await response.json();
         await loadAllPlaylists();
         renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
-        document.getElementsByClassName("loader")[0].style.display="none"; // preloader
+        document.getElementsByClassName("loader")[0].style.display = "none"; // preloader
     } else {
         console.log("Server error");
     }
@@ -330,7 +351,7 @@ loadAllMusics();
 
 let checkbox = document.getElementById("toggle");
 
-checkbox.addEventListener('change', function() {
+checkbox.addEventListener('change', function () {
     if (this.checked) {
         console.log("Checkbox is checked..");
     } else {

@@ -3,7 +3,7 @@
 @mixin raised-box {
   padding: 10px;
   border: 1px solid #77aaff;
-  box-shadow:  -1px 1px #77aaff,
+  box-shadow: -1px 1px #77aaff,
   -2px 2px #77aaff,
   -3px 3px #77aaff,
   -4px 4px #77aaff,
@@ -20,11 +20,80 @@
   border-radius: 2rem;
 }
 
-section > ul {
+.overlay {
+  position: fixed;
+  width: 100rem;
+  margin-left: -50rem;
+  margin-top: -10rem;
+  top: 50%;
+  left: 50%;
+  transform: scale(0.5) translate(0, -25%);
+  box-shadow: none;
+  transition: all 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 101;
+
+  #music-details {
+    box-shadow: none;
+    ul {
+      box-shadow: none;
+      li {
+        box-shadow: none;
+      }
+    }
+  }
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+#music-details {
+  width: 100%;
+  margin: 20px;
+  transition: all 0.5s ease-in-out;
+  overflow: scroll;
+
+  ul {
+    li {
+      overflow: scroll;
+    }
+    overflow: scroll;
+  }
+}
+
+//#container {
+//  display: grid;
+//
+//  #music-details {
+//    display: none;
+//  }
+//}
+//
+//#container > * {
+//  grid-column-start: 1;
+//  grid-row-start: 1;
+//}
+
+section.all-musics > ul {
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
+}
+
+#all-musics {
+  ul.music-list {
+    margin-bottom: 0;
+
+    li {
+      box-shadow: none;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
 }
 
 ul.music-list {
@@ -34,6 +103,7 @@ ul.music-list {
   list-style: none;
   margin-right: 8%;
   margin-left: 8%;
+  margin-bottom: 8%;
 
   li {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -85,7 +155,7 @@ ul.music-list {
         margin: 0.5rem;
         color: $primary;
         border: 2px solid $primary;
-        border-radius: 50%;//0.75rem;
+        border-radius: 50%; //0.75rem;
         cursor: pointer;
 
         &:hover {
@@ -94,7 +164,7 @@ ul.music-list {
       }
 
       a {
-        border-radius: 50%;//0.75rem;
+        border-radius: 50%; //0.75rem;
         background-color: $primary;
         padding: 1rem;
         margin: 0.5rem;
@@ -136,6 +206,7 @@ ul.music-list {
 
 .music-title-and-singer-link {
   text-decoration: none;
+  cursor: pointer;
   color: black;
 }
 

@@ -26,7 +26,7 @@
     </a>
     <nav>
         <ul>
-            <li class="nav-link-item" ><a href="index.html">خانه</a></li>
+            <li class="nav-link-item"><a href="index.html">خانه</a></li>
             <li class="nav-link-item"><a href="music-list.html" id="main-selected-tab">موزیک‌ها</a></li>
             <li id="fav-link" class="nav-link-item"><a href="fav-music-list.html">علاقه‌مندی‌ها</a></li>
             <li class="nav-link-item"><a href="about.html">درباره ما</a></li>
@@ -55,23 +55,61 @@
         <h1 id="page-title-name" class="page-title">آهنگ‌ها</h1>
     </header>
 
-    <section id="all-musics">
-        <div id="search">
-            <label>
-                <input id="search-input" type="search" name="search" placeholder="جست‌وجو..." onfocus="setWidthOfSearch(55)"
-                       onfocusout="setWidthOfSearch(40)"/>
-            </label>
-        </div>
+    <div id="container">
 
-        <!-- preloader: -->
-        <div class="loader-wrapper">
-            <span class="loader"><span class="loader-inner"></span></span>
-        </div>
+        <section id="all-musics">
+            <div id="search">
+                <label>
+                    <input id="search-input" type="search" name="search" placeholder="جست‌وجو..."
+                           onfocus="setWidthOfSearch(55)"
+                           onfocusout="setWidthOfSearch(40)"/>
+                </label>
+            </div>
 
-        <ul class="music-list">
+            <!-- preloader: -->
+            <div class="loader-wrapper">
+                <span class="loader"><span class="loader-inner"></span></span>
+            </div>
+
+            <ul class="music-list">
+            </ul>
+        </section>
+
+
+    </div>
+</main>
+
+<div id="overlay" class="overlay">
+    <section id="music-details">
+        <ul id="music-list-ul" class="music-list" style="display: flex; justify-content: center; align-content: center">
+            <li id="music-box">
+                <center>
+
+                    <span class="music-cell-header">
+                        <img height="75" src="images/music-art.png" alt="عکس موزیک"/>
+                        <span class="music-title-and-singer">
+                            <span id="music-title-text" class="music-title">عنوان موزیک</span>
+                            <span id="music-singer-text" class="music-singer">خواننده</span>
+                        </span>
+                    </span>
+
+<!--                    <span class="music-cell-controls">-->
+<!--                        <button id="two-x-button" onclick="changePlaybackRate()">2x</button>-->
+<!--                        <button id="add-to-favorites-button"><i id="add-to-favorites-i" class="fa fa-heart-o"-->
+<!--                                                                aria-hidden="true"></i></button>-->
+<!--                    </span>-->
+
+                    <audio controls id="music">
+                        <!--                        <source id="music-playback-source" src="" type="audio/mpeg"> &lt;!&ndash; TODO: Better placeholder &ndash;&gt;-->
+                    </audio>
+                </center>
+                <div class="lyric-box">
+                    <p id="lyrics-text" class="lyric"></p>
+                </div>
+            </li>
         </ul>
     </section>
-</main>
+</div>
 
 <footer>
     تمامی حقوق برای تیم ۹ پروژه محفوظ است
