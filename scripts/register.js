@@ -16,6 +16,7 @@ async function register() {
         // TODO: Send first name also...
     });
     if (response.ok) {
+        console.log(await response.text());
         await fetch('http://130.185.120.192:5000/playlist/create', {
             method: 'POST',
             headers: {
@@ -28,11 +29,11 @@ async function register() {
     }
     else {
         swal({ // TODO: Better failed messages (wrong data, connection,...)
-            title: 'Register failed',
-            text: 'Please try again',
+            title: 'خطا',
+            text: 'لطفا مجددا تلاش نمایید',
             type: 'error',
             confirmButtonColor: '#4C956C',
-            confirmButtonText: 'Cancel',
+            confirmButtonText: 'بازگشت',
         }).then(() => {
         });
     }
@@ -40,7 +41,14 @@ async function register() {
 
 submitButton.onclick = () => {
     if (passwordInput.value !== repeatPasswordInput.value) {
-        // TODO: Show alert error...
+        swal({ // TODO: Better failed messages (wrong data, connection,...)
+            title: 'خطا',
+            text: 'رمز عبور و تکرار آن، هم‌خوانی ندارند',
+            type: 'error',
+            confirmButtonColor: '#4C956C',
+            confirmButtonText: 'بازگشت',
+        }).then(() => {
+        });
         return;
     }
     register();

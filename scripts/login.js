@@ -26,11 +26,11 @@ async function login() {
         document.location = "index.html";
     } else {
         swal({ // TODO: Better failed messages (wrong data, connection,...)
-            title: 'Login failed',
-            text: 'Please try again',
+            title: 'خطا',
+            text: 'لطفا مجددا تلاش نمایید',
             type: 'error',
             confirmButtonColor: '#4C956C',
-            confirmButtonText: 'Cancel',
+            confirmButtonText: 'بازگشت',
         }).then(() => {
         });
     }
