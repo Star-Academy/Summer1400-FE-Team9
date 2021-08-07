@@ -48,10 +48,17 @@ let checkbox = document.getElementById("toggle");
 checkbox.addEventListener('change', function () {
     if (this.checked) {
         setMainTheme(1); // light
+        setPageTheme(1);
     } else {
         setMainTheme(0); // dark
+        setPageTheme(0);
     }
 });
+
+colors={
+    "primary":"",
+    "secondary":""
+}
 
 // colors:
 
@@ -81,16 +88,16 @@ title_color_dark = "whitesmoke";
 
 function setMainTheme(theme) {
     if (theme === 1) {
-        primary = primary_light;
-        secondary = secondary_light;
+        colors.primary = primary_light;
+        colors.secondary = secondary_light;
         content_color = content_color_light;
         text_color = text_color_light;
         nav_color = nav_color_light;
         footer_color = footer_color_light;
         title_color = title_color_light;
     } else {
-        primary = primary_dark;
-        secondary = secondary_dark;
+        colors.primary = primary_dark;
+        colors.secondary = secondary_dark;
         content_color = content_color_dark;
         text_color = text_color_dark;
         nav_color = nav_color_dark;
@@ -99,7 +106,7 @@ function setMainTheme(theme) {
     }
     document.getElementsByTagName("style")[0].innerHTML =
         "  body > header {\n" +
-        "    background-color: " + primary + ";\n" +
+        "    background-color: " + colors.primary + ";\n" +
         "  }\n" +
         "\n" +
         "  #selected-tab, #main-selected-tab {\n" +
@@ -107,7 +114,7 @@ function setMainTheme(theme) {
         "  }\n" +
         "\n" +
         "  .more-buttons ul li:hover {\n" +
-        "    background-color: " + secondary + ";\n" +
+        "    background-color: " + colors.secondary + ";\n" +
         "  }\n" +
         "\n" +
         "  .hidden .hidden-text {\n" +
@@ -116,7 +123,7 @@ function setMainTheme(theme) {
         "\n" +
         "  body {\n" +
         "    color: " + text_color + ";\n" +
-        "    background-color: " + primary + ";\n" +
+        "    background-color: " + colors.primary + ";\n" +
         "  }\n" +
         "\n" +
         "  .logo h1 {\n" +
@@ -127,13 +134,13 @@ function setMainTheme(theme) {
         "    color: " + text_color + ";\n" +
         "  }\n" +
         "  header ul li.primary-button {\n" +
-        "    background-color: " + secondary + ";\n" +
+        "    background-color: " + colors.secondary + ";\n" +
         "  }\n" +
         "  header ul li a {\n" +
         "    color: " + nav_color + ";\n" +
         "  }\n" +
         "  header ul li:hover {\n" +
-        "    background-color: " + secondary + ";\n" +
+        "    background-color: " + colors.secondary + ";\n" +
         "  }\n" +
         "\n" +
         "  footer {\n" +
