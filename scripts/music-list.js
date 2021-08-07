@@ -11,6 +11,10 @@ const favMusicsElement = document.getElementById("fav-musics");
 const musicDetailsElement = document.getElementById("music-details");
 const musicListElement = document.getElementById("music-list-ul");
 
+function shouldOnlyShowFavorites() {
+    return pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها";
+}
+
 function isFavorite(music) {
     let flag = false;
     if (favoriteMusics == null || favoriteMusics === []) return false;
@@ -271,7 +275,7 @@ function toggleFavoriteStatusForMusicObject(music, includes) {
         favoriteMusics.push(music);
     }
     populateFavoritesPlaylist();
-    renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
+    renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites);
 }
 
 async function toggleFavoriteStatus(music) {
@@ -313,7 +317,7 @@ async function loadAllMusics() {
     if (response.ok) {
         musics = await response.json();
         await loadAllPlaylists();
-        renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
+        renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites());
         document.getElementsByClassName("loader")[0].style.display = "none"; // preloader
     } else {
         console.log("Server error");
@@ -321,7 +325,7 @@ async function loadAllMusics() {
 }
 
 let searchBox = document.getElementById("search-input");
-searchBox.oninput = () => renderMusicList(musics, searchBox.value, pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها");
+searchBox.oninput = () => renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites());
 
 loadAllMusics();
 
