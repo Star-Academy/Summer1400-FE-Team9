@@ -65,7 +65,8 @@ let colors_light = {
     "nav_color": "white",
     "header_color": "wheat",
     "footer_color": "white",
-    "title_color": "whitesmoke"
+    "title_color": "whitesmoke",
+    "logo_path":"musix-light.png"
 }
 
 let colors_dark = {
@@ -76,7 +77,8 @@ let colors_dark = {
     "nav_color": "white",
     "header_color": "wheat",
     "footer_color": "white",
-    "title_color": "whitesmoke"
+    "title_color": "whitesmoke",
+    "logo_path":"musix-dark.png"
 }
 
 function setMainTheme(theme) {
@@ -107,6 +109,9 @@ function setMainTheme(theme) {
         "    background-color: " + colors.primary + ";\n" +
         "  }\n" +
         "\n" +
+        ".logo img {\n" +
+        "    content: url(\"images/"+colors.logo_path+"\");\n" +
+        "  }\n" +
         "  .logo h1 {\n" +
         "    color: " + colors.header_color + ";\n" +
         "  }\n" +
@@ -128,4 +133,5 @@ function setMainTheme(theme) {
         "    color: " + colors.footer_color + ";\n" +
         "  }\n" +
         "}\n";
+    console.log("    content: url(\"../images/"+colors.logo_path+"\");\n");
 }
