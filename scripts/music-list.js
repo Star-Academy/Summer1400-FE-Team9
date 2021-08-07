@@ -11,58 +11,6 @@ const favMusicsElement = document.getElementById("fav-musics");
 const musicDetailsElement = document.getElementById("music-details");
 const musicListElement = document.getElementById("music-list-ul");
 
-// let musics = [
-//     {
-//         name: "عنوان آهنگ ۱",
-//         artist: "خواننده آهنگ ۱",
-//         cover: "images/music-art.png",
-//         file: "assets/audios/music.mp3",
-//         lyrics: ""
-//     },
-//     {
-//         name: "عنوان آهنگ ۲",
-//         artist: "خواننده آهنگ ۲",
-//         cover: "images/music-art.png",
-//         file: "assets/audios/music.mp3",
-//         lyrics: ""
-//     },
-//     {
-//         name: "عنوان آهنگ ۳",
-//         artist: "خواننده آهنگ ۳",
-//         cover: "images/music-art.png",
-//         file: "assets/audios/music.mp3",
-//         lyrics: ""
-//     },
-//     {
-//         name: "عنوان آهنگ ۴",
-//         artist: "خواننده آهنگ ۴",
-//         cover: "images/music-art.png",
-//         file: "assets/audios/music.mp3",
-//         lyrics: ""
-//     },
-//     {
-//         name: "عنوان آهنگ ۵",
-//         artist: "خواننده آهنگ ۵",
-//         cover: "images/music-art.png",
-//         file: "assets/audios/music.mp3",
-//         lyrics: ""
-//     },
-//     {
-//         name: "عنوان آهنگ ۶",
-//         artist: "خواننده آهنگ ۶",
-//         cover: "images/music-art.png",
-//         file: "assets/audios/music.mp3",
-//         lyrics: ""
-//     },
-//     {
-//         name: "عنوان آهنگ ۷",
-//         artist: "خواننده آهنگ ۷",
-//         cover: "images/music-art.png",
-//         file: "assets/audios/music.mp3",
-//         lyrics: ""
-//     }
-// ];
-
 function isFavorite(music) {
     let flag = false;
     if (favoriteMusics == null || favoriteMusics === []) return false;
