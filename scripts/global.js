@@ -55,49 +55,33 @@ checkbox.addEventListener('change', function () {
     }
 });
 
-colors = {
-    "primary": "",
-    "secondary": "",
-    "content_color": "",
-    "text_color": "",
-    "nav_color": "",
-    "footer_color": "",
-    "title_color": ""
+let colors;
+
+let colors_light = {
+    "primary": "#ff7e44",
+    "secondary": "#3a3f55",
+    "content_color": "wheat",
+    "text_color": "#000000",
+    "nav_color": "white",
+    "footer_color": "white",
+    "title_color": "whitesmoke"
 }
 
-primary_light = "#ff7e44";
-secondary_light = "#3a3f55";
-content_color_light = "wheat";
-text_color_light = "#000000";
-nav_color_light = "white";
-footer_color_light = "white";
-title_color_light = "whitesmoke";
-
-primary_dark = "#3a3f55";
-secondary_dark = "#ff7e44";
-content_color_dark = "lightgray";
-text_color_dark = "#000000";
-nav_color_dark = "white";
-footer_color_dark = "white";
-title_color_dark = "whitesmoke";
+let colors_dark = {
+    "primary": "#3a3f55",
+    "secondary": "#ff7e44",
+    "content_color": "lightgray",
+    "text_color": "#000000",
+    "nav_color": "white",
+    "footer_color": "white",
+    "title_color": "whitesmoke"
+}
 
 function setMainTheme(theme) {
     if (theme === 1) {
-        colors.primary = primary_light;
-        colors.secondary = secondary_light;
-        colors.content_color = content_color_light;
-        colors.text_color = text_color_light;
-        colors.nav_color = nav_color_light;
-        colors.footer_color = footer_color_light;
-        colors.title_color = title_color_light;
+        colors=colors_light;
     } else {
-        colors.primary = primary_dark;
-        colors.secondary = secondary_dark;
-        colors.content_color = content_color_dark;
-        colors.text_color = text_color_dark;
-        colors.nav_color = nav_color_dark;
-        colors.footer_color = footer_color_dark;
-        colors.title_color = title_color_dark;
+        colors=colors_dark;
     }
     document.getElementsByTagName("style")[0].innerHTML =
         "  body > header {\n" +
