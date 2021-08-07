@@ -23,8 +23,16 @@ body > header {
   background-color: $primary;
 }
 
-#selected-tab, #main-selected-tab {
-  color: $content-color;
+#li-selected-tab {
+  background-color: $secondary;
+}
+
+#li-selected-tab2 {
+  background-color: $secondary;
+}
+
+.fav-link {
+  background-color: $secondary;
 }
 
 .more-buttons {
@@ -259,9 +267,19 @@ footer {
   body > header {
     background-color: $primary-dark;
   }
-  #selected-tab, #main-selected-tab {
-    color: $content-color-dark;
+
+  #li-selected-tab {
+    background-color: $secondary-dark;
   }
+
+  #li-selected-tab2 {
+    background-color: $secondary-dark;
+  }
+
+  .fav-link {
+    background-color: $secondary-dark;
+  }
+
   .more-buttons {
     ul {
       li:hover {

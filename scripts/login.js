@@ -1,8 +1,8 @@
-let submitButton = document.getElementById("submit-button");
-let emailInput = document.getElementById("email-input");
-let passwordInput = document.getElementById("password-input");
+const submitButton = document.getElementById("submit-button");
+const emailInput = document.getElementById("email-input");
+const passwordInput = document.getElementById("password-input");
 
-async function login() {
+async function getLoginResponse() {
     let response = await fetch('http://130.185.120.192:5000/user/login', {
         method: 'POST',
         headers: {
@@ -11,27 +11,34 @@ async function login() {
         },
         body: JSON.stringify({email: emailInput.value, password: passwordInput.value})
     });
+    return response;
+}
+
+async function createInitialPlaylist(json) {
+    await fetch('http://130.185.120.192:5000/playlist/create', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name: "favorites", token: json.token})
+    });
+}
+
+function saveLoginData(json) {
+    localStorage.setItem("is-logged-in", "true");
+    localStorage.setItem("token", json.token);
+}
+
+async function login() {
+    let response = await getLoginResponse();
     if (response.ok) {
         let json = await response.json();
-        await fetch('http://130.185.120.192:5000/playlist/create', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name: "favorites", token: json.token})
-        });
-        localStorage.setItem("is-logged-in", "true");
-        localStorage.setItem("token", json.token);
+        await createInitialPlaylist(json);
+        saveLoginData(json);
         document.location = "index.html";
     } else {
-        swal({ // TODO: Better failed messages (wrong data, connection,...)
-            title: 'خطا',
-            text: 'لطفا مجددا تلاش نمایید',
-            type: 'error',
-            confirmButtonColor: '#4C956C',
-            confirmButtonText: 'بازگشت',
-        }).then(() => {
+        swal(genericErrorAlertDetails).then(() => {
         });
     }
 }

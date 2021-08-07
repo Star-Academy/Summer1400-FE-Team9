@@ -1,3 +1,13 @@
+const alertColor = "#4C956C";
+
+const genericErrorAlertDetails = { // TODO: Better failed messages (wrong data, connection,...)
+    title: 'خطا',
+    text: 'لطفا مجددا تلاش نمایید',
+    type: 'error',
+    confirmButtonColor: alertColor,
+    confirmButtonText: 'بازگشت',
+};
+
 function createRipple(event) {
     const button = event.currentTarget;
     const circle = document.createElement("span");

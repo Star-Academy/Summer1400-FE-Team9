@@ -6,7 +6,7 @@
 }
 
 article {
-  margin: 5% 11% 5% 12%;
+  margin: 5% 8%;
   background-color: $content-color;
   border-radius: 2em;
   padding: 3% 5% 5% 7.2%;
@@ -115,6 +115,8 @@ article {
 
 @media (min-width: 600px) {
   article {
+    margin: 5% 20%;
+
     .authenticate-button {
       .submit-button {
         font-size: x-large;
@@ -143,7 +145,7 @@ article {
 
 @media (min-width: 1023px) {
   article {
-    margin: 2% 25%;
+    margin: 5% 30%;
   }
 }
 
