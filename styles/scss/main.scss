@@ -141,6 +141,10 @@ header {
   flex-direction: row;
   z-index: 2;
 
+  img{
+    content: url("../../images/music-light.png");
+  }
+
   a {
     text-decoration: none;
   }
@@ -305,6 +309,10 @@ footer {
     }
   }
   header {
+    img{
+      content: url("../../images/music-dark.png");
+    }
+
     .site-title {
       color: $text-color-dark;
     }
