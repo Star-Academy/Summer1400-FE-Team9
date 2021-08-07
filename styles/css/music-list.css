@@ -81,8 +81,10 @@ ul.music-list li {
   margin: 8%;
   max-width: 60%;
   height: 70%;
+  opacity: 95%;
 }
 ul.music-list li:hover {
+  opacity: 100%;
   box-shadow: rgba(0, 0, 0, 0.7) 0px 54px 55px, rgba(0, 0, 0, 0.75) 0px -12px 30px, rgba(0, 0, 0, 0.5) 0px 4px 6px, rgba(0, 0, 0, 0.37) 0px 12px 13px, rgba(0, 0, 0, 0.2) 0px -3px 5px;
 }
 ul.music-list li span.music-cell-header {

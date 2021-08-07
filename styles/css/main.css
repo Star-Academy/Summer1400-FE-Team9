@@ -56,7 +56,7 @@ body > header {
 }
 .more-buttons ul li a {
   text-decoration: none;
-  color: white;
+  color: #3a3f55;
   font-size: medium;
 }
 .more-buttons ul li:hover {
@@ -65,7 +65,7 @@ body > header {
 }
 
 .hidden .hidden-text {
-  color: white;
+  color: #3a3f55;
 }
 .hidden .hidden-text .down-arrow {
   font-size: 0.65em;
@@ -166,7 +166,7 @@ header ul li.primary-button > a:hover {
   opacity: 60%;
 }
 header ul li a {
-  color: white;
+  color: #3a3f55;
   text-decoration: none;
 }
 header ul li:hover {

@@ -39,7 +39,7 @@ for (const button of inputButtons) {
 }
 
 let favLink = document.getElementById("fav-link");
-let loginLink = document.getElementById("login-link");
+let loginLink = document.getElementsByClassName("login-link")[0];
 let registerLink = document.getElementById("register-link");
 if (localStorage.getItem("is-logged-in") === "true") {
     loginLink.style.display = "none";
@@ -73,7 +73,7 @@ let colors_light = {
     "content_color": "wheat",
     "text_color": "#000000",
     "nav_color": "white",
-    "header_color": "wheat",
+    "header_color": "#3a3f55",
     "footer_color": "white",
     "title_color": "whitesmoke",
     "logo_path":"musix-light.png",

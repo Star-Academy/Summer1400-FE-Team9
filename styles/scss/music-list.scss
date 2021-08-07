@@ -91,8 +91,10 @@ ul.music-list {
     margin: 8%;
     max-width: 60%;
     height: 70%;
+    opacity: 95%;
 
     &:hover {
+      opacity: 100%;
       box-shadow: rgba(0, 0, 0, 0.7) 0px 54px 55px, rgba(0, 0, 0, 0.75) 0px -12px 30px, rgba(0, 0, 0, 0.50) 0px 4px 6px, rgba(0, 0, 0, 0.37) 0px 12px 13px, rgba(0, 0, 0, 0.20) 0px -3px 5px;
     }
 
