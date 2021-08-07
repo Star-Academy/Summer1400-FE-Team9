@@ -43,13 +43,13 @@
   width: 100%;
   margin: 20px;
   transition: all 0.5s ease-in-out;
-  overflow: scroll;
+  //overflow: scroll;
 
   ul {
     li {
-      overflow: scroll;
+      //overflow: scroll;
     }
-    overflow: scroll;
+    //overflow: scroll;
   }
 }
 
@@ -82,6 +82,7 @@ ul.music-list {
     padding: 7%;
     margin: 8%;
     max-width: 60%;
+    height: 70%;
 
     &:hover {
       box-shadow: rgba(0, 0, 0, 0.7) 0px 54px 55px, rgba(0, 0, 0, 0.75) 0px -12px 30px, rgba(0, 0, 0, 0.50) 0px 4px 6px, rgba(0, 0, 0, 0.37) 0px 12px 13px, rgba(0, 0, 0, 0.20) 0px -3px 5px;

@@ -50,15 +50,7 @@ $title-color: whitesmoke;
   width: 100%;
   margin: 20px;
   transition: all 0.5s ease-in-out;
-  overflow: scroll;
 }
-#music-details ul {
-  overflow: scroll;
-}
-#music-details ul li {
-  overflow: scroll;
-}
-
 section.all-musics > ul {
   display: flex;
   justify-content: center;
@@ -88,6 +80,7 @@ ul.music-list li {
   padding: 7%;
   margin: 8%;
   max-width: 60%;
+  height: 70%;
 }
 ul.music-list li:hover {
   box-shadow: rgba(0, 0, 0, 0.7) 0px 54px 55px, rgba(0, 0, 0, 0.75) 0px -12px 30px, rgba(0, 0, 0, 0.5) 0px 4px 6px, rgba(0, 0, 0, 0.37) 0px 12px 13px, rgba(0, 0, 0, 0.2) 0px -3px 5px;
