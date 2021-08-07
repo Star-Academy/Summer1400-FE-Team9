@@ -1,4 +1,5 @@
 @import "colors.scss";
+@import "music-list.scss";
 
 .lyric {
   font-size: medium;
@@ -39,6 +40,19 @@ h3.lyric {
   overflow-x: hidden;
   margin-top: 5%;
   margin-right: 2%;
+}
+
+#music-box {
+  .music-cell-header {
+    .music-title-and-singer {
+      #music-title-text {
+        @include limited-text(10); // 10 is only a huge number
+      }
+      #music-singer-text {
+        @include limited-text(10); // 10 is only a huge number
+      }
+    }
+  }
 }
 
 @media (min-width: 458px) {
