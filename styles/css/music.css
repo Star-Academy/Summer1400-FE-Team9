@@ -42,7 +42,8 @@ h3.lyric {
 
 .lyric-box {
   height: 21rem;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   margin-top: 5%;
   margin-right: 2%;
 }
