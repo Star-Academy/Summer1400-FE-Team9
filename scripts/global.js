@@ -13,7 +13,7 @@ function createRipple(event) {
 }
 
 async function logoutUser() {
-    let response = await fetch('http://130.185.120.192:5000/user/logout', { method: 'POST' });
+    let response = await fetch('http://130.185.120.192:5000/user/logout', {method: 'POST'});
     localStorage.setItem("is-logged-in", "false");
     localStorage.setItem("token", "");
     document.location = "index.html";
@@ -48,27 +48,22 @@ let checkbox = document.getElementById("toggle");
 checkbox.addEventListener('change', function () {
     if (this.checked) {
         setMainTheme(1); // light
-        setPageTheme(1);
+        setPageTheme(colors);
     } else {
         setMainTheme(0); // dark
-        setPageTheme(0);
+        setPageTheme(colors);
     }
 });
 
-colors={
-    "primary":"",
-    "secondary":""
+colors = {
+    "primary": "",
+    "secondary": "",
+    "content_color": "",
+    "text_color": "",
+    "nav_color": "",
+    "footer_color": "",
+    "title_color": ""
 }
-
-// colors:
-
-let primary;
-let secondary;
-let content_color;
-let text_color;
-let nav_color;
-let footer_color;
-let title_color;
 
 primary_light = "#ff7e44";
 secondary_light = "#3a3f55";
@@ -90,19 +85,19 @@ function setMainTheme(theme) {
     if (theme === 1) {
         colors.primary = primary_light;
         colors.secondary = secondary_light;
-        content_color = content_color_light;
-        text_color = text_color_light;
-        nav_color = nav_color_light;
-        footer_color = footer_color_light;
-        title_color = title_color_light;
+        colors.content_color = content_color_light;
+        colors.text_color = text_color_light;
+        colors.nav_color = nav_color_light;
+        colors.footer_color = footer_color_light;
+        colors.title_color = title_color_light;
     } else {
         colors.primary = primary_dark;
         colors.secondary = secondary_dark;
-        content_color = content_color_dark;
-        text_color = text_color_dark;
-        nav_color = nav_color_dark;
-        footer_color = footer_color_dark;
-        title_color = title_color_dark;
+        colors.content_color = content_color_dark;
+        colors.text_color = text_color_dark;
+        colors.nav_color = nav_color_dark;
+        colors.footer_color = footer_color_dark;
+        colors.title_color = title_color_dark;
     }
     document.getElementsByTagName("style")[0].innerHTML =
         "  body > header {\n" +
@@ -110,7 +105,7 @@ function setMainTheme(theme) {
         "  }\n" +
         "\n" +
         "  #selected-tab, #main-selected-tab {\n" +
-        "    color: " + content_color + ";\n" +
+        "    color: " + colors.content_color + ";\n" +
         "  }\n" +
         "\n" +
         "  .more-buttons ul li:hover {\n" +
@@ -118,33 +113,33 @@ function setMainTheme(theme) {
         "  }\n" +
         "\n" +
         "  .hidden .hidden-text {\n" +
-        "    color: " + nav_color + ";\n" +
+        "    color: " + colors.nav_color + ";\n" +
         "  }\n" +
         "\n" +
         "  body {\n" +
-        "    color: " + text_color + ";\n" +
+        "    color: " + colors.text_color + ";\n" +
         "    background-color: " + colors.primary + ";\n" +
         "  }\n" +
         "\n" +
         "  .logo h1 {\n" +
-        "    color: " + content_color + ";\n" +
+        "    color: " + colors.content_color + ";\n" +
         "  }\n" +
         "\n" +
         "  header .site-title {\n" +
-        "    color: " + text_color + ";\n" +
+        "    color: " + colors.text_color + ";\n" +
         "  }\n" +
         "  header ul li.primary-button {\n" +
         "    background-color: " + colors.secondary + ";\n" +
         "  }\n" +
         "  header ul li a {\n" +
-        "    color: " + nav_color + ";\n" +
+        "    color: " + colors.nav_color + ";\n" +
         "  }\n" +
         "  header ul li:hover {\n" +
         "    background-color: " + colors.secondary + ";\n" +
         "  }\n" +
         "\n" +
         "  footer {\n" +
-        "    color: " + footer_color + ";\n" +
+        "    color: " + colors.footer_color + ";\n" +
         "  }\n" +
         "}\n";
 }
