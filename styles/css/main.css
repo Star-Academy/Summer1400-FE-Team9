@@ -29,12 +29,11 @@ body > header {
   background-color: #ff7e44;
 }
 
-#li-selected-tab {
-  background-color: #3a3f55;
+#main-selected-tab, #selected-tab {
+  color: #3a3f55;
 }
-
-#li-selected-tab2 {
-  background-color: #3a3f55;
+#main-selected-tab:hover, #selected-tab:hover {
+  color: wheat;
 }
 
 .fav-link {
@@ -61,6 +60,7 @@ body > header {
   font-size: medium;
 }
 .more-buttons ul li:hover {
+  color: wheat;
   background-color: #3a3f55;
 }
 
@@ -170,6 +170,7 @@ header ul li a {
   text-decoration: none;
 }
 header ul li:hover {
+  color: wheat;
   background-color: #3a3f55;
 }
 
@@ -239,19 +240,15 @@ footer {
     background-color: #3a3f55;
   }
 
-  #li-selected-tab {
-    background-color: #ff7e44;
+  #main-selected-tab, #selected-tab {
+    color: #ff7e44;
   }
-
-  #li-selected-tab2 {
-    background-color: #ff7e44;
-  }
-
-  .fav-link {
-    background-color: #ff7e44;
+  #main-selected-tab:hover, #selected-tab:hover {
+    color: lightgray;
   }
 
   .more-buttons ul li:hover {
+    color: wheat;
     background-color: #ff7e44;
   }
 
@@ -284,6 +281,7 @@ footer {
     color: white;
   }
   header ul li:hover {
+    color: wheat;
     background-color: #ff7e44;
   }
 
