@@ -98,7 +98,7 @@ body {
   }
 
   h1 {
-    color: $content-color;
+    color: $header-color;
     font-size: x-large;
   }
 }
@@ -280,7 +280,7 @@ footer {
   }
   .logo {
     h1 {
-      color: $content-color-dark;
+      color: $header-color-dark;
     }
   }
   header {

@@ -63,6 +63,7 @@ let colors_light = {
     "content_color": "wheat",
     "text_color": "#000000",
     "nav_color": "white",
+    "header_color": "wheat",
     "footer_color": "white",
     "title_color": "whitesmoke"
 }
@@ -73,6 +74,7 @@ let colors_dark = {
     "content_color": "lightgray",
     "text_color": "#000000",
     "nav_color": "white",
+    "header_color": "wheat",
     "footer_color": "white",
     "title_color": "whitesmoke"
 }
@@ -106,7 +108,7 @@ function setMainTheme(theme) {
         "  }\n" +
         "\n" +
         "  .logo h1 {\n" +
-        "    color: " + colors.content_color + ";\n" +
+        "    color: " + colors.header_color + ";\n" +
         "  }\n" +
         "\n" +
         "  header .site-title {\n" +
