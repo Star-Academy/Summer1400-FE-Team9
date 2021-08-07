@@ -30,14 +30,9 @@ function isFavorite(music) {
 
 // MARK: UI Functions
 
-function setWidthOfSearch(width) {
+function setBorderForSearch(borderWidth) {
     let searchBox = document.getElementById("search");
-    searchBox.style.width = width + "%";
-    if (width === 40) {
-        searchBox.style.borderRadius = "999rem";
-    } else {
-        searchBox.style.borderRadius = "0";
-    }
+    searchBox.style.border = borderWidth + "px solid red";
 }
 
 // MARK: Main functions
@@ -328,13 +323,13 @@ loadAllMusics();
 function setPageTheme(colors) {
     document.getElementsByTagName("style")[0].innerHTML +=
         "ul.music-list li {\n" +
-        "    background-color: "+colors.content_color+";\n" +
+        "    background-color: " + colors.content_color + ";\n" +
         "  }\n" +
         "  ul.music-list li span.music-cell-controls button {\n" +
-        "    color: "+colors.primary+";\n" +
-        "    border: 2px solid "+colors.primary+";\n" +
+        "    color: " + colors.primary + ";\n" +
+        "    border: 2px solid " + colors.primary + ";\n" +
         "  }\n" +
         "  ul.music-list li span.music-cell-controls a {\n" +
-        "    background-color: "+colors.primary+";\n" +
+        "    background-color: " + colors.primary + ";\n" +
         "  }";
 }
