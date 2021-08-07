@@ -135,11 +135,21 @@ ul.music-list li span.music-cell-controls a:hover {
 ul.music-list li span.music-title {
   text-align: right;
   font-size: large;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 ul.music-list li span.music-singer {
   text-align: right;
   font-size: medium;
   color: gray;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 #all-musics {

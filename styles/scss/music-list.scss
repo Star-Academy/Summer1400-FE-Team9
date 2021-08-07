@@ -1,5 +1,13 @@
 @import "colors.scss";
 
+@mixin limited-text($lines){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
 .cover {
   transition: all 0.5s;
   border-radius: 25rem;
@@ -147,12 +155,14 @@ ul.music-list {
     span.music-title {
       text-align: right;
       font-size: large;
+      @include limited-text(1);
     }
 
     span.music-singer {
       text-align: right;
       font-size: medium;
       color: gray;
+      @include limited-text(1);
     }
   }
 }
