@@ -90,11 +90,11 @@ async function loadMusic() {
 function setPlaybackRate(rate) {
     musicHTML.playbackRate = rate;
     if (rate === 2) {
-        twoXButton.style.backgroundColor = "#4C956C";
+        twoXButton.style.backgroundColor = alertColor;
         twoXButton.style.color = "#fff";
     } else {
         twoXButton.style.backgroundColor = "transparent";
-        twoXButton.style.color = "#4C956C";
+        twoXButton.style.color = alertColor;
     }
 }
 
