@@ -90,6 +90,7 @@ body > header {
 .logo img {
   width: 20%;
   margin-left: 1.5rem;
+  content: url("../../images/musix-light.png");
 }
 .logo h1 {
   color: wheat;
@@ -244,6 +245,9 @@ footer {
     background-color: #3a3f55;
   }
 
+  .logo img {
+    content: url("../../images/musix-dark.png");
+  }
   .logo h1 {
     color: wheat;
   }
