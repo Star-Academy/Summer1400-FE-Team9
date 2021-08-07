@@ -10,10 +10,10 @@ if (localStorage.getItem("is-logged-in") === "true") {
 function setPageTheme(colors) {
     document.getElementsByTagName("style")[0].innerHTML +=
         "article {\n" +
-        "    background-color: " + colors.text_color + ";\n" +
+        "    background-color: " + colors.content_color + ";\n" +
         "  }\n" +
         "  article header a {\n" +
         "    background-color: " + colors.primary + ";\n" +
         "  }"
-    console.log("I'm here in setPageTheme method");
+    //console.log(colors.content_color);
 }
