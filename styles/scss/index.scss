@@ -99,13 +99,13 @@ article {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  article {
-    background-color: $content-color-dark;
-    header {
-      a {
-        background-color: $primary-dark;
-      }
-    }
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  article {
+//    background-color: $content-color-dark;
+//    header {
+//      a {
+//        background-color: $primary-dark;
+//      }
+//    }
+//  }
+//}

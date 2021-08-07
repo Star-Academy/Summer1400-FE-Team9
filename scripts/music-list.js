@@ -34,9 +34,14 @@ function isFavorite(music) {
 
 // MARK: UI Functions
 
-function setBorderForSearch(borderWidth) {
+function setWidthOfSearch(width) {
     let searchBox = document.getElementById("search");
-    searchBox.style.border = borderWidth + "px solid red";
+    searchBox.style.width = width + "%";
+    if (width === 40) {
+        searchBox.style.borderRadius = "999rem";
+    } else {
+        searchBox.style.borderRadius = "0";
+    }
 }
 
 // MARK: Main functions
