@@ -270,7 +270,7 @@ function toggleFavoriteStatusForMusicObject(music, includes) {
         favoriteMusics.push(music);
     }
     populateFavoritesPlaylist();
-    renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites);
+    renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites());
 }
 
 async function toggleFavoriteStatus(music) {
