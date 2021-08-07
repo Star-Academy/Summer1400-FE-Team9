@@ -1,9 +1,8 @@
-let submitButton = document.getElementById("submit-button");
-let firstNameInput = document.getElementById("firstName-input");
-let usernameInput = document.getElementById("username-input");
-let emailInput = document.getElementById("email-input");
-let passwordInput = document.getElementById("password-input");
-let repeatPasswordInput = document.getElementById("repeat-password-input");
+const submitButton = document.getElementById("submit-button");
+const usernameInput = document.getElementById("username-input");
+const emailInput = document.getElementById("email-input");
+const passwordInput = document.getElementById("password-input");
+const repeatPasswordInput = document.getElementById("repeat-password-input");
 
 async function register() {
     let response = await fetch('http://130.185.120.192:5000/user/register', {

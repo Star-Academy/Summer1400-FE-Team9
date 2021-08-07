@@ -4,16 +4,16 @@ let playlists = [];
 let favoriteMusics = null;
 let favoriteMusicsPlayListID = 0;
 
-let musicHTML = document.getElementById("music");
-let twoXButton = document.getElementById("two-x-button");
+const musicHTML = document.getElementById("music");
+const twoXButton = document.getElementById("two-x-button");
 
-let titleTag = document.getElementById("title");
-let musicCoverImage = document.getElementById("music-cover-image");
-let musicTitleText = document.getElementById("music-title-text");
-let musicSingerText = document.getElementById("music-singer-text");
-let lyricsText = document.getElementById("lyrics-text");
-let audioTag = document.getElementById("music");
-let addToFavoritesI = document.getElementById("add-to-favorites-i");
+const titleTag = document.getElementById("title");
+const musicCoverImage = document.getElementById("music-cover-image");
+const musicTitleText = document.getElementById("music-title-text");
+const musicSingerText = document.getElementById("music-singer-text");
+const lyricsText = document.getElementById("lyrics-text");
+const audioTag = document.getElementById("music");
+const addToFavoritesI = document.getElementById("add-to-favorites-i");
 
 function isFavorite(music) {
     let flag = false;

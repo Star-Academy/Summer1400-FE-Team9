@@ -5,11 +5,11 @@ let playlists = [];
 let favoriteMusics = null;
 let favoriteMusicsPlayListID = 0;
 
-let overlay = document.getElementById("overlay");
-let allMusicsElement = document.getElementById("all-musics");
-let favMusicsElement = document.getElementById("fav-musics");
-let musicDetailsElement = document.getElementById("music-details");
-let musicListElement = document.getElementById("music-list-ul");
+const overlay = document.getElementById("overlay");
+const allMusicsElement = document.getElementById("all-musics");
+const favMusicsElement = document.getElementById("fav-musics");
+const musicDetailsElement = document.getElementById("music-details");
+const musicListElement = document.getElementById("music-list-ul");
 
 // let musics = [
 //     {

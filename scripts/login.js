@@ -1,6 +1,6 @@
-let submitButton = document.getElementById("submit-button");
-let emailInput = document.getElementById("email-input");
-let passwordInput = document.getElementById("password-input");
+const submitButton = document.getElementById("submit-button");
+const emailInput = document.getElementById("email-input");
+const passwordInput = document.getElementById("password-input");
 
 async function login() {
     let response = await fetch('http://130.185.120.192:5000/user/login', {
