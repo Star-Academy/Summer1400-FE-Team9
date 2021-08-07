@@ -14,6 +14,5 @@ function setPageTheme(colors) {
         "  }\n" +
         "  article header a {\n" +
         "    background-color: " + colors.primary + ";\n" +
-        "  }"
-    //console.log(colors.content_color);
+        "  }";
 }
