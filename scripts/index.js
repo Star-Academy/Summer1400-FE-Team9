@@ -7,14 +7,12 @@ if (localStorage.getItem("is-logged-in") === "true") {
     registerIndexLink.setAttribute("href", "login.html");
 }
 
-// toggle:
-
-let checkbox = document.getElementById("toggle");
-
-checkbox.addEventListener('change', function() {
-    if (this.checked) {
-        console.log("Checkbox is checked..");
-    } else {
-        console.log("Checkbox is not checked..");
-    }
-});
+function setPageTheme(colors) {
+    document.getElementsByTagName("style")[0].innerHTML +=
+        "article {\n" +
+        "    background-color: " + colors.content_color + ";\n" +
+        "  }\n" +
+        "  article header a {\n" +
+        "    background-color: " + colors.primary + ";\n" +
+        "  }";
+}
