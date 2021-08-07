@@ -148,5 +148,4 @@ function setMainTheme(theme) {
         "    color: " + colors.footer_color + ";\n" +
         "  }\n" +
         "}\n";
-    console.log("    content: url(\"../images/"+colors.logo_path+"\");\n");
 }

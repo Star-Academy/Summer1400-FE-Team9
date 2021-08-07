@@ -15,4 +15,5 @@ function setPageTheme(colors) {
         "  article header a {\n" +
         "    background-color: " + colors.primary + ";\n" +
         "  }";
+    console.log("I'm here");
 }
