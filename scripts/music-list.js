@@ -109,6 +109,8 @@ function renderMusicControls(music) {
 }
 
 function makeOverlayVisible() {
+    let image = document.getElementById("music-overlay-image");
+    image.style.opacity="1";
     overlay.style.visibility = "visible";
     overlay.style.opacity = "1";
     overlay.style.transform = "scale(1) translate(0, -25%)";
@@ -123,7 +125,8 @@ function makeOverlayHidden() {
     overlay.style.transform = "scale(0.5) translate(0, -25%)";
     if (allMusicsElement != null) allMusicsElement.style.opacity = "100%";
     if (favMusicsElement != null) favMusicsElement.style.opacity = "100%";
-    image.src = "images/music-art.png";
+    image.style.opacity="0";
+    image.src = "";
 }
 
 function populateOverlay(music) {
