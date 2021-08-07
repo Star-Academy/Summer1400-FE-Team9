@@ -23,12 +23,12 @@ body > header {
   background-color: $primary;
 }
 
-#li-selected-tab {
-  background-color: $secondary;
-}
+#main-selected-tab, #selected-tab {
+  color: $secondary;
 
-#li-selected-tab2 {
-  background-color: $secondary;
+  &:hover {
+    color: $content-color;
+  }
 }
 
 .fav-link {
@@ -58,6 +58,7 @@ body > header {
     }
 
     li:hover {
+      color: $content-color;
       background-color: $secondary;
     }
   }
@@ -187,6 +188,7 @@ header {
     }
 
     li:hover {
+      color: $content-color;
       background-color: $secondary;
     }
   }
@@ -268,21 +270,18 @@ footer {
     background-color: $primary-dark;
   }
 
-  #li-selected-tab {
-    background-color: $secondary-dark;
-  }
+  #main-selected-tab, #selected-tab {
+    color: $secondary-dark;
 
-  #li-selected-tab2 {
-    background-color: $secondary-dark;
-  }
-
-  .fav-link {
-    background-color: $secondary-dark;
+    &:hover {
+      color: $content-color-dark;
+    }
   }
 
   .more-buttons {
     ul {
       li:hover {
+        color: $content-color;
         background-color: $secondary-dark;
       }
     }
@@ -318,6 +317,7 @@ footer {
       }
 
       li:hover {
+        color: $content-color;
         background-color: $secondary-dark;
       }
     }
