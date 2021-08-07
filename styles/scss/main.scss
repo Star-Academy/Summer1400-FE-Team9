@@ -100,10 +100,10 @@ body {
   flex-direction: row;
   align-items: center;
 
-
   img {
     width: 20%;
     margin-left: 1.5rem;
+    content:url("../../images/musix-light.png");
   }
 
   h1 {
@@ -296,6 +296,9 @@ footer {
     background-color: $primary-dark;
   }
   .logo {
+    img {
+      content:url("../../images/musix-dark.png");
+    }
     h1 {
       color: $header-color-dark;
     }
