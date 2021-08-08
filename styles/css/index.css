@@ -10,7 +10,7 @@ $title-color: whitesmoke;
 article {
   display: flex;
   flex-direction: column;
-  background-color: wheat;
+  background-color: lightgray;
   border-radius: 2em;
   padding: 7%;
   margin: 1% 6% 3%;
