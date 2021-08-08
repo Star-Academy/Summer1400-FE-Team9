@@ -70,7 +70,7 @@ let colors;
 let colors_light = {
     "primary": "#ff7e44",
     "secondary": "#3a3f55",
-    "content_color": "wheat",
+    "content_color": "lightgray",
     "text_color": "#000000",
     "nav_color": "white",
     "header_color": "#3a3f55",

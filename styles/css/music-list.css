@@ -75,7 +75,7 @@ ul.music-list li {
   justify-content: space-between;
   gap: 10%;
   list-style: none;
-  background-color: wheat;
+  background-color: lightgray;
   border-radius: 2em;
   padding: 7%;
   margin: 8%;

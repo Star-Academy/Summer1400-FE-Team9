@@ -33,7 +33,7 @@ body > header {
   color: #3a3f55;
 }
 #main-selected-tab:hover, #selected-tab:hover {
-  color: wheat;
+  color: lightgray;
 }
 
 .fav-link {
@@ -56,16 +56,16 @@ body > header {
 }
 .more-buttons ul li a {
   text-decoration: none;
-  color: #3a3f55;
+  color: white;
   font-size: medium;
 }
 .more-buttons ul li:hover {
-  color: wheat;
+  color: lightgray;
   background-color: #3a3f55;
 }
 
 .hidden .hidden-text {
-  color: #3a3f55;
+  color: white;
 }
 .hidden .hidden-text .down-arrow {
   font-size: 0.65em;
@@ -101,7 +101,7 @@ body > header {
   content: url("../../images/musix-light.png");
 }
 .logo h1 {
-  color: wheat;
+  color: #3a3f55;
   font-size: x-large;
 }
 
@@ -166,11 +166,11 @@ header ul li.primary-button > a:hover {
   opacity: 60%;
 }
 header ul li a {
-  color: #3a3f55;
+  color: white;
   text-decoration: none;
 }
 header ul li:hover {
-  color: wheat;
+  color: lightgray;
   background-color: #3a3f55;
 }
 
@@ -251,7 +251,7 @@ footer {
     color: white;
   }
   .more-buttons ul li:hover {
-    color: wheat;
+    color: lightgray;
     background-color: #ff7e44;
   }
 
@@ -284,7 +284,7 @@ footer {
     color: white;
   }
   header ul li:hover {
-    color: wheat;
+    color: lightgray;
     background-color: #ff7e44;
   }
 
