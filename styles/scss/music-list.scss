@@ -255,13 +255,13 @@ input {
   #current-page {
     margin-right: 1.5%;
     margin-left: 1.5%;
-    opacity: 0;
+    display: none;
   }
 
   .pagination-button {
     color: white;
     font-size: x-large;
-    opacity: 0;
+    display: none;
   }
 }
 

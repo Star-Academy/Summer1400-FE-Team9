@@ -10,6 +10,28 @@ const allMusicsElement = document.getElementById("all-musics");
 const favMusicsElement = document.getElementById("fav-musics");
 const musicDetailsElement = document.getElementById("music-details");
 const musicListElement = document.getElementById("music-list-ul");
+const currentPageElement = document.getElementById("current-page");
+const arrowRightElement = document.getElementById("previous-page");
+const arrowLeftElement = document.getElementById("next-page");
+
+function setPageNumber(newNumber) {
+    if (currentPageElement == null || arrowLeftElement == null || arrowRightElement == null || shouldOnlyShowFavorites()) return;
+    if (newNumber > musics.songs.length / 24 + 1) return;
+    if (newNumber === 0) {
+        currentPageElement.style.display = "none";
+        arrowRightElement.style.display = "none";
+        arrowLeftElement.style.display = "none";
+        return;
+    }
+    pageNumber = newNumber;
+    currentPageElement.innerHTML = "صفحه‌ی " + pageNumber;
+    currentPageElement.style.display = "block";
+    arrowRightElement.style.display = "block";
+    arrowLeftElement.style.display = "block";
+    if (pageNumber === 1) arrowRightElement.style.display = "none";
+    if (pageNumber > musics.songs.length / 24) arrowLeftElement.style.display = "none";
+    renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites())
+}
 
 function onDragOverFavLi(event) {
     event.preventDefault();
@@ -33,7 +55,7 @@ function onDropFavLi(event) {
 
 function shareLinkTo(music) {
     let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
-    navigator.clipboard.writeText(link).then(function() {
+    navigator.clipboard.writeText(link).then(function () {
         swal({
             title: 'لینک آهنگ در حافظه Clipboard کپی شد',
             text: 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.',
@@ -42,7 +64,7 @@ function shareLinkTo(music) {
             confirmButtonText: 'بازگشت',
         }).then(() => {
         });
-    }, function(err) {
+    }, function (err) {
         swal({
             title: 'خطا',
             text: 'دسترسی کپی به مرورگر داده نشده است. لطفا مجددا تلاش نمایید.',
@@ -179,7 +201,7 @@ function renderMusicControls(music) {
 
 function makeOverlayVisible() {
     let image = document.getElementById("music-overlay-image");
-    image.style.opacity="1";
+    image.style.opacity = "1";
     overlay.style.visibility = "visible";
     overlay.style.opacity = "1";
     overlay.style.transform = "scale(1) translate(0, -25%)";
@@ -194,7 +216,7 @@ function makeOverlayHidden() {
     overlay.style.transform = "scale(0.5) translate(0, -25%)";
     if (allMusicsElement != null) allMusicsElement.style.opacity = "100%";
     if (favMusicsElement != null) favMusicsElement.style.opacity = "100%";
-    image.style.opacity="0";
+    image.style.opacity = "0";
     image.src = "";
 }
 
@@ -409,7 +431,7 @@ async function loadAllMusics() {
     if (response.ok) {
         musics = await response.json();
         await loadAllPlaylists();
-        renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites());
+        setPageNumber(shouldOnlyShowFavorites() ? 0 : 1);
         document.getElementsByClassName("loader")[0].style.display = "none"; // preloader
     } else {
         console.log("Server error");
@@ -417,7 +439,7 @@ async function loadAllMusics() {
 }
 
 let searchBox = document.getElementById("search-input");
-searchBox.oninput = () => renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites());
+searchBox.oninput = () => setPageNumber(0);
 
 loadAllMusics();
 
@@ -434,3 +456,6 @@ function setPageTheme(colors) {
         "    background-color: " + colors.primary + ";\n" +
         "  }";
 }
+
+arrowRightElement.onclick = () => setPageNumber(pageNumber - 1);
+arrowLeftElement.onclick = () => setPageNumber(pageNumber + 1);
