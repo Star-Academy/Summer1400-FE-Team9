@@ -220,6 +220,25 @@ input {
   font-family: "B Yekan", sans-serif;
 }
 
+#pagination-controls {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: x-large;
+  margin-bottom: 8%;
+}
+#pagination-controls #current-page {
+  margin-right: 1.5%;
+  margin-left: 1.5%;
+  opacity: 0;
+}
+#pagination-controls .pagination-button {
+  color: white;
+  font-size: x-large;
+  opacity: 0;
+}
+
 @media (min-width: 667px) {
   ul.music-list {
     grid-template-columns: 50% 50%;

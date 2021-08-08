@@ -1,11 +1,9 @@
-// MARK: Fields and variables
-
 let musics = [];
 let playlists = [];
 let favoriteMusics = null;
 let favoriteMusicsPlayListID = 0;
 
-let pageNumber = 2;
+let pageNumber = 1;
 
 const overlay = document.getElementById("overlay");
 const allMusicsElement = document.getElementById("all-musics");
@@ -321,17 +319,21 @@ function populateFavoritesList() {
     }
 }
 
-function populateSelectedMusics(musics, onlyShowFavorites) {
+function populateSelectedMusics(musics, predicate, onlyShowFavorites) {
     let selectedMusics = JSON.parse(JSON.stringify(musics));
     if (favoriteMusics != null && onlyShowFavorites) {
         selectedMusics.songs = selectedMusics.songs.filter((music) => isFavorite(music));
     } else {
-        let songs = [];
-        for (let i = 24 * (pageNumber - 1); i < 24 * (pageNumber); i++) {
-            if (musics.songs.length <= i) break;
-            songs.push(musics.songs[i]);
+        if (predicate == null || predicate === "") {
+            let songs = [];
+            for (let i = 24 * (pageNumber - 1); i < 24 * (pageNumber); i++) {
+                if (musics.songs.length <= i) break;
+                songs.push(musics.songs[i]);
+            }
+            selectedMusics.songs = songs;
+        } else {
+            selectedMusics.songs = musics.songs;
         }
-        selectedMusics.songs = songs;
     }
     return selectedMusics;
 }
@@ -340,7 +342,7 @@ function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
     populateFavoritesList();
     let ul = document.getElementsByClassName("music-list")[0];
     ul.innerHTML = "";
-    let selectedMusics = populateSelectedMusics(musics, onlyShowFavorites);
+    let selectedMusics = populateSelectedMusics(musics, predicate, onlyShowFavorites);
     if (predicate == null || predicate === "") {
         selectedMusics.songs
             .forEach((music) => renderMusic(ul, music));
