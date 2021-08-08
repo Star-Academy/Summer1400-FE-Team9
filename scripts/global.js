@@ -1,4 +1,4 @@
-const alertColor = "#4C956C";
+const alertColor = "#ff7e44";
 
 const genericErrorAlertDetails = { // TODO: Better failed messages (wrong data, connection,...)
     title: 'خطا',
