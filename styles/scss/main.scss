@@ -284,6 +284,11 @@ footer {
 
   .more-buttons {
     ul {
+      li {
+        a {
+          color: $nav-color-dark;
+        }
+      }
       li:hover {
         color: $content-color;
         background-color: $secondary-dark;

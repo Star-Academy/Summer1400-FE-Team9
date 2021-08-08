@@ -247,6 +247,9 @@ footer {
     color: lightgray;
   }
 
+  .more-buttons ul li a {
+    color: white;
+  }
   .more-buttons ul li:hover {
     color: wheat;
     background-color: #ff7e44;
