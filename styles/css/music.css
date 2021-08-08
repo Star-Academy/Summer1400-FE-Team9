@@ -302,6 +302,9 @@ h3.lyric {
   margin-right: 2%;
 }
 
+#music-box {
+  cursor: auto;
+}
 #music-box .music-cell-header .music-title-and-singer #music-title-text {
   overflow: hidden;
   text-overflow: ellipsis;
