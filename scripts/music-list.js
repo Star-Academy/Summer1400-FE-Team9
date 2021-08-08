@@ -203,10 +203,17 @@ function populateOverlay(music) {
     let singer = document.getElementById("music-singer-text");
     let image = document.getElementById("music-overlay-image");
     let lyrics = document.getElementById("lyrics-text");
+    let audioTag = document.getElementById("music");
     title.innerHTML = music.name ?? "";
     singer.innerHTML = music.artist ?? "";
     image.src = music.cover ?? "";
     lyrics.innerHTML = music.lyrics ?? "";
+    audioTag.innerHTML = "";
+    let source = document.createElement("source");
+    source.setAttribute("id", "music-playback-source");
+    source.setAttribute("src", music.file);
+    source.setAttribute("type", "audio/mpeg");
+    audioTag.appendChild(source);
 }
 
 function showMusic(music) {
