@@ -272,6 +272,12 @@ input {
   }
 }
 
+@media(min-width: 4000px) {
+  ul.music-list {
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .share-button-on-cell:hover {
     color: $secondary-dark;
