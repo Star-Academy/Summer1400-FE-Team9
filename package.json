@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Star-Academy/Summer1400-FE-Team9#readme",
   "dependencies": {
     "@material/elevation": "^12.0.0"
+  },
+  "devDependencies": {
+    "karma": "^6.3.4"
   }
 }

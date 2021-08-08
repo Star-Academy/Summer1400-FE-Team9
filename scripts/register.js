@@ -5,7 +5,7 @@ const passwordInput = document.getElementById("password-input");
 const repeatPasswordInput = document.getElementById("repeat-password-input");
 
 async function getRegisterResponse() {
-    return await fetch('http://130.185.120.192:5000/user/register', {
+    return await fetch('https://songs.code-star.ir/user/register', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -17,7 +17,7 @@ async function getRegisterResponse() {
 }
 
 async function createInitialFavoritesPlaylist() {
-    await fetch('http://130.185.120.192:5000/playlist/create', {
+    await fetch('https://songs.code-star.ir/playlist/create', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

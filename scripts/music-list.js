@@ -5,6 +5,8 @@ let playlists = [];
 let favoriteMusics = null;
 let favoriteMusicsPlayListID = 0;
 
+let pageNumber = 2;
+
 const overlay = document.getElementById("overlay");
 const allMusicsElement = document.getElementById("all-musics");
 const favMusicsElement = document.getElementById("fav-musics");
@@ -320,9 +322,16 @@ function populateFavoritesList() {
 }
 
 function populateSelectedMusics(musics, onlyShowFavorites) {
-    let selectedMusics = musics;
+    let selectedMusics = JSON.parse(JSON.stringify(musics));
     if (favoriteMusics != null && onlyShowFavorites) {
         selectedMusics.songs = selectedMusics.songs.filter((music) => isFavorite(music));
+    } else {
+        let songs = [];
+        for (let i = 24 * (pageNumber - 1); i < 24 * (pageNumber); i++) {
+            if (musics.songs.length <= i) break;
+            songs.push(musics.songs[i]);
+        }
+        selectedMusics.songs = songs;
     }
     return selectedMusics;
 }
@@ -361,7 +370,7 @@ function toggleFavoriteStatusForMusicObject(music, includes) {
 
 async function toggleFavoriteStatus(music) {
     let includes = isFavorite(music);
-    let url = 'http://130.185.120.192:5000/playlist/' + (includes ? 'remove-song' : 'add-song');
+    let url = 'https://songs.code-star.ir/playlist/' + (includes ? 'remove-song' : 'add-song');
     let response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -379,7 +388,7 @@ async function toggleFavoriteStatus(music) {
 }
 
 async function loadAllPlaylists() {
-    let response = await fetch('http://130.185.120.192:5000/playlist/all', {
+    let response = await fetch('https://songs.code-star.ir/playlist/all', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -394,7 +403,7 @@ async function loadAllPlaylists() {
 let pageTitleNameTag = document.getElementById("page-title-name");
 
 async function loadAllMusics() {
-    let response = await fetch('http://130.185.120.192:5000/song/all');
+    let response = await fetch('https://songs.code-star.ir/song/all');
     if (response.ok) {
         musics = await response.json();
         await loadAllPlaylists();

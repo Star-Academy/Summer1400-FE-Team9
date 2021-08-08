@@ -58,7 +58,7 @@ function populateFavoritesList() {
 }
 
 async function loadAllPlaylists() {
-    let response = await fetch('http://130.185.120.192:5000/playlist/all', {
+    let response = await fetch('https://songs.code-star.ir/playlist/all', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -77,7 +77,7 @@ async function loadAllPlaylists() {
 async function loadMusic() {
     let urlParams = new URLSearchParams(window.location.search);
     let id = urlParams.get('id');
-    let response = await fetch('http://130.185.120.192:5000/song/one/' + id);
+    let response = await fetch('https://songs.code-star.ir/song/one/' + id);
     if (response.ok) {
         music = await response.json();
         await loadAllPlaylists();

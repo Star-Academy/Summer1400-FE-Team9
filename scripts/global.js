@@ -23,7 +23,7 @@ function createRipple(event) {
 }
 
 async function logoutUser() {
-    await fetch('http://130.185.120.192:5000/user/logout', {method: 'POST'});
+    await fetch('https://songs.code-star.ir/user/logout', {method: 'POST'});
     localStorage.setItem("is-logged-in", "false");
     localStorage.setItem("token", "");
     document.location = "index.html";

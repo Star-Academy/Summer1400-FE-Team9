@@ -3,7 +3,7 @@ const emailInput = document.getElementById("email-input");
 const passwordInput = document.getElementById("password-input");
 
 async function getLoginResponse() {
-    let response = await fetch('http://130.185.120.192:5000/user/login', {
+    let response = await fetch('https://songs.code-star.ir/user/login', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -15,7 +15,7 @@ async function getLoginResponse() {
 }
 
 async function createInitialPlaylist(json) {
-    await fetch('http://130.185.120.192:5000/playlist/create', {
+    await fetch('https://songs.code-star.ir/playlist/create', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
