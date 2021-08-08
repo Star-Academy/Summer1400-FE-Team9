@@ -15,21 +15,23 @@ const arrowRightElement = document.getElementById("previous-page");
 const arrowLeftElement = document.getElementById("next-page");
 
 function setPageNumber(newNumber) {
-    if (currentPageElement == null || arrowLeftElement == null || arrowRightElement == null || shouldOnlyShowFavorites()) return;
-    if (newNumber > musics.songs.length / 24 + 1) return;
-    if (newNumber === 0) {
+    if (currentPageElement == null || arrowLeftElement == null || arrowRightElement == null || shouldOnlyShowFavorites()) {
+        renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites());
+        return;
+    }
+    if (newNumber === 0 || newNumber > musics.songs.length / 24 + 1) {
         currentPageElement.style.display = "none";
         arrowRightElement.style.display = "none";
         arrowLeftElement.style.display = "none";
-        return;
+    } else {
+        pageNumber = newNumber;
+        currentPageElement.innerHTML = "صفحه‌ی " + pageNumber;
+        currentPageElement.style.display = "block";
+        arrowRightElement.style.display = "block";
+        arrowLeftElement.style.display = "block";
+        if (pageNumber === 1) arrowRightElement.style.display = "none";
+        if (pageNumber > musics.songs.length / 24) arrowLeftElement.style.display = "none";
     }
-    pageNumber = newNumber;
-    currentPageElement.innerHTML = "صفحه‌ی " + pageNumber;
-    currentPageElement.style.display = "block";
-    arrowRightElement.style.display = "block";
-    arrowLeftElement.style.display = "block";
-    if (pageNumber === 1) arrowRightElement.style.display = "none";
-    if (pageNumber > musics.songs.length / 24) arrowLeftElement.style.display = "none";
     renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites())
 }
 
@@ -457,5 +459,5 @@ function setPageTheme(colors) {
         "  }";
 }
 
-arrowRightElement.onclick = () => setPageNumber(pageNumber - 1);
-arrowLeftElement.onclick = () => setPageNumber(pageNumber + 1);
+if (arrowRightElement != null) arrowRightElement.onclick = () => setPageNumber(pageNumber - 1);
+if (arrowLeftElement != null) arrowLeftElement.onclick = () => setPageNumber(pageNumber + 1);

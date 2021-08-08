@@ -36,10 +36,6 @@ body > header {
   color: lightgray;
 }
 
-.fav-link {
-  background-color: #3a3f55;
-}
-
 .more-buttons ul {
   display: flex;
   justify-content: center;
