@@ -11,6 +11,26 @@ const favMusicsElement = document.getElementById("fav-musics");
 const musicDetailsElement = document.getElementById("music-details");
 const musicListElement = document.getElementById("music-list-ul");
 
+function onDragOverFavLi(event) {
+    event.preventDefault();
+}
+
+function getMusicById(id) {
+    let music = null;
+    Array.prototype.forEach.call(musics, eachMusic => {
+        if (eachMusic.id + "" === id) music = eachMusic;
+    });
+    Array.prototype.forEach.call(musics.songs, eachMusic => {
+        if (eachMusic.id + "" === id) music = eachMusic;
+    });
+    return music;
+}
+
+function onDropFavLi(event) {
+    let music = getMusicById(event.dataTransfer.getData('text'));
+    if (music != null) toggleFavoriteStatus(music);
+}
+
 function shareLinkTo(music) {
     let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
     navigator.clipboard.writeText(link).then(function() {
@@ -253,6 +273,8 @@ function renderMainListItemSpan(music) {
 
 function renderListItem(music) {
     let li = document.createElement("li");
+    li.setAttribute("draggable", "true");
+    li.ondragstart = (ev) => ev.dataTransfer.setData("text/plain", music.id);
     li.setAttribute("class", "mdc-elevation--z1");
     // li.onclick = (ev) => {
     //     if (ev.target)
