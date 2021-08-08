@@ -111,6 +111,14 @@ ul.music-list li span.music-cell-controls {
   margin-right: auto;
   justify-content: flex-start;
 }
+ul.music-list li span.music-cell-controls .like-button-on-cell:hover {
+  color: red;
+  border-color: red;
+}
+ul.music-list li span.music-cell-controls .share-button-on-cell:hover {
+  color: #3a3f55;
+  border-color: #3a3f55;
+}
 ul.music-list li span.music-cell-controls button {
   padding: 1rem;
   margin: 0.5rem;
@@ -118,10 +126,6 @@ ul.music-list li span.music-cell-controls button {
   border: 2px solid #ff7e44;
   border-radius: 50%;
   cursor: pointer;
-}
-ul.music-list li span.music-cell-controls button:hover {
-  color: red;
-  border-color: red;
 }
 ul.music-list li span.music-cell-controls a {
   border-radius: 50%;
@@ -232,6 +236,11 @@ input {
   }
 }
 @media (prefers-color-scheme: dark) {
+  .share-button-on-cell:hover {
+    color: #ff7e44;
+    border-color: #ff7e44;
+  }
+
   ul.music-list li {
     background-color: lightgray;
   }

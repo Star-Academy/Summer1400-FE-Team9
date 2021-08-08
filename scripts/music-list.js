@@ -11,6 +11,29 @@ const favMusicsElement = document.getElementById("fav-musics");
 const musicDetailsElement = document.getElementById("music-details");
 const musicListElement = document.getElementById("music-list-ul");
 
+function shareLinkTo(music) {
+    let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
+    navigator.clipboard.writeText(link).then(function() {
+        swal({
+            title: 'لینک آهنگ در حافظه Clipboard کپی شد',
+            text: 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.',
+            type: 'success',
+            confirmButtonColor: alertColor,
+            confirmButtonText: 'بازگشت',
+        }).then(() => {
+        });
+    }, function(err) {
+        swal({
+            title: 'خطا',
+            text: 'دسترسی کپی به مرورگر داده نشده است. لطفا مجددا تلاش نمایید.',
+            type: 'error',
+            confirmButtonColor: alertColor,
+            confirmButtonText: 'بازگشت',
+        }).then(() => {
+        });
+    });
+}
+
 function shouldOnlyShowFavorites() {
     return pageTitleNameTag.innerHTML === "علاقه‌مندی‌ها";
 }
@@ -78,6 +101,17 @@ function renderFavoriteIcon(music) {
     return center;
 }
 
+function renderShareIcon(music) {
+    let center = document.createElement("center");
+    let shareI = document.createElement("i");
+    shareI.setAttribute("class", "fa fa-share-alt");
+    shareI.setAttribute("aria-hidden", "true");
+    shareI.style.textAlign = "center";
+    center.style.textAlign = "center";
+    center.appendChild(shareI);
+    return center;
+}
+
 function renderLinkToMusicPage(music) {
     let a = document.createElement("button");
     a.onclick = () => window.location = "music.html?id=" + music.id;
@@ -88,8 +122,21 @@ function renderLinkToMusicPage(music) {
 
 function renderFavoriteButton(music) {
     let button = document.createElement("button");
+    button.setAttribute("class", "like-button-on-cell");
+    button.style.height = "3.75rem";
+    button.style.width = "3.75rem";
     button.appendChild(renderFavoriteIcon(music));
     button.onclick = () => toggleFavoriteStatus(music);
+    return button;
+}
+
+function renderShareButton(music) {
+    let button = document.createElement("button");
+    button.setAttribute("class", "like-button-on-cell");
+    button.style.height = "3.75rem";
+    button.style.width = "3.75rem";
+    button.appendChild(renderShareIcon(music));
+    button.onclick = () => shareLinkTo(music);
     return button;
 }
 
@@ -103,8 +150,10 @@ function renderMusicControls(music) {
     let musicCellControlsSpan = renderMusicCellControls();
     // let a = renderLinkToMusicPage(music);
     let button = renderFavoriteButton(music);
+    let button2 = renderShareButton(music);
     // musicCellControlsSpan.appendChild(a);
     musicCellControlsSpan.appendChild(button);
+    musicCellControlsSpan.appendChild(button2);
     return musicCellControlsSpan;
 }
 

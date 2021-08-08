@@ -126,6 +126,16 @@ ul.music-list {
       margin-right: auto;
       justify-content: flex-start;
 
+      .like-button-on-cell:hover {
+        color: red;
+        border-color: red;
+      }
+
+      .share-button-on-cell:hover {
+        color: $secondary;
+        border-color: $secondary;
+      }
+
       button {
         padding: 1rem;
         margin: 0.5rem;
@@ -133,11 +143,6 @@ ul.music-list {
         border: 2px solid $primary;
         border-radius: 50%; //0.75rem;
         cursor: pointer;
-
-        &:hover {
-          color: red;
-          border-color: red;
-        }
       }
 
       a {
@@ -268,6 +273,11 @@ input {
 }
 
 @media (prefers-color-scheme: dark) {
+  .share-button-on-cell:hover {
+    color: $secondary-dark;
+    border-color: $secondary-dark;
+  }
+
   ul.music-list {
     li {
       background-color: $content-color-dark;
