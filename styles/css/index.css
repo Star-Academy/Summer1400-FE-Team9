@@ -80,6 +80,9 @@ article section p {
     justify-content: flex-start;
     align-items: flex-start;
   }
+  .content-text h3 {
+    text-align: right;
+  }
   .content-text section:first-of-type {
     margin-left: 5%;
   }
