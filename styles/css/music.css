@@ -128,7 +128,8 @@ ul.music-list li span.music-cell-controls button {
   cursor: pointer;
 }
 ul.music-list li span.music-cell-controls button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  color: red;
+  border-color: red;
 }
 ul.music-list li span.music-cell-controls a {
   border-radius: 50%;
