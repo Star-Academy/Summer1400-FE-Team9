@@ -1,5 +1,6 @@
 let registerIndexLink = document.getElementById("register-index-link");
-if (registerIndexLink != null) {
+
+function setTitleOfMainIndexButton(registerIndexLink) {
     if (localStorage.getItem("is-logged-in") === "true") {
         registerIndexLink.innerHTML = "موزیک‌ها";
         registerIndexLink.setAttribute("href", "music-list.html");
@@ -8,6 +9,8 @@ if (registerIndexLink != null) {
         registerIndexLink.setAttribute("href", "login.html");
     }
 }
+
+if (registerIndexLink != null) setTitleOfMainIndexButton(registerIndexLink);
 
 function setPageTheme(colors) {
     document.getElementsByTagName("style")[0].innerHTML +=
@@ -18,4 +21,5 @@ function setPageTheme(colors) {
         "    background-color: " + colors.primary + ";\n" +
         "  }";
     console.log("I'm here");
+    return "I'm here";
 }

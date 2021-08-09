@@ -458,6 +458,7 @@ function setPageTheme(colors) {
         "  ul.music-list li span.music-cell-controls a {\n" +
         "    background-color: " + colors.primary + ";\n" +
         "  }";
+    return "I'm here";
 }
 
 if (arrowRightElement != null) arrowRightElement.onclick = () => setPageNumber(pageNumber - 1);

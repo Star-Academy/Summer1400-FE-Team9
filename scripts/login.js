@@ -15,14 +15,7 @@ async function getLoginResponse() {
 }
 
 async function createInitialPlaylist(json) {
-    await fetch('https://songs.code-star.ir/playlist/create', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({name: "favorites", token: json.token})
-    });
+    await fetch('https://songs.code-star.ir/playlist/create', {method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}, body: JSON.stringify({name: "favorites", token: json.token})});
 }
 
 function saveLoginData(json) {
