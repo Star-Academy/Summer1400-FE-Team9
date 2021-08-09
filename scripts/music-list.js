@@ -6,6 +6,7 @@ let favoriteMusicsPlayListID = 0;
 let pageNumber = 1;
 
 const overlay = document.getElementById("overlay");
+
 const allMusicsElement = document.getElementById("all-musics");
 const favMusicsElement = document.getElementById("fav-musics");
 const musicDetailsElement = document.getElementById("music-details");
