@@ -140,9 +140,18 @@ describe("Testing music-list.js", function () {
     it("Should search results match with search input", function () {
         loadAllMusics();
 
-        let randomString = getRandomString(Math.random()*10);
-
+        let randomString = getRandomString(Math.random() * 10);
         renderMusicList(musics, randomString, false);
+
+        let text, invalidResultsCount = 0;
+        for (text in document.getElementsByClassName("music-title")) {
+            if (!text.innerHTML.includes(randomString)) invalidResultsCount++;
+        }
+        for (text in document.getElementsByClassName("music-singer")) {
+            if (!text.innerHTML.includes(randomString)) invalidResultsCount++;
+        }
+
+        expect(invalidResultsCount).toEqual(0);
     });
 });
 
