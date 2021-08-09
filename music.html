@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,69 +7,153 @@
     <meta name="keywords" content="music,listen,playlist,song">
     <meta name="description" content="The best website for listening to best musics">
     <meta name="author" content="Project Team 9">
-    <title>Song Title</title>
+
+    <link rel="stylesheet" href="styles/css/main.css">
+    <link rel="stylesheet" href="styles/css/music.css">
+    <link rel="stylesheet" href="styles/css/music-list.css">
+    <link rel="icon" href="images/musix-dark.png">
+    <link rel="stylesheet" href="styles/css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <script src="scripts/global.js" defer></script>
+<!--    <script src="scripts/music-list.js" defer></script>-->
+    <script src="scripts/music.js" defer></script>
+
+    <title id="title"></title>
+    <style></style>
 </head>
 <body>
-    <header>
-        <h3>Spotify</h3>
-        <nav id>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="music-list.html">Musics</a></li>
-                <li><a href="fav-music-list.html">Favorites</a></li>
-                <li><a href="about.html">About us</a></li>
-            </ul>
-        </nav>
-        <button>Login</button>
-        <button>Sign Up</button>
-    </header>
+<header>
+    <a href="index.html">
+        <div class="logo">
+            <img src="images/musix-light.png" alt="logo">
+            <h1>آهنگدان</h1>
+        </div>
+    </a>
+    <nav>
+        <ul>
+            <li class="nav-link-item"><a href="index.html">خانه</a></li>
+            <li class="nav-link-item"><a href="music-list.html">موزیک‌ها</a></li>
+            <li id="fav-link" class="nav-link-item"><a href="fav-music-list.html">علاقه‌مندی‌ها</a></li>
+            <li class="nav-link-item"><a href="about.html">درباره ما</a></li>
+        </ul>
+    </nav>
+    <div>
+        <ul class="authentication">
+            <li class="login-link"><a id="login-link" href="login.html">ورود</a></li>
+            <li><a id="register-link" href="register.html">ثبت‌نام</a></li>
+        </ul>
+    </div>
 
-    <main>
-        <header>
-            <h1>Song Title</h1>
-            <h2>
-                <span id="music-singer">DJ Singer</span> - <span id="music-release-year">1995</span>
-            </h2>
-            <img height="50" src="images/music-art.png" alt="Music cover art" />
-        </header>
-        <section id="music-details">
-            <div id="music-controls">
-                <div id="progress-bar"></div>
-                <button name="play-pause">Play</button>
-                <button name="speed">2x</button>
-            </div>
-            <button name="add-to-favorites">Add to Favorites</button>
-            <h3>Lyrics</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-            </p>
-            <h3>People also listen to...</h3>
-            <ul>
-                <li>
-                    <img height="50" src="images/music-art.png" alt="Music cover art" />
-                    <span class="music-title">Song title</span>
-                    <span class="music-singer">DJ Singer</span>
-                    <a href="music.html">Start playing</a>
-                    <button>Add to playlist</a>
-                </li>
-                <li>
-                    <img height="50" src="images/music-art.png" alt="Music cover art" />
-                    <span class="music-title">Song title</span>
-                    <span class="music-singer">DJ Singer</span>
-                    <a href="music.html">Start playing</a>
-                    <button>Add to playlist</a>
-                </li>
-                <li>
-                    <img height="50" src="images/music-art.png" alt="Music cover art" />
-                    <span class="music-title">Song title</span>
-                    <span class="music-singer">DJ Singer</span>
-                    <a href="music.html">Start playing</a>
-                    <button>Add to playlist</a>
-                </li>
-            </ul>
-        </section>
-    </main>
+</header>
 
-    <footer>Copyright (C) Project Team 9. All rights reserved</footer>
+<nav class="more-buttons">
+    <ul>
+        <li><a href="index.html">خانه</a></li>
+        <li><a href="music-list.html">موزیک‌ها</a></li>
+        <li><a href="fav-music-list.html">علاقه‌مندی‌ها</a></li>
+        <li><a href="about.html">درباره ما</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="music-details">
+        <ul class="music-list" style="display: flex; justify-content: center; align-content: center">
+            <li id="music-box">
+                <center>
+                    <img style="margin-top: -5%" width="200" height="200" id="music-cover-image" src="images/music-art.png" alt="عکس موزیک" class="cover"/>
+                    <span class="music-cell-header">
+                        <span class="music-title-and-singer">
+                            <span id="music-title-text" class="music-title"></span>
+                            <span id="music-singer-text" class="music-singer"></span>
+                        </span>
+                    </span>
+
+                    <span class="music-cell-controls">
+                        <button id="two-x-button" onclick="changePlaybackRate()">2x</button>
+                        <button id="add-to-favorites-button"><i id="add-to-favorites-i" class="fa fa-heart-o" aria-hidden="true"></i></button>
+                    </span>
+
+                    <audio controls id="music">
+<!--                        <source id="music-playback-source" src="" type="audio/mpeg"> &lt;!&ndash; TODO: Better placeholder &ndash;&gt;-->
+                    </audio>
+                </center>
+                <div class="lyric-box">
+                    <h3 class="lyric">متن آهنگ</h3>
+                    <p id="lyrics-text" class="lyric"></p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="musics-list">
+        <ul class="music-list">
+            <li>
+                    <span class="music-cell-header">
+                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
+                        <span class="music-title-and-singer">
+                            <span class="music-title">آهنگ مشابه</span>
+                            <span class="music-singer">اسم خواننده</span>
+                        </span>
+                    </span>
+
+                <span class="music-cell-controls">
+                        <button class="share-button-on-cell"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                        <button class="share-button-on-cell"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                    </span>
+            </li>
+            <li>
+                    <span class="music-cell-header">
+                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
+                        <span class="music-title-and-singer">
+                            <span class="music-title">آهنگ مشابه</span>
+                            <span class="music-singer">اسم خواننده</span>
+                        </span>
+                    </span>
+
+                <span class="music-cell-controls">
+                        <button class="share-button-on-cell"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                        <button class="share-button-on-cell"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                    </span>
+            </li>
+            <li>
+                    <span class="music-cell-header">
+                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
+                        <span class="music-title-and-singer">
+                            <span class="music-title">آهنگ مشابه</span>
+                            <span class="music-singer">اسم خواننده</span>
+                        </span>
+                    </span>
+
+                <span class="music-cell-controls">
+                        <button class="share-button-on-cell"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                        <button class="share-button-on-cell"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                    </span>
+            </li>
+            <li>
+                    <span class="music-cell-header">
+                        <img height="60" width="60" src="images/music-art.png" alt="عکس موزیک"/>
+                        <span class="music-title-and-singer">
+                            <span class="music-title">آهنگ مشابه</span>
+                            <span class="music-singer">اسم خواننده</span>
+                        </span>
+                    </span>
+
+                <span class="music-cell-controls">
+                        <button class="share-button-on-cell"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                        <button class="share-button-on-cell"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                    </span>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    تمامی حقوق برای تیم ۹ پروژه محفوظ است
+
+    <label class="switch">
+        <input type="checkbox" id="toggle">
+        <span class="slider round"></span>
+    </label>
+</footer>
+
 </body>
 </html>

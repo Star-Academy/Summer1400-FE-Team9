@@ -1,3 +1,9 @@
-#Project for team 9
+Front-end Team 9  
 
-Phase 1
+[Seyyed Parsa Neshaei](https://github.com/spneshaei)   
+[Ashkan Shakiba](https://github.com/AshkanShakiba)   
+
+
+```
+https://star-academy.github.io/Summer1400-FE-Team9/
+```
