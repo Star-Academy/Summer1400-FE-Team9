@@ -136,4 +136,23 @@ describe("Testing music-list.js", function () {
 
         expect(loader.style.display).toEqual("none");
     });
+
+    it("Should search results match with search input", function () {
+        loadAllMusics();
+
+        let randomString = getRandomString(Math.random()*10);
+
+        renderMusicList(musics, randomString, false);
+    });
 });
+
+function getRandomString(length) {
+    let result = '';
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}
