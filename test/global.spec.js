@@ -1,5 +1,5 @@
-describe("Setting authentication buttons when not logged in", function() {
-    it("Should hide favorites link",function() {
+describe("Setting authentication buttons when not logged in", function () {
+    it("Should hide favorites link", function () {
         let favLink = document.createElement("li");
         favLink.setAttribute("id", "fav-link");
         document.body.appendChild(favLink);
@@ -12,8 +12,8 @@ describe("Setting authentication buttons when not logged in", function() {
     });
 });
 
-describe("Setting authentication buttons when logged in", function() {
-    it("Should alter login and register links",function() {
+describe("Setting authentication buttons when logged in", function () {
+    it("Should alter login and register links", function () {
         let registerLink = document.createElement("li");
         registerLink.setAttribute("id", "register-link");
         document.body.appendChild(registerLink);
@@ -34,8 +34,8 @@ describe("Setting authentication buttons when logged in", function() {
     });
 });
 
-describe("Testing global.js", function() {
-    it("Should reflect changes in check box to light mode", function() {
+describe("Testing global.js", function () {
+    it("Should reflect changes in check box to light mode", function () {
         let checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", "toggle");
@@ -52,8 +52,8 @@ describe("Testing global.js", function() {
     });
 });
 
-describe("Testing index.js", function() {
-    it("Should set title of the main index button correctly", function() {
+describe("Testing index.js", function () {
+    it("Should set title of the main index button correctly", function () {
         let registerIndexLink = document.createElement("a");
         document.body.appendChild(registerIndexLink);
 
@@ -68,7 +68,7 @@ describe("Testing index.js", function() {
         document.body.removeChild(registerIndexLink);
     });
 
-    it("Should set page theme correctly", function() {
+    it("Should set page theme correctly", function () {
         let styleTag = document.createElement("style");
         document.body.appendChild(styleTag);
 
@@ -78,8 +78,8 @@ describe("Testing index.js", function() {
     });
 });
 
-describe("Testing login.js", function() {
-    it("Should save login data", function() {
+describe("Testing login.js", function () {
+    it("Should save login data", function () {
         let json = {token: "my-token"};
         saveLoginData(json);
         expect(localStorage.getItem("is-logged-in")).toEqual("true");
@@ -88,8 +88,8 @@ describe("Testing login.js", function() {
     });
 });
 
-describe("Testing music.js", function() {
-    it("Should return true from isFavorite for a favorite song", function() {
+describe("Testing music.js", function () {
+    it("Should return true from isFavorite for a favorite song", function () {
         favoriteMusics = [{rest: {id: 5}}];
         let music = {id: 5};
         let result = isFavorite(music);
@@ -97,14 +97,14 @@ describe("Testing music.js", function() {
         expect(result).toBeTruthy();
     });
 
-    it("Should not be empty inside of audioTag", function() {
+    it("Should not be empty inside of audioTag", function () {
         audioTag = document.createElement("audio");
         let music = {file: "file"};
         addMusicSource(music);
         expect(audioTag.innerHTML).not.toEqual("");
     });
 
-    it("Should tags' contents equal the music's contents", function() {
+    it("Should tags' contents equal the music's contents", function () {
         audioTag = document.createElement("audio");
         titleTag = document.createElement("p");
         musicCoverImage = document.createElement("img");
@@ -120,9 +120,20 @@ describe("Testing music.js", function() {
         expect(musicSingerText.innerHTML).toEqual(music.artist);
     });
 
-    it("Should populate favorites list id", function() {
+    it("Should populate favorites list id", function () {
         playlistsInMusicPage = [{name: "favorites", id: 5, songs: []}];
         populateFavoritesList();
         expect(favoriteMusicsPlayListID).toEqual(5);
+    });
+});
+
+
+describe("Testing music-list.js", function () {
+    it("Should make loader's display none", function () {
+        loadAllMusics();
+
+        let loader = document.getElementsByClassName("loader")[0];
+
+        expect(loader.style.display).toEqual("none");
     });
 });
