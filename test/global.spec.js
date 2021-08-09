@@ -87,3 +87,42 @@ describe("Testing login.js", function() {
         localStorage.setItem("is-logged-in", "false");
     });
 });
+
+describe("Testing music.js", function() {
+    it("Should return true from isFavorite for a favorite song", function() {
+        favoriteMusics = [{rest: {id: 5}}];
+        let music = {id: 5};
+        let result = isFavorite(music);
+        favoriteMusics = [];
+        expect(result).toBeTruthy();
+    });
+
+    it("Should not be empty inside of audioTag", function() {
+        audioTag = document.createElement("audio");
+        let music = {file: "file"};
+        addMusicSource(music);
+        expect(audioTag.innerHTML).not.toEqual("");
+    });
+
+    it("Should tags' contents equal the music's contents", function() {
+        audioTag = document.createElement("audio");
+        titleTag = document.createElement("p");
+        musicCoverImage = document.createElement("img");
+        musicTitleText = document.createElement("p");
+        musicSingerText = document.createElement("p");
+        lyricsText = document.createElement("p");
+        addToFavoritesI = document.createElement("i");
+        let music = {name: "N", artist: "A", file: "file", cover: "cover", lyrics: "lyrics"};
+        favoriteMusics = [{rest: {id: 5}}];
+        renderPageItems(music);
+        expect(titleTag.innerHTML).toEqual(music.name);
+        expect(musicTitleText.innerHTML).toEqual(music.name);
+        expect(musicSingerText.innerHTML).toEqual(music.artist);
+    });
+
+    it("Should populate favorites list id", function() {
+        playlistsInMusicPage = [{name: "favorites", id: 5, songs: []}];
+        populateFavoritesList();
+        expect(favoriteMusicsPlayListID).toEqual(5);
+    });
+});

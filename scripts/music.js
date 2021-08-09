@@ -7,13 +7,13 @@ let favoriteMusicsPlayListID = 0;
 const musicHTML = document.getElementById("music");
 const twoXButton = document.getElementById("two-x-button");
 
-const titleTag = document.getElementById("title");
-const musicCoverImage = document.getElementById("music-cover-image");
-const musicTitleText = document.getElementById("music-title-text");
-const musicSingerText = document.getElementById("music-singer-text");
-const lyricsText = document.getElementById("lyrics-text");
-const audioTag = document.getElementById("music");
-const addToFavoritesI = document.getElementById("add-to-favorites-i");
+let titleTag = document.getElementById("title");
+let musicCoverImage = document.getElementById("music-cover-image");
+let musicTitleText = document.getElementById("music-title-text");
+let musicSingerText = document.getElementById("music-singer-text");
+let lyricsText = document.getElementById("lyrics-text");
+let audioTag = document.getElementById("music");
+let addToFavoritesI = document.getElementById("add-to-favorites-i");
 
 function isFavorite(music) {
     let flag = false;
@@ -85,21 +85,6 @@ async function loadMusic() {
     } else {
         console.log("Server error");
     }
-}
-
-function setPlaybackRate(rate) {
-    musicHTML.playbackRate = rate;
-    if (rate === 2) {
-        twoXButton.style.backgroundColor = alertColor;
-        twoXButton.style.color = "#fff";
-    } else {
-        twoXButton.style.backgroundColor = "transparent";
-        twoXButton.style.color = alertColor;
-    }
-}
-
-function changePlaybackRate() {
-    setPlaybackRate(musicHTML.playbackRate === 2 ? 1 : 2);
 }
 
 loadMusic();
