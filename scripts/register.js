@@ -1,4 +1,4 @@
-const submitButton = document.getElementById("submit-button");
+const submitRegisterButton = document.getElementById("submit-button");
 const usernameInput = document.getElementById("username-input");
 const emailInput = document.getElementById("email-input");
 const passwordInput = document.getElementById("password-input");
@@ -39,7 +39,7 @@ async function register() {
     }
 }
 
-submitButton.onclick = () => {
+if (submitRegisterButton != null) submitRegisterButton.onclick = () => {
     if (passwordInput.value !== repeatPasswordInput.value) {
         swal({ // TODO: Better failed messages (wrong data, connection,...)
             title: 'خطا',

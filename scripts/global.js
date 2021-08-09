@@ -41,13 +41,13 @@ for (const button of inputButtons) {
 let favLink = document.getElementById("fav-link");
 let loginLink = document.getElementsByClassName("login-link")[0];
 let registerLink = document.getElementById("register-link");
-if (localStorage.getItem("is-logged-in") === "true") {
+if (localStorage.getItem("is-logged-in") === "true" && loginLink != null && registerLink != null) {
     loginLink.style.display = "none";
     registerLink.innerHTML = "خروج";
     registerLink.setAttribute("href", "#");
     registerLink.style.cursor = "pointer";
     registerLink.onclick = () => logoutUser();
-} else {
+} else if (favLink != null) {
     favLink.style.display = "none";
 }
 
@@ -55,7 +55,7 @@ if (localStorage.getItem("is-logged-in") === "true") {
 
 let checkbox = document.getElementById("toggle");
 
-checkbox.addEventListener('change', function () {
+if (checkbox != null) checkbox.addEventListener('change', function () {
     if (this.checked) {
         setMainTheme(1); // light
         setPageTheme(colors);

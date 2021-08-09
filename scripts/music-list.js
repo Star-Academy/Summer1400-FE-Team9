@@ -1,7 +1,7 @@
 let musics = [];
 let playlists = [];
-let favoriteMusics = null;
-let favoriteMusicsPlayListID = 0;
+let favoriteMusicsInList = null;
+let favoriteMusicsPlayListIDInList = 0;
 
 let pageNumber = 1;
 
@@ -85,8 +85,8 @@ function shouldOnlyShowFavorites() {
 
 function isFavorite(music) {
     let flag = false;
-    if (favoriteMusics == null || favoriteMusics === []) return false;
-    Array.prototype.forEach.call(favoriteMusics, eachMusic => {
+    if (favoriteMusicsInList == null || favoriteMusicsInList === []) return false;
+    Array.prototype.forEach.call(favoriteMusicsInList, eachMusic => {
         try {
             if (eachMusic.rest.id === music.id) {
                 flag = true;
@@ -134,7 +134,7 @@ function renderPlayIcon() {
 function renderFavoriteIcon(music) {
     let center = document.createElement("center");
     let addToFavoritesI = document.createElement("i");
-    if (favoriteMusics != null && isFavorite(music)) {
+    if (favoriteMusicsInList != null && isFavorite(music)) {
         addToFavoritesI.setAttribute("class", "fa fa-heart");
     } else {
         addToFavoritesI.setAttribute("class", "fa fa-heart-o");
@@ -326,8 +326,8 @@ function populateFavoritesPlaylist() {
     if (playlists != null && playlists !== []) {
         playlists.forEach((playlist) => {
             if (playlist.name === "favorites") {
-                playlist.songs = favoriteMusics;
-                playlist.id = favoriteMusicsPlayListID;
+                playlist.songs = favoriteMusicsInList;
+                playlist.id = favoriteMusicsPlayListIDInList;
             }
         })
     }
@@ -337,8 +337,8 @@ function populateFavoritesList() {
     if (playlists != null && playlists !== []) {
         playlists.forEach((playlist) => {
             if (playlist.name === "favorites") {
-                favoriteMusicsPlayListID = playlist.id;
-                favoriteMusics = playlist.songs;
+                favoriteMusicsPlayListIDInList = playlist.id;
+                favoriteMusicsInList = playlist.songs;
             }
         })
     }
@@ -346,7 +346,7 @@ function populateFavoritesList() {
 
 function populateSelectedMusics(musics, predicate, onlyShowFavorites) {
     let selectedMusics = JSON.parse(JSON.stringify(musics));
-    if (favoriteMusics != null && onlyShowFavorites) {
+    if (favoriteMusicsInList != null && onlyShowFavorites) {
         selectedMusics.songs = selectedMusics.songs.filter((music) => isFavorite(music));
     } else {
         if (predicate == null || predicate === "") {
@@ -381,7 +381,7 @@ function renderMusicList(musics, predicate = "", onlyShowFavorites = false) {
 
 function toggleFavoriteStatusForMusicObject(music, includes) {
     if (includes) {
-        favoriteMusics = Object.values(favoriteMusics).filter((eachMusic) => {
+        favoriteMusicsInList = Object.values(favoriteMusicsInList).filter((eachMusic) => {
             try {
                 return eachMusic.rest.id !== music.id;
             } catch {
@@ -389,7 +389,7 @@ function toggleFavoriteStatusForMusicObject(music, includes) {
             }
         });
     } else {
-        favoriteMusics.push(music);
+        favoriteMusicsInList.push(music);
     }
     populateFavoritesPlaylist();
     renderMusicList(musics, searchBox.value, shouldOnlyShowFavorites());
@@ -406,7 +406,7 @@ async function toggleFavoriteStatus(music) {
         },
         body: JSON.stringify({
             token: localStorage.getItem("token"),
-            playlistId: favoriteMusicsPlayListID,
+            playlistId: favoriteMusicsPlayListIDInList,
             songId: music.id
         })
     });
@@ -442,7 +442,7 @@ async function loadAllMusics() {
 }
 
 let searchBox = document.getElementById("search-input");
-searchBox.oninput = () => setPageNumber(0);
+if (searchBox != null) searchBox.oninput = () => setPageNumber(0);
 
 loadAllMusics();
 

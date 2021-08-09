@@ -1,6 +1,6 @@
 let music = {};
 
-let playlists = [];
+let playlistsInMusicPage = [];
 let favoriteMusics = null;
 let favoriteMusicsPlayListID = 0;
 
@@ -47,8 +47,8 @@ function renderPageItems(music) {
 }
 
 function populateFavoritesList() {
-    if (playlists != null && playlists !== []) {
-        playlists.forEach((playlist) => {
+    if (playlistsInMusicPage != null && playlistsInMusicPage !== []) {
+        playlistsInMusicPage.forEach((playlist) => {
             if (playlist.name === "favorites") {
                 favoriteMusicsPlayListID = playlist.id;
                 favoriteMusics = playlist.songs;
@@ -67,7 +67,7 @@ async function loadAllPlaylists() {
         body: JSON.stringify({token: localStorage.getItem("token")})
     });
     if (response.ok) {
-        playlists = await response.json();
+        playlistsInMusicPage = await response.json();
         populateFavoritesList();
     } else {
         console.log("Server error");
@@ -100,10 +100,6 @@ function setPlaybackRate(rate) {
 
 function changePlaybackRate() {
     setPlaybackRate(musicHTML.playbackRate === 2 ? 1 : 2);
-}
-
-document.getElementById("add-to-favorites-button").onclick = () => {
-    // TODO: Add to favorites
 }
 
 loadMusic();

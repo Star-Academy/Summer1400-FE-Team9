@@ -1,6 +1,6 @@
 const submitButton = document.getElementById("submit-button");
-const emailInput = document.getElementById("email-input");
-const passwordInput = document.getElementById("password-input");
+const emailLoginInput = document.getElementById("email-input");
+const passwordLoginInput = document.getElementById("password-input");
 
 async function getLoginResponse() {
     let response = await fetch('https://songs.code-star.ir/user/login', {
@@ -9,7 +9,7 @@ async function getLoginResponse() {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email: emailInput.value, password: passwordInput.value})
+        body: JSON.stringify({email: emailLoginInput.value, password: passwordLoginInput.value})
     });
     return response;
 }
@@ -43,4 +43,4 @@ async function login() {
     }
 }
 
-submitButton.onclick = () => login();
+if (submitButton != null) submitButton.onclick = () => login();
