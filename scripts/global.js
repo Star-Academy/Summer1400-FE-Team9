@@ -8,11 +8,12 @@ const genericErrorAlertDetails = { // TODO: Better failed messages (wrong data, 
     confirmButtonText: 'بازگشت',
 };
 
+let destinationLocationAfterLogout = "index.html";
 async function logoutUser() {
     await fetch('https://songs.code-star.ir/user/logout', {method: 'POST'});
     localStorage.setItem("is-logged-in", "false");
     localStorage.setItem("token", "");
-    document.location = "index.html";
+    if (destinationLocationAfterLogout !== "") document.location = destinationLocationAfterLogout;
 }
 
 function setAuthenticationButtons() {

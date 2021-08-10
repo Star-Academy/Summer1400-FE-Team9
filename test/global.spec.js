@@ -50,6 +50,15 @@ describe("Testing global.js", function () {
         document.body.removeChild(checkbox);
         document.body.removeChild(styleTag);
     });
+
+    it("Should log out", function() {
+        spyOn(window, "fetch");
+        destinationLocationAfterLogout = "";
+        logoutUser().then((value) => {
+            expect(fetch).toHaveBeenCalled();
+            window.destinationLocationAfterLogout = "index.html";
+        })
+    });
 });
 
 describe("Testing index.js", function () {
@@ -72,7 +81,7 @@ describe("Testing index.js", function () {
         let styleTag = document.createElement("style");
         document.body.appendChild(styleTag);
 
-        let result = setPageTheme(colors_light);
+        let result = setIndexPageTheme(colors_light);
         expect(result).toEqual("I'm here")
         document.body.removeChild(styleTag);
     });

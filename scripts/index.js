@@ -12,12 +12,11 @@ function setTitleOfMainIndexButton(registerIndexLink) {
 
 if (registerIndexLink != null) setTitleOfMainIndexButton(registerIndexLink);
 
-function setPageTheme(colors) {
+function setIndexPageTheme(colors) {
     document.getElementsByTagName("style")[0].innerHTML +=
         "article {\n" +
         "    background-color: " + colors.content_color + ";\n" +
-        "  }\n" +
-        "  article header a {\n" +
+        "  }\n" + "  article header a {\n" +
         "    background-color: " + colors.primary + ";\n" +
         "  }";
     console.log("I'm here");
