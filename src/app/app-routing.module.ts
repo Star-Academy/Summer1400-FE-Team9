@@ -6,10 +6,11 @@ import {HomeComponent} from "./home/home.component";
 import {LoginFormComponent} from "./login-form/login-form.component";
 import {MusicListPageComponent} from "./music-list-page/music-list-page.component";
 import {RegisterFormComponent} from "./register-form/register-form.component";
+import {GuardService} from "./guard.service";
 
 const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
-  { path: 'fav-list-page', component: FavListPageComponent },
+  { path: 'fav-list-page', component: FavListPageComponent, canActivate: [GuardService] },
   { path: 'home', component: HomeComponent },
   { path: 'login-form', component: LoginFormComponent },
   { path: 'music-list-page', component: MusicListPageComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [GuardService]
 })
 export class AppRoutingModule { }
