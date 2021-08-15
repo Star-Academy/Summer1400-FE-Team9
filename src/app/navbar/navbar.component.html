@@ -7,16 +7,16 @@
   </a>
   <nav>
     <ul>
-      <li class="nav-link-item" id="li-selected-tab"><a href="#" id="main-selected-tab">خانه</a></li>
-      <li class="nav-link-item"><a href="#">موزیک‌ها</a></li>
-      <li id="fav-link" class="nav-link-item"><a href="#">علاقه‌مندی‌ها</a></li>
-      <li class="nav-link-item"><a href="#">درباره ما</a></li>
+      <li class="nav-link-item" id="li-selected-tab"><a routerLink="home" id="main-selected-tab">خانه</a></li>
+      <li class="nav-link-item"><a routerLink="music-list-page">موزیک‌ها</a></li>
+      <li id="fav-link" class="nav-link-item"><a routerLink="fav-list-page">علاقه‌مندی‌ها</a></li>
+      <li class="nav-link-item"><a routerLink="about-us">درباره ما</a></li>
     </ul>
   </nav>
   <div>
     <ul class="authentication">
-      <li class="login-link"><a id="login-link" href="#">ورود</a></li>
-      <li><a id="register-link" href="#">ثبت‌نام</a></li>
+      <li class="login-link"><a id="login-link" routerLink="login-form">ورود</a></li>
+      <li><a id="register-link" routerLink="register-form">ثبت‌نام</a></li>
     </ul>
   </div>
 
