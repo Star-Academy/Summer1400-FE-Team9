@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import Music from "./models/MusicModel";
 
 @Injectable()
 export class MusicLoaderService {

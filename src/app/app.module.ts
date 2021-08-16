@@ -13,6 +13,9 @@ import { MusicListPageComponent } from './music-list-page/music-list-page.compon
 import { FavListPageComponent } from './fav-list-page/fav-list-page.component';
 import { MusicPageComponent } from './music-page/music-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {AuthService} from "./auth.service";
+import {MusicLoaderService} from "./music-loader.service";
+import {Router} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    MusicLoaderService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

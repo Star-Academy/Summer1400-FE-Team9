@@ -1,4 +1,4 @@
-class Music {
+export default class Music {
   id: number;
   name: string;
   artist: string;

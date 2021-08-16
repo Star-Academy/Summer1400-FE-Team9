@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MusicLoaderService} from "../music-loader.service";
-import "../models/MusicModel";
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import Music from "../models/MusicModel";
 
 @Component({
   selector: 'app-music-list-page',
