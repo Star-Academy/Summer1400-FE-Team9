@@ -27,4 +27,10 @@ export class AuthService {
     localStorage.setItem("is-logged-in", "true");
     return token.toString();
   }
+
+  async register(email: string, password: string) {
+    await AuthService.sendRequest("https://songs.code-star.ir/user/register",
+      'POST',
+      {email: email, password: password});
+  }
 }
