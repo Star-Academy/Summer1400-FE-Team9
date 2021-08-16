@@ -17,6 +17,28 @@
     </div>
 
     <ul class="music-list">
+      <li *ngFor="let music of musics" draggable="true" class="mdc-elevation--z1"> <!-- TODO: Drag not done yet -->
+        <span class="music-cell-header">
+          <img height="60" width="60" [src]="music.cover" loading="lazy" alt="عکس موزیک"/>
+          <a class="music-title-and-singer-link">
+            <span class="music-title-and-singer">
+              <span class="music-title">{{ music.name }}</span>
+              <span class="music-singer">{{ music.artist }}</span>
+            </span>
+          </a>
+        </span>
+
+        <span class="music-cell-controls">
+          <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;">
+<!--            <i class="fa fa-heart" aria-hidden="true" style="text-align: center"></i>-->
+            <fa-icon [icon]="faHeart"></fa-icon>
+          </button>
+          <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;">
+<!--            <i class="fa fa-share-alt" aria-hidden="true" style="text-align: center"></i>-->
+            <fa-icon [icon]="faShareAlt"></fa-icon>
+          </button>
+        </span>
+      </li>
     </ul>
 
     <div id="pagination-controls">

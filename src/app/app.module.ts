@@ -12,6 +12,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { MusicListPageComponent } from './music-list-page/music-list-page.component';
 import { FavListPageComponent } from './fav-list-page/fav-list-page.component';
 import { MusicPageComponent } from './music-page/music-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MusicPageComponent } from './music-page/music-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

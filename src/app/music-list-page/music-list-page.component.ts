@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {MusicLoaderService} from "../music-loader.service";
+import "../models/MusicModel";
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-music-list-page',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicListPageComponent implements OnInit {
 
-  constructor() { }
+  musics: Music[] = [];
+  faHeart = faHeart;
+  faShareAlt = faShareAlt;
 
-  ngOnInit(): void {
+  constructor(private musicLoaderService: MusicLoaderService) { }
+
+  async ngOnInit() {
+    this.musics = await this.musicLoaderService.getAllMusics();
   }
 
 }
