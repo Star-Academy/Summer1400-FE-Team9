@@ -8,13 +8,25 @@ export default class Music {
   isFavorite: boolean;
 
 
-  constructor(music: any) {
-    this.id = music.id;
-    this.name = music.name;
-    this.artist = music.artist;
-    this.lyrics = music.lyrics;
-    this.cover = music.cover;
-    this.file = music.file;
-    this.isFavorite = music.isFavorite;
+  constructor(json: any) {
+    this.id = json.id;
+    this.name = json.name;
+    this.artist = json.artist;
+    this.lyrics = json.lyrics;
+    this.cover = json.cover;
+    this.file = json.file;
+    this.isFavorite = json.isFavorite;
+  }
+
+  static default() {
+    return new Music({
+      id: 0,
+      name: "",
+      artist: "",
+      lyrics: "",
+      cover: "",
+      file: "",
+      isFavorite: false
+    });
   }
 }
