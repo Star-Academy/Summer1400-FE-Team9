@@ -15,11 +15,14 @@ export class MusicListPageComponent implements OnInit {
   faHeart = faHeart;
   faHeartBroken = faHeartBroken;
   faShareAlt = faShareAlt;
+  isProgressIndicatorHidden: boolean = true;
 
   constructor(private musicLoaderService: MusicLoaderService) { }
 
   async ngOnInit() {
+    this.isProgressIndicatorHidden = false;
     this.musics = await this.musicLoaderService.getAllMusics();
+    this.isProgressIndicatorHidden = true;
   }
 
 }
