@@ -10,7 +10,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { MusicListPageComponent } from './music-list-page/music-list-page.component';
-import { FavListPageComponent } from './fav-list-page/fav-list-page.component';
 import { MusicPageComponent } from './music-page/music-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {AuthService} from "./auth.service";
@@ -28,7 +27,6 @@ import {FormsModule} from "@angular/forms";
     LoginFormComponent,
     RegisterFormComponent,
     MusicListPageComponent,
-    FavListPageComponent,
     MusicPageComponent
   ],
   imports: [

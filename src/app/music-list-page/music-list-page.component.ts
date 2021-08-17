@@ -3,6 +3,7 @@ import {MusicLoaderService} from "../music-loader.service";
 import {faHeart, faHeartBroken} from '@fortawesome/free-solid-svg-icons';
 import {faShareAlt} from '@fortawesome/free-solid-svg-icons';
 import Music from "../models/MusicModel";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-music-list-page',
@@ -17,18 +18,25 @@ export class MusicListPageComponent implements OnInit {
   faShareAlt = faShareAlt;
   isProgressIndicatorHidden: boolean = true;
   searchPredicate: string = "";
+  onlyShowFavorites: boolean = false;
 
-  constructor(private musicLoaderService: MusicLoaderService) {
+  constructor(private musicLoaderService: MusicLoaderService, private route: ActivatedRoute) {
   }
 
   getMusicsToRender(): Music[] {
-    if (this.searchPredicate == "") return this.musics;
+    if (this.searchPredicate == "") {
+      return this.musics.filter((music: Music) => this.onlyShowFavorites ? music.isFavorite : true);
+    }
     return this.musics.filter((music: Music) =>
       music.name.toLowerCase().includes(this.searchPredicate.toLowerCase()) ||
-      music.artist.toLowerCase().includes(this.searchPredicate.toLowerCase()));
+      music.artist.toLowerCase().includes(this.searchPredicate.toLowerCase()))
+      .filter((music: Music) => this.onlyShowFavorites ? music.isFavorite : true);
   }
 
   async ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.onlyShowFavorites = params['onlyShowFavorites'] == "favorites";
+    });
     this.isProgressIndicatorHidden = false;
     this.musics = await this.musicLoaderService.getAllMusics();
     this.isProgressIndicatorHidden = true;
