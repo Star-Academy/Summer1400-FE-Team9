@@ -23,6 +23,9 @@ export class AuthService {
     const token = result.token;
     localStorage.setItem("token", token.toString());
     localStorage.setItem("is-logged-in", "true");
+    await AuthService.sendRequest("https://songs.code-star.ir/playlist/create",
+      'POST',
+      {token: token, name: "favorites"});
     return token.toString();
   }
 
