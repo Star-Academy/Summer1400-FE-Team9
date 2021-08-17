@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterFormComponent } from './register-form.component';
+import {AuthService} from "../auth.service";
+import {Router} from "@angular/router";
 
 describe('RegisterFormComponent', () => {
   let component: RegisterFormComponent;
@@ -8,7 +10,8 @@ describe('RegisterFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterFormComponent ]
+      declarations: [ RegisterFormComponent ],
+      providers: [AuthService, Router, Function]
     })
     .compileComponents();
   });

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MusicListPageComponent } from './music-list-page.component';
+import {MusicLoaderService} from "../music-loader.service";
+import {ActivatedRoute} from "@angular/router";
 
 describe('MusicListPageComponent', () => {
   let component: MusicListPageComponent;
@@ -8,7 +10,8 @@ describe('MusicListPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MusicListPageComponent ]
+      declarations: [ MusicListPageComponent ],
+      providers: [MusicLoaderService, ActivatedRoute]
     })
     .compileComponents();
   });

@@ -14,8 +14,9 @@ import { MusicPageComponent } from './music-page/music-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {AuthService} from "./auth.service";
 import {MusicLoaderService} from "./music-loader.service";
-import {Router} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {GuardService} from "./guard.service";
 
 @NgModule({
   declarations: [
@@ -33,11 +34,13 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([])
   ],
   providers: [
     AuthService,
     MusicLoaderService,
+    GuardService
   ],
   bootstrap: [AppComponent]
 })
