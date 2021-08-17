@@ -4,11 +4,27 @@ import {faHeart, faHeartBroken} from '@fortawesome/free-solid-svg-icons';
 import {faShareAlt} from '@fortawesome/free-solid-svg-icons';
 import Music from "../models/MusicModel";
 import {ActivatedRoute} from "@angular/router";
+import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-music-list-page',
   templateUrl: './music-list-page.component.html',
-  styleUrls: ['../music-list-page.component.scss', '../music-page.component.scss']
+  styleUrls: ['../music-list-page.component.scss', '../music-page.component.scss'],
+  animations: [
+    trigger('inOut', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate('500ms',
+          style({ opacity: 1 })
+        )
+      ]),
+      transition('* => void', [
+        animate('500ms',
+          style({ opacity: 0 })
+        )
+      ])
+    ])
+  ]
 })
 export class MusicListPageComponent implements OnInit {
 
@@ -25,6 +41,7 @@ export class MusicListPageComponent implements OnInit {
   searchPredicate: string = "";
   onlyShowFavorites: boolean = false;
   openedMusic: Music = Music.default();
+  isOverlayOpen: boolean = false;
 
   constructor(private musicLoaderService: MusicLoaderService, private route: ActivatedRoute) {
   }
@@ -89,18 +106,24 @@ export class MusicListPageComponent implements OnInit {
 
   openMusic(music: Music) {
     this.openedMusic = music;
-    this.overlay.nativeElement.style.visibility = "visible";
-    this.overlay.nativeElement.style.opacity = 1;
-    this.overlay.nativeElement.style.transform = "scale(1) translate(0, -25%);"
+    // this.overlay.nativeElement.style.visibility = "visible";
+    // this.overlay.nativeElement.style.opacity = 1;
+    // this.overlay.nativeElement.style.transform = "scale(1) translate(0, -25%);"
+
     this.allMusicsElement.nativeElement.style.opacity = "20%";
+    this.isOverlayOpen = true;
   }
 
   makeOverlayHidden(event: MouseEvent) {
     if (event.target == this.musicDetailsElement.nativeElement || event.target == this.musicListElement.nativeElement) {
-      this.overlay.nativeElement.style.visibility = "hidden";
-      this.overlay.nativeElement.style.opacity = 0;
-      this.overlay.nativeElement.style.transform = "scale(1) translate(0, -25%);"
+      // this.overlay.nativeElement.style.visibility = "hidden";
+      // this.overlay.nativeElement.style.opacity = 0;
+      // this.overlay.nativeElement.style.transform = "scale(1) translate(0, -25%);"
+
+
+
       this.allMusicsElement.nativeElement.style.opacity = "100%";
+      this.isOverlayOpen = true;
     }
 
   }

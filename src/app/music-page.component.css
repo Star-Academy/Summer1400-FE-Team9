@@ -36,8 +36,6 @@ $title-color: whitesmoke;
   transform: scale(1) translate(0, -25%);
   box-shadow: none;
   transition: all 500ms;
-  visibility: hidden;
-  opacity: 0;
   z-index: 101;
 }
 .overlay #music-details {
