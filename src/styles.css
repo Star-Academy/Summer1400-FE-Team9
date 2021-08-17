@@ -170,7 +170,7 @@ header ul li:hover {
   background-color: #3a3f55;
 }
 
-#register-link {
+#register-link, #register-index-link {
   cursor: pointer;
 }
 

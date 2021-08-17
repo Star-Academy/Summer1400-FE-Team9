@@ -12,7 +12,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem("token"));
   }
 
   public localStorageItem(id: string): string {
