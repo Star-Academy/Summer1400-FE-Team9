@@ -16,8 +16,16 @@ export class MusicListPageComponent implements OnInit {
   faHeartBroken = faHeartBroken;
   faShareAlt = faShareAlt;
   isProgressIndicatorHidden: boolean = true;
+  searchPredicate: string = "";
 
   constructor(private musicLoaderService: MusicLoaderService) { }
+
+  getMusicsToRender(): Music[] {
+    if (this.searchPredicate == "") return this.musics;
+    return this.musics.filter((music: Music) =>
+      music.name.toLowerCase().includes(this.searchPredicate.toLowerCase()) ||
+      music.artist.toLowerCase().includes(this.searchPredicate.toLowerCase()));
+  }
 
   async ngOnInit() {
     this.isProgressIndicatorHidden = false;

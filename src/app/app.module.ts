@@ -16,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {AuthService} from "./auth.service";
 import {MusicLoaderService} from "./music-loader.service";
 import {Router} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {Router} from "@angular/router";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [
     AuthService,

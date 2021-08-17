@@ -8,7 +8,9 @@
     <div id="search">
       <input id="search-input" type="search" name="search-music" placeholder="جست‌وجو..."
              onfocus="setWidthOfSearch(43)"
-             onfocusout="setWidthOfSearch(40)"/>
+             onfocusout="setWidthOfSearch(40)"
+             [(ngModel)]="searchPredicate"
+      />
     </div>
 
     <!-- preloader: -->
@@ -17,7 +19,7 @@
     </div>
 
     <ul class="music-list">
-      <li *ngFor="let music of musics" draggable="true" class="mdc-elevation--z1"> <!-- TODO: Drag not done yet -->
+      <li *ngFor="let music of getMusicsToRender()" draggable="true" class="mdc-elevation--z1"> <!-- TODO: Drag not done yet -->
         <span class="music-cell-header">
           <img height="60" width="60" [src]="music.cover" loading="lazy" alt="عکس موزیک"/>
           <a class="music-title-and-singer-link">
