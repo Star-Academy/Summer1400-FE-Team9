@@ -29,6 +29,7 @@ export class AuthService {
   logout() {
     localStorage.setItem("is-logged-in", "false");
     localStorage.setItem("token", "");
+    localStorage.setItem("favorites-playlist-id", "0");
   }
 
   async register(email: string, password: string) {
