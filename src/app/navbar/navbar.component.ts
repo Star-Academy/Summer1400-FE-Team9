@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-navbar',
@@ -7,17 +8,21 @@ import {Router} from "@angular/router";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isLoginHidden: boolean = false;
-
-  constructor(private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
-    this.isLoginHidden = localStorage.getItem("is-logged-in") == "true";
+    console.log(localStorage.getItem("token"));
+  }
+
+  public localStorageItem(id: string): string {
+    return localStorage.getItem(id) ?? "";
   }
 
   async registerButtonTapped() {
-    if (this.isLoginHidden) {
-      // logout
+    if (this.localStorageItem('is-logged-in') == 'true') {
+      this.authService.logout();
+      await this.router.navigateByUrl("home");
     } else {
       await this.router.navigateByUrl("register-form");
     }

@@ -170,6 +170,10 @@ header ul li:hover {
   background-color: #3a3f55;
 }
 
+#register-link {
+  cursor: pointer;
+}
+
 button {
   position: relative;
   overflow: hidden;
