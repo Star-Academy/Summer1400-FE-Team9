@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MusicLoaderService} from "../music-loader.service";
 import {faHeart, faHeartBroken} from '@fortawesome/free-solid-svg-icons';
-import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import {faShareAlt} from '@fortawesome/free-solid-svg-icons';
 import Music from "../models/MusicModel";
 
 @Component({
@@ -18,7 +18,8 @@ export class MusicListPageComponent implements OnInit {
   isProgressIndicatorHidden: boolean = true;
   searchPredicate: string = "";
 
-  constructor(private musicLoaderService: MusicLoaderService) { }
+  constructor(private musicLoaderService: MusicLoaderService) {
+  }
 
   getMusicsToRender(): Music[] {
     if (this.searchPredicate == "") return this.musics;
@@ -40,5 +41,35 @@ export class MusicListPageComponent implements OnInit {
     }, function () {
       alert('خطا' + "؛ " + 'دسترسی کپی به مرورگر داده نشده است. لطفا مجددا تلاش نمایید.');
     });
+  }
+
+  async removeFavoriteStatus(music: Music) {
+    await MusicLoaderService.sendNonJSONRequest("https://songs.code-star.ir/playlist/remove-song",
+      'POST',
+      {
+        token: localStorage.getItem("token"),
+        playlistId: parseInt(localStorage.getItem("favorites-playlist-id") ?? "0"),
+        songId: music.id,
+      });
+    music.isFavorite = false;
+
+  }
+
+  async makeFavorite(music: Music) {
+    await MusicLoaderService.sendNonJSONRequest("https://songs.code-star.ir/playlist/add-song",
+      'POST',
+      {
+        token: localStorage.getItem("token"),
+        playlistId: parseInt(localStorage.getItem("favorites-playlist-id") ?? "0"),
+        songId: music.id,
+      });
+    music.isFavorite = true;
+  }
+
+  async toggleFavoriteStatus(music: Music) {
+    this.isProgressIndicatorHidden = false;
+    if (music.isFavorite) await this.removeFavoriteStatus(music);
+    else await this.makeFavorite(music);
+    this.isProgressIndicatorHidden = true;
   }
 }

@@ -27,7 +27,7 @@
         </span>
 
         <span class="music-cell-controls">
-          <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;">
+          <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;" (click)="toggleFavoriteStatus(music)">
             <fa-icon [icon]="music.isFavorite ? faHeart : faHeartBroken"></fa-icon>
           </button>
           <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;" (click)="shareLinkTo(music)">
