@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  isLoginHidden: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoginHidden = localStorage.getItem("is-logged-in") == "true";
   }
 
+  async registerButtonTapped() {
+    if (this.isLoginHidden) {
+      // logout
+    } else {
+      await this.router.navigateByUrl("register-form");
+    }
+  }
 }

@@ -15,8 +15,8 @@
   </nav>
   <div>
     <ul class="authentication">
-      <li class="login-link"><a id="login-link" routerLink="login-form">ورود</a></li>
-      <li><a id="register-link" routerLink="register-form">ثبت‌نام</a></li>
+      <li [hidden]="isLoginHidden" class="login-link"><a id="login-link" routerLink="login-form">ورود</a></li>
+      <li><a id="register-link" (click)="registerButtonTapped()">{{ isLoginHidden ? "خروج" : "ثبت‌نام"}}</a></li>
     </ul>
   </div>
 
