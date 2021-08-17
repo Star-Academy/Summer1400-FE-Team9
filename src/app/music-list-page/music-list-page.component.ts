@@ -33,4 +33,12 @@ export class MusicListPageComponent implements OnInit {
     this.isProgressIndicatorHidden = true;
   }
 
+  shareLinkTo(music: Music) {
+    let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
+    navigator.clipboard.writeText(link).then(function () {
+      alert('لینک آهنگ در حافظه Clipboard کپی شد' + "؛ " + 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.');
+    }, function () {
+      alert('خطا' + "؛ " + 'دسترسی کپی به مرورگر داده نشده است. لطفا مجددا تلاش نمایید.');
+    });
+  }
 }
