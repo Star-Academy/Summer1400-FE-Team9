@@ -31,7 +31,7 @@
         <span class="music-cell-controls">
           <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;">
 <!--            <i class="fa fa-heart" aria-hidden="true" style="text-align: center"></i>-->
-            <fa-icon [icon]="faHeart"></fa-icon>
+            <fa-icon [icon]="music.isFavorite ? faHeart : faHeartBroken"></fa-icon>
           </button>
           <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;">
 <!--            <i class="fa fa-share-alt" aria-hidden="true" style="text-align: center"></i>-->

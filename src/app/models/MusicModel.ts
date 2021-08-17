@@ -5,6 +5,7 @@ export default class Music {
   lyrics: string;
   cover: string;
   file: string;
+  isFavorite: boolean;
 
 
   constructor(music: any) {
@@ -14,5 +15,6 @@ export default class Music {
     this.lyrics = music.lyrics;
     this.cover = music.cover;
     this.file = music.file;
+    this.isFavorite = music.isFavorite;
   }
 }
