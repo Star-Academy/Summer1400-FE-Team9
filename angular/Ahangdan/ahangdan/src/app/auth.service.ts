@@ -1,0 +1,43 @@
+import {Injectable} from '@angular/core';
+
+@Injectable()
+export class AuthService {
+
+  constructor() {
+  }
+
+  public static async sendRequest(url: string, method: string, body?: object): Promise<any> {
+    const init: RequestInit = {headers: {'Content-Type': 'application/json'}};
+    init.method = method;
+    if (body) init.body = JSON.stringify(body);
+    return fetch(url, init).then((response) => {
+      if (response.ok) return response.json();
+      throw response.text();
+    })
+  }
+
+  async login(email: string, password: string): Promise<string> {
+    const result = await AuthService.sendRequest("https://songs.code-star.ir/user/login",
+      'POST',
+      {email: email, password: password});
+    const token = result.token;
+    localStorage.setItem("token", token.toString());
+    localStorage.setItem("is-logged-in", "true");
+    await AuthService.sendRequest("https://songs.code-star.ir/playlist/create",
+      'POST',
+      {token: token, name: "favorites"});
+    return token.toString();
+  }
+
+  logout() {
+    localStorage.setItem("is-logged-in", "false");
+    localStorage.setItem("token", "");
+    localStorage.setItem("favorites-playlist-id", "0");
+  }
+
+  async register(email: string, password: string) {
+    await AuthService.sendRequest("https://songs.code-star.ir/user/register",
+      'POST',
+      {email: email, password: password});
+  }
+}
