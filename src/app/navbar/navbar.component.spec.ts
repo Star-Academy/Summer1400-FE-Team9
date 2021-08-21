@@ -8,10 +8,21 @@ describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
+  let router = {
+    navigateByUrl: (url: string) => Promise.resolve(true)
+  };
+
+  let authService = {
+    logout: () => ""
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ NavbarComponent ],
-      providers: [AuthService, Router, Function]
+      providers: [
+        { provide: Router, useValue: router },
+        { provide: AuthService, useValue: authService }
+      ]
     })
     .compileComponents();
   });

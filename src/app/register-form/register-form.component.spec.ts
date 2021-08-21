@@ -8,10 +8,21 @@ describe('RegisterFormComponent', () => {
   let component: RegisterFormComponent;
   let fixture: ComponentFixture<RegisterFormComponent>;
 
+  let router = {
+    navigateByUrl: (url: string) => Promise.resolve(true)
+  };
+
+  let authService = {
+    register: (email: string, password: string) => Promise.resolve("")
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RegisterFormComponent ],
-      providers: [AuthService, Router, Function]
+      providers: [
+        { provide: Router, useValue: router },
+        { provide: AuthService, useValue: authService }
+      ]
     })
     .compileComponents();
   });

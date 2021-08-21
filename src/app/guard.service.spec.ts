@@ -12,4 +12,11 @@ describe('GuardService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it("should work correctly", () => {
+    localStorage.setItem("is-logged-in", "true");
+    expect(service.canActivate()).toBeTruthy();
+    localStorage.setItem("is-logged-in", "false");
+    expect(service.canActivate()).toBeFalsy();
+  })
 });

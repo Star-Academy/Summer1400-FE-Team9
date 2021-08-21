@@ -41,7 +41,7 @@ export class MusicLoaderService {
         localStorage.setItem("favorites-playlist-id", playlist.id + "");
         for (const music of playlist.songs) {
           for (const eachMusic of finalMusics) {
-            if (eachMusic.id == music.rest.id) eachMusic.isFavorite = true;
+            if (eachMusic.id == music.id) eachMusic.isFavorite = true;
           }
         }
         break;
