@@ -83,7 +83,6 @@ export class MusicListPageComponent implements OnInit {
         songId: music.id,
       });
     music.isFavorite = false;
-
   }
 
   async makeFavorite(music: Music) {
@@ -116,15 +115,8 @@ export class MusicListPageComponent implements OnInit {
 
   makeOverlayHidden(event: MouseEvent) {
     if (event.target == this.musicDetailsElement.nativeElement || event.target == this.musicListElement.nativeElement) {
-      // this.overlay.nativeElement.style.visibility = "hidden";
-      // this.overlay.nativeElement.style.opacity = 0;
-      // this.overlay.nativeElement.style.transform = "scale(1) translate(0, -25%);"
-
-
-
       this.allMusicsElement.nativeElement.style.opacity = "100%";
       this.isOverlayOpen = true;
     }
-
   }
 }
