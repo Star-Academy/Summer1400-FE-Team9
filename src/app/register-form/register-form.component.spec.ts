@@ -13,7 +13,7 @@ describe('RegisterFormComponent', () => {
   };
 
   let authService = {
-    login: (email: string, password: string) => Promise.resolve("")
+    register: (email: string, password: string) => Promise.resolve("")
   };
 
   beforeEach(async () => {
