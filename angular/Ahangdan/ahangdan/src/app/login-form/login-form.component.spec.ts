@@ -24,6 +24,7 @@ describe('LoginFormComponent', () => {
 
   let authService = {
     login: (email: string, password: string) => {
+      if (password == "ss") throw "Error";
       emailString = email;
       passwordString = password;
       Promise.resolve("");
@@ -76,5 +77,8 @@ describe('LoginFormComponent', () => {
     expect(emailString).toEqual("sss@sss.ss");
     expect(passwordString).toEqual("s");
     expect(navigatedString).toEqual("home");
+
+    passwordInput.setAttribute("value", "ss");
+    await component.loginTapped();
   });
 });

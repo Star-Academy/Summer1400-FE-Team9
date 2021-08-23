@@ -57,9 +57,7 @@ export class MusicListPageComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.onlyShowFavorites = params['onlyShowFavorites'] == "favorites";
-    });
+    this.route.params.subscribe((params) => {this.onlyShowFavorites = params['onlyShowFavorites'] == "favorites";});
     this.isProgressIndicatorHidden = false;
     this.musics = await this.musicLoaderService.getAllMusics();
     this.isProgressIndicatorHidden = true;
@@ -67,15 +65,11 @@ export class MusicListPageComponent implements OnInit {
 
   shareLinkTo(music: Music) {
     let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
-    navigator.clipboard.writeText(link).then(function () {
-      alert('لینک آهنگ در حافظه Clipboard کپی شد' + "؛ " + 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.');
-    }, function () {
-      alert('خطا' + "؛ " + 'دسترسی کپی به مرورگر داده نشده است. لطفا مجددا تلاش نمایید.');
-    });
+    navigator.clipboard.writeText(link).then(() => alert('لینک آهنگ در حافظه Clipboard کپی شد' + "؛ " + 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.'), () => alert('خطا' + "؛ " + 'دسترسی کپی به مرورگر داده نشده است. لطفا مجددا تلاش نمایید.'));
   }
 
   async removeFavoriteStatus(music: Music) {
-    await MusicLoaderService.sendNonJSONRequest("https://songs.code-star.ir/playlist/remove-song",
+    await this.musicLoaderService.sendRequest("https://songs.code-star.ir/playlist/remove-song",
       'POST',
       {
         token: localStorage.getItem("token"),
@@ -86,7 +80,7 @@ export class MusicListPageComponent implements OnInit {
   }
 
   async makeFavorite(music: Music) {
-    await MusicLoaderService.sendNonJSONRequest("https://songs.code-star.ir/playlist/add-song",
+    await this.musicLoaderService.sendRequest("https://songs.code-star.ir/playlist/add-song",
       'POST',
       {
         token: localStorage.getItem("token"),
@@ -113,7 +107,7 @@ export class MusicListPageComponent implements OnInit {
     this.isOverlayOpen = true;
   }
 
-  makeOverlayHidden(event: MouseEvent) {
+  makeOverlayHidden(event: any) {
     if (event.target == this.musicDetailsElement.nativeElement || event.target == this.musicListElement.nativeElement) {
       this.allMusicsElement.nativeElement.style.opacity = "100%";
       this.isOverlayOpen = true;

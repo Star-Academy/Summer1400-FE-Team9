@@ -5,12 +5,15 @@ import {MusicLoaderService} from "../music-loader.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subject} from 'rxjs';
 import Music from "../models/MusicModel";
+import {ElementRef} from "@angular/core";
 
 describe('MusicListPageComponent', () => {
   let component: MusicListPageComponent;
   let fixture: ComponentFixture<MusicListPageComponent>;
   let backupMusics: Music[];
   let sendNonJSONRequestURL = "";
+  let backupNavigatorClipboardWriteTextObject = navigator.clipboard.writeText;
+  let copiedText = "";
 
   let activatedRoute = {
     params: new Subject<Params>()
@@ -18,7 +21,7 @@ describe('MusicListPageComponent', () => {
 
   let musicService = {
     getAllMusics: () => Promise.resolve([]),
-    sendNonJSONRequest: (url: string, method: any, body: any) => {
+    sendRequest: (url: string, method: any, body: any) => {
       sendNonJSONRequestURL = url;
     }
   };
@@ -57,10 +60,17 @@ describe('MusicListPageComponent', () => {
       file: "2",
       isFavorite: true
     })];
+
+    backupNavigatorClipboardWriteTextObject = navigator.clipboard.writeText;
+    navigator.clipboard.writeText = ((data) => {
+      copiedText = data;
+      return Promise.resolve();
+    });
   });
 
   afterEach(() => {
     component.musics = backupMusics;
+    navigator.clipboard.writeText = backupNavigatorClipboardWriteTextObject;
   })
 
   it('should create', () => {
@@ -79,22 +89,39 @@ describe('MusicListPageComponent', () => {
     expect(component.getMusicsToRender().length).toEqual(0);
   })
 
-  // it("should remove favorite status", async () => {
-  //   let music = new Music({
-  //     id: 1,
-  //     name: "1",
-  //     artist: "1",
-  //     lyrics: "1",
-  //     cover: "1",
-  //     file: "1",
-  //     isFavorite: false
-  //   });
-  //   try {
-  //     await component.makeFavorite(music);
-  //   } finally {
-  //     expect(music.isFavorite).toBeFalsy();
-  //   }
-  // })
+  it("should make favorite", async () => {
+    let music = new Music({
+      id: 1,
+      name: "1",
+      artist: "1",
+      lyrics: "1",
+      cover: "1",
+      file: "1",
+      isFavorite: false
+    });
+    try {
+      await component.makeFavorite(music);
+    } finally {
+      expect(music.isFavorite).toBeTruthy();
+    }
+  })
+
+  it("should remove favorite status", async () => {
+    let music = new Music({
+      id: 1,
+      name: "1",
+      artist: "1",
+      lyrics: "1",
+      cover: "1",
+      file: "1",
+      isFavorite: false
+    });
+    try {
+      await component.removeFavoriteStatus(music);
+    } finally {
+      expect(music.isFavorite).toBeFalsy();
+    }
+  })
 
   it("should open music", () => {
     let music = new Music({
@@ -113,4 +140,57 @@ describe('MusicListPageComponent', () => {
     expect(component.isOverlayOpen).toBeTruthy();
     expect(component.openedMusic.id).toEqual(music.id);
   });
+
+  it("should share link", async () => {
+    let music = new Music({
+      id: 1,
+      name: "1",
+      artist: "1",
+      lyrics: "1",
+      cover: "1",
+      file: "1",
+      isFavorite: false
+    });
+    component.shareLinkTo(music);
+    expect(copiedText).toEqual("https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=1");
+  });
+
+  it("should toggle favorite status", async () => {
+    let music = new Music({
+      id: 1,
+      name: "1",
+      artist: "1",
+      lyrics: "1",
+      cover: "1",
+      file: "1",
+      isFavorite: false
+    });
+    try {
+      await component.toggleFavoriteStatus(music);
+    } finally {
+      expect(music.isFavorite).toBeTruthy();
+    }
+
+    try {
+      await component.toggleFavoriteStatus(music);
+    } finally {
+      expect(music.isFavorite).toBeFalsy();
+    }
+  });
+
+  it("should make overlay hidden", () => {
+    let tag1 = document.createElement("div");
+    let tag2 = document.createElement("div");
+    component.musicDetailsElement = new ElementRef<any>("div");
+    component.musicListElement = new ElementRef<any>("div");
+    component.musicDetailsElement.nativeElement = tag1;
+    let event = {target: tag1};
+    component.makeOverlayHidden(event);
+    expect(component.isOverlayOpen).toBeTruthy();
+    component.isOverlayOpen = false;
+    component.musicListElement.nativeElement = tag2;
+    event = {target: tag2};
+    component.makeOverlayHidden(event);
+    expect(component.isOverlayOpen).toBeTruthy();
+  })
 });

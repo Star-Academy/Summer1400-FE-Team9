@@ -22,6 +22,7 @@ describe('RegisterFormComponent', () => {
 
   let authService = {
     register: (email: string, password: string) => {
+      if (password == "s") throw "Error";
       emailString = email;
       passwordString = password;
       Promise.resolve("");
@@ -66,7 +67,7 @@ describe('RegisterFormComponent', () => {
     emailInput.setAttribute("value", "sss@sss.ss");
     component.emailInput.nativeElement = emailInput;
     let passwordInput = document.createElement("input");
-    passwordInput.setAttribute("value", "s");
+    passwordInput.setAttribute("value", "ss");
     component.passwordInput.nativeElement = passwordInput;
     let repeatedPasswordInput = document.createElement("input");
     repeatedPasswordInput.setAttribute("value", "s");
@@ -74,8 +75,20 @@ describe('RegisterFormComponent', () => {
 
     await component.registerTapped();
 
+    repeatedPasswordInput.setAttribute("value", "ss");
+    component.repeatedPasswordInput.nativeElement = repeatedPasswordInput;
+
+    await component.registerTapped();
+
     expect(emailString).toEqual("sss@sss.ss");
-    expect(passwordString).toEqual("s");
+    expect(passwordString).toEqual("ss");
     expect(navigatedString).toEqual("login-page");
+
+    passwordInput.setAttribute("value", "s");
+    component.passwordInput.nativeElement = passwordInput;
+    repeatedPasswordInput.setAttribute("value", "s");
+    component.repeatedPasswordInput.nativeElement = repeatedPasswordInput;
+
+    await component.registerTapped();
   });
 });

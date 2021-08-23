@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
       await this.authService.login(email, password);
       await this.router.navigateByUrl("home");
     } catch {
-      alert("An error has occurred. Please try again."); // TODO: Better alert
+      alert("An error has occurred. Please try again.");
     }
   }
 }
