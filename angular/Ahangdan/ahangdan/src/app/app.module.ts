@@ -17,6 +17,7 @@ import {MusicLoaderService} from "./music-loader.service";
 import {Router, RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {GuardService} from "./guard.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {GuardService} from "./guard.service";
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,
