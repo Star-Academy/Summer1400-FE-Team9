@@ -3,13 +3,25 @@ import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 
 import 'jasmine-ajax';
+import {HttpClient} from "@angular/common/http";
 
 describe('AuthService', () => {
   let service: AuthService;
   let originalFetch: any;
 
+  let http = {
+    post: (url: string, body?: object) => {
+      switch (url) {
+        case "https://songs.code-star.ir/user/login": return Promise.resolve("test-token");
+        case "https://songs.code-star.ir/playlist/create": return Promise.resolve("success");
+        case "https://songs.code-star.ir/user/register": return Promise.resolve("success");
+        default: return Promise.resolve("error");
+      }
+    }
+  }
+
   beforeEach(() => {
-    TestBed.configureTestingModule({providers: [AuthService]});
+    TestBed.configureTestingModule({providers: [AuthService, {provide: HttpClient, useValue: http},]});
     TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
 

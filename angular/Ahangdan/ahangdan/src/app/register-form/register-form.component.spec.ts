@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegisterFormComponent } from './register-form.component';
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 describe('RegisterFormComponent', () => {
   let component: RegisterFormComponent;
@@ -27,12 +28,24 @@ describe('RegisterFormComponent', () => {
     }
   };
 
+  let http = {
+    post: (url: string, body?: object) => {
+      switch (url) {
+        case "https://songs.code-star.ir/user/login": return Promise.resolve("test-token");
+        case "https://songs.code-star.ir/playlist/create": return Promise.resolve("success");
+        case "https://songs.code-star.ir/user/register": return Promise.resolve("success");
+        default: return Promise.resolve("error");
+      }
+    }
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RegisterFormComponent ],
       providers: [
         { provide: Router, useValue: router },
-        { provide: AuthService, useValue: authService }
+        { provide: AuthService, useValue: authService },
+        {provide: HttpClient, useValue: http},
       ]
     })
     .compileComponents();

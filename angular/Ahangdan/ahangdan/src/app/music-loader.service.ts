@@ -30,7 +30,6 @@ export class MusicLoaderService {
       'POST',
       {token: localStorage.getItem("token")});
     let finalMusics = musics.map((music: any) => new Music(music));
-    console.log(playlistResult);
     for (const eachMusic of finalMusics) eachMusic.isFavorite = false;
     for (const playlist of playlistResult) {
       if (playlist.name == "favorites") {

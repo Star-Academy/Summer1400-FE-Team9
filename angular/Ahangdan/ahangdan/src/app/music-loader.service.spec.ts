@@ -3,12 +3,54 @@ import { TestBed } from '@angular/core/testing';
 import { MusicLoaderService } from './music-loader.service';
 import {AuthService} from "./auth.service";
 import {Router} from "@angular/router";
+import Music from "./models/MusicModel";
+import {HttpClient} from "@angular/common/http";
 
 describe('MusicLoaderService', () => {
   let service: MusicLoaderService;
 
+  let http = {
+    post: (url: string, body?: object) => {
+      switch (url) {
+        case "https://songs.code-star.ir/song/all": return Promise.resolve(JSON.stringify([new Music({
+          id: 1,
+          name: "1",
+          artist: "1",
+          lyrics: "1",
+          cover: "1",
+          file: "1",
+          isFavorite: false
+        }), new Music({
+          id: 2,
+          name: "2",
+          artist: "2",
+          lyrics: "2",
+          cover: "2",
+          file: "2",
+          isFavorite: true
+        })]));
+        case "https://songs.code-star.ir/playlist/all": return Promise.resolve(JSON.stringify([
+          { name: "favorites",
+          id: 0,
+          songs: [
+            {
+              id: 2,
+              name: "2",
+              artist: "2",
+              lyrics: "2",
+              cover: "2",
+              file: "2",
+              isFavorite: true
+            }
+          ]}
+        ]));
+        default: return Promise.resolve("error");
+      }
+    }
+  }
+
   beforeEach(() => {
-    TestBed.configureTestingModule({providers: [MusicLoaderService]});
+    TestBed.configureTestingModule({providers: [MusicLoaderService, {provide: HttpClient, useValue: http},]});
     service = TestBed.inject(MusicLoaderService);
   });
 
