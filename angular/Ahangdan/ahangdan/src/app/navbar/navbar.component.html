@@ -1,0 +1,32 @@
+<header>
+  <a href="index.html">
+    <div class="logo">
+      <img alt="logo">
+      <h1>آهنگدان</h1>
+    </div>
+  </a>
+  <nav>
+    <ul>
+      <li class="nav-link-item" id="li-selected-tab"><a routerLink="home" id="main-selected-tab------">خانه</a></li>
+      <li class="nav-link-item"><a routerLink="music-list-page">موزیک‌ها</a></li>
+      <li id="fav-link" class="nav-link-item"><a routerLink="music-list-page/favorites">علاقه‌مندی‌ها</a></li>
+      <li class="nav-link-item"><a routerLink="about-us">درباره ما</a></li>
+    </ul>
+  </nav>
+  <div>
+    <ul class="authentication">
+      <li [hidden]="localStorageItem('is-logged-in') == 'true'" class="login-link"><a id="login-link" routerLink="login-form">ورود</a></li>
+      <li><a id="register-link" (click)="registerButtonTapped()">{{ (localStorageItem('is-logged-in') == 'true') ? "خروج" : "ثبت‌نام"}}</a></li>
+    </ul>
+  </div>
+
+</header>
+
+<nav class="more-buttons">
+  <ul>
+    <li><a routerLink="home">خانه</a></li>
+    <li><a routerLink="music-list-page">موزیک‌ها</a></li>
+    <li><a routerLink="music-list-page/favorites">علاقه‌مندی‌ها</a></li>
+    <li><a routerLink="about-us">درباره ما</a></li>
+  </ul>
+</nav>

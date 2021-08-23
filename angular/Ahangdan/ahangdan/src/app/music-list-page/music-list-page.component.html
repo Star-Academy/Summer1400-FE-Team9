@@ -1,0 +1,86 @@
+<header class="page-title-container">
+  <h1 id="page-title-name" class="page-title glow">{{onlyShowFavorites ? "علاقه‌مندی‌ها" : "آهنگ‌ها"}}</h1>
+</header>
+
+<div id="container">
+
+  <section #allMusics id="all-musics">
+    <div id="search">
+      <input id="search-input" type="search" name="search-music" placeholder="جست‌وجو..."
+             [(ngModel)]="searchPredicate"/>
+    </div>
+
+    <!-- preloader: -->
+    <div class="loader-wrapper" [hidden]="isProgressIndicatorHidden">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+    <ul class="music-list">
+      <li *ngFor="let music of getMusicsToRender()" draggable="true" class="mdc-elevation--z1">
+        <!-- TODO: Drag not done yet -->
+        <span class="music-cell-header">
+          <img height="60" width="60" [src]="music.cover" loading="lazy" alt="عکس موزیک"/>
+          <a class="music-title-and-singer-link" (click)="openMusic(music)">
+            <span class="music-title-and-singer">
+              <span class="music-title">{{ music.name }}</span>
+              <span class="music-singer">{{ music.artist }}</span>
+            </span>
+          </a>
+        </span>
+
+        <span class="music-cell-controls">
+          <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;"
+                  (click)="toggleFavoriteStatus(music)">
+            <fa-icon [icon]="music.isFavorite ? faHeart : faHeartBroken"></fa-icon>
+          </button>
+          <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;" (click)="shareLinkTo(music)">
+            <fa-icon [icon]="faShareAlt"></fa-icon>
+          </button>
+        </span>
+      </li>
+    </ul>
+
+    <div id="pagination-controls">
+      <button class="pagination-button" id="previous-page">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+      <p id="current-page">
+        صفحه‌ی ۳
+      </p>
+      <button class="pagination-button" id="next-page">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+    </div>
+  </section>
+
+
+</div>
+
+<div #overlay id="overlay" class="overlay" (click)="makeOverlayHidden($event)" *ngIf="isOverlayOpen">
+  <section #musicDetails id="music-details">
+    <ul #musicList id="music-list-ul" class="music-list" style="display: flex; justify-content: center; align-content: center">
+      <li id="music-box">
+                    <span class="music-cell-header">
+                        <img [src]="openedMusic.cover" id="music-overlay-image" height="75" alt="عکس موزیک"/>
+                        <span class="music-title-and-singer">
+                            <span id="music-title-text" class="music-title">{{openedMusic.name}}</span>
+                            <span id="music-singer-text" class="music-singer">{{openedMusic.artist}}</span>
+                        </span>
+                    </span>
+
+        <!--                    <span class="music-cell-controls">-->
+        <!--                        <button id="two-x-button" onclick="changePlaybackRate()">2x</button>-->
+        <!--                        <button id="add-to-favorites-button"><i id="add-to-favorites-i" class="fa fa-heart-o"-->
+        <!--                                                                aria-hidden="true"></i></button>-->
+        <!--                    </span>-->
+
+        <audio controls id="music">
+          <source id="music-playback-source" [src]="openedMusic.file" type="audio/mpeg">
+        </audio>
+        <div class="lyric-box">
+          <p id="lyrics-text" class="lyric">{{openedMusic.lyrics}}</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>

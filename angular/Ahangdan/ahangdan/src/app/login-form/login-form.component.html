@@ -1,0 +1,19 @@
+<article>
+  <div class="header">
+    <h1>ورود</h1>
+    <h6>
+      اکانت ندارید؟
+      <br>
+      <a routerLink="register-form">
+        از این‌جا ثبت نام کنید.
+      </a>
+    </h6>
+  </div>
+  <section>
+    <input #emailInput id="email-input" type="email" name="email" placeholder="ایمیل"> <br>
+    <input #passwordInput id="password-input" type="password" name="password" placeholder="رمز عبور"> <br>
+    <div class="authenticate-button">
+      <button id="submit-button" class="submit-button" (click)="loginTapped()">ورود</button>
+    </div>
+  </section>
+</article>
