@@ -61,7 +61,7 @@ article {
     }
   }
 
-  .header {
+  .header-class {
     h1 {
       font-size: 2.5rem;
     }
@@ -101,7 +101,7 @@ article {
 
 @media (min-width: 420px) {
   article {
-    .header {
+    .header-class {
       h1 {
         font-size: 4rem;
       }
