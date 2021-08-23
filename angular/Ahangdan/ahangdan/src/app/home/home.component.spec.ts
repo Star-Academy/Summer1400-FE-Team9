@@ -36,6 +36,8 @@ describe('HomeComponent', () => {
   });
 
   it('should get the correct local storage item', () => {
+    localStorage.removeItem("local-storage-test")
+    expect(component.localStorageItem("local-storage-test")).toEqual("");
     localStorage.setItem("local-storage-test", "test-value");
     expect(component.localStorageItem("local-storage-test")).toEqual("test-value");
   });
