@@ -7,6 +7,12 @@ import {Subject} from 'rxjs';
 import Music from "../models/MusicModel";
 import {ElementRef} from "@angular/core";
 
+class MyParams {
+  subscribe(func: any) {
+    func();
+  }
+}
+
 describe('MusicListPageComponent', () => {
   let component: MusicListPageComponent;
   let fixture: ComponentFixture<MusicListPageComponent>;
@@ -16,7 +22,8 @@ describe('MusicListPageComponent', () => {
   let copiedText = "";
 
   let activatedRoute = {
-    params: new Subject<Params>()
+    // params: new Subject<Params>()
+    params: new MyParams()
   };
 
   let musicService = {
@@ -90,7 +97,24 @@ describe('MusicListPageComponent', () => {
   })
 
   it("should make favorite", async () => {
+    localStorage.setItem("favorites-playlist-id", "1");
     let music = new Music({
+      id: 1,
+      name: "1",
+      artist: "1",
+      lyrics: "1",
+      cover: "1",
+      file: "1",
+      isFavorite: false
+    });
+    try {
+      await component.makeFavorite(music);
+    } finally {
+      expect(music.isFavorite).toBeTruthy();
+    }
+
+    localStorage.removeItem("favorites-playlist-id");
+    music = new Music({
       id: 1,
       name: "1",
       artist: "1",
@@ -107,7 +131,24 @@ describe('MusicListPageComponent', () => {
   })
 
   it("should remove favorite status", async () => {
+    localStorage.setItem("favorites-playlist-id", "1");
     let music = new Music({
+      id: 1,
+      name: "1",
+      artist: "1",
+      lyrics: "1",
+      cover: "1",
+      file: "1",
+      isFavorite: false
+    });
+    try {
+      await component.removeFavoriteStatus(music);
+    } finally {
+      expect(music.isFavorite).toBeFalsy();
+    }
+
+    localStorage.removeItem("favorites-playlist-id");
+    music = new Music({
       id: 1,
       name: "1",
       artist: "1",
@@ -181,6 +222,7 @@ describe('MusicListPageComponent', () => {
   it("should make overlay hidden", () => {
     let tag1 = document.createElement("div");
     let tag2 = document.createElement("div");
+    let tag3 = document.createElement("div");
     component.musicDetailsElement = new ElementRef<any>("div");
     component.musicListElement = new ElementRef<any>("div");
     component.musicDetailsElement.nativeElement = tag1;
@@ -192,5 +234,10 @@ describe('MusicListPageComponent', () => {
     event = {target: tag2};
     component.makeOverlayHidden(event);
     expect(component.isOverlayOpen).toBeTruthy();
+
+    component.isOverlayOpen = false;
+    event = {target: tag3};
+    component.makeOverlayHidden(event);
+    expect(component.isOverlayOpen).toBeFalsy();
   })
 });

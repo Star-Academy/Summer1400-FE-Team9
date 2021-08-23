@@ -57,10 +57,10 @@ export class MusicListPageComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.route.params.subscribe((params) => {this.onlyShowFavorites = params['onlyShowFavorites'] == "favorites";});
     this.isProgressIndicatorHidden = false;
     this.musics = await this.musicLoaderService.getAllMusics();
     this.isProgressIndicatorHidden = true;
+    this.route.params.subscribe((params) => {this.onlyShowFavorites = params['onlyShowFavorites'] == "favorites";});
   }
 
   shareLinkTo(music: Music) {
