@@ -35,6 +35,19 @@ class HTTPMusicLoaderPromiseHelper {
         isFavorite: true
       })]});
       case "https://songs.code-star.ir/playlist/all": return Promise.resolve([
+        { name: "someOtherPlaylist",
+          id: 1,
+          songs: [
+            {
+              id: 3,
+              name: "2",
+              artist: "2",
+              lyrics: "2",
+              cover: "2",
+              file: "2",
+              isFavorite: true
+            }
+          ]},
         { name: "favorites",
           id: 0,
           songs: [
@@ -48,19 +61,6 @@ class HTTPMusicLoaderPromiseHelper {
               isFavorite: true
             }
           ]},
-        { name: "someOtherPlaylist",
-          id: 1,
-          songs: [
-            {
-              id: 3,
-              name: "2",
-              artist: "2",
-              lyrics: "2",
-              cover: "2",
-              file: "2",
-              isFavorite: true
-            }
-          ]}
       ]);
       default: return Promise.resolve("error");
     }
