@@ -5,6 +5,7 @@ import {AuthService} from "../auth.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MusicLoaderService} from "../music-loader.service";
 import {Subject} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -29,12 +30,24 @@ describe('LoginFormComponent', () => {
     }
   };
 
+  let http = {
+    post: (url: string, body?: object) => {
+      switch (url) {
+        case "https://songs.code-star.ir/user/login": return Promise.resolve("test-token");
+        case "https://songs.code-star.ir/playlist/create": return Promise.resolve("success");
+        case "https://songs.code-star.ir/user/register": return Promise.resolve("success");
+        default: return Promise.resolve("error");
+      }
+    }
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginFormComponent],
       providers: [
         {provide: Router, useValue: router},
-        {provide: AuthService, useValue: authService}
+        {provide: AuthService, useValue: authService},
+        {provide: HttpClient, useValue: http},
       ]
     })
       .compileComponents();
