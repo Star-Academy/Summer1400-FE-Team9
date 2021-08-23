@@ -6,10 +6,67 @@ import {Router} from "@angular/router";
 import Music from "./models/MusicModel";
 import {HttpClient} from "@angular/common/http";
 
+class HTTPMusicLoaderPromiseHelper {
+  url = "";
+  body?: object;
+
+  constructor(url: string, body?: object) {
+    this.url = url;
+    this.body = body;
+  }
+
+  toPromise(): Promise<any> {
+    switch (this.url) {
+      case "https://songs.code-star.ir/song/all": return Promise.resolve(JSON.stringify([new Music({
+        id: 1,
+        name: "1",
+        artist: "1",
+        lyrics: "1",
+        cover: "1",
+        file: "1",
+        isFavorite: false
+      }), new Music({
+        id: 2,
+        name: "2",
+        artist: "2",
+        lyrics: "2",
+        cover: "2",
+        file: "2",
+        isFavorite: true
+      })]));
+      case "https://songs.code-star.ir/playlist/all": return Promise.resolve(JSON.stringify([
+        { name: "favorites",
+          id: 0,
+          songs: [
+            {
+              id: 2,
+              name: "2",
+              artist: "2",
+              lyrics: "2",
+              cover: "2",
+              file: "2",
+              isFavorite: true
+            }
+          ]}
+      ]));
+      default: return Promise.resolve("error");
+    }
+  }
+}
+
 describe('MusicLoaderService', () => {
   let service: MusicLoaderService;
 
   let http = {
+    post: (url: string, body?: object) => {
+      return new HTTPMusicLoaderPromiseHelper(url);
+    },
+    get: (url: string) => {
+      return new HTTPMusicLoaderPromiseHelper(url);
+    }
+  }
+
+  let http2 = {
     post: (url: string, body?: object) => {
       switch (url) {
         case "https://songs.code-star.ir/song/all": return Promise.resolve(JSON.stringify([new Music({
