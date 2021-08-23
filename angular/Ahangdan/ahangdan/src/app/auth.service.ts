@@ -9,14 +9,6 @@ export class AuthService {
   }
 
   public async sendRequest(url: string, method: string, body?: object): Promise<any> {
-    // const init: RequestInit = {headers: {'Content-Type': 'application/json'}};
-    // init.method = method;
-    // if (body) init.body = JSON.stringify(body);
-    // return fetch(url, init).then((response) => {
-    //   if (response.ok) return response.json();
-    //   throw response.text();
-    // })
-
     if (method == 'POST') return this.http.post<any>(url, body, {headers: {'Content-Type': 'application/json'}}).toPromise();
     else return this.http.get<any>(url, {headers: {'Content-Type': 'application/json'}}).toPromise();
   }
