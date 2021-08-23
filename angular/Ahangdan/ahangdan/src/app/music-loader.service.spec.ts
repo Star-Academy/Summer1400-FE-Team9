@@ -17,7 +17,7 @@ class HTTPMusicLoaderPromiseHelper {
 
   toPromise(): Promise<any> {
     switch (this.url) {
-      case "https://songs.code-star.ir/song/all": return Promise.resolve(JSON.stringify([new Music({
+      case "https://songs.code-star.ir/song/all": return Promise.resolve({songs: [new Music({
         id: 1,
         name: "1",
         artist: "1",
@@ -33,8 +33,8 @@ class HTTPMusicLoaderPromiseHelper {
         cover: "2",
         file: "2",
         isFavorite: true
-      })]));
-      case "https://songs.code-star.ir/playlist/all": return Promise.resolve(JSON.stringify([
+      })]});
+      case "https://songs.code-star.ir/playlist/all": return Promise.resolve([
         { name: "favorites",
           id: 0,
           songs: [
@@ -47,8 +47,21 @@ class HTTPMusicLoaderPromiseHelper {
               file: "2",
               isFavorite: true
             }
+          ]},
+        { name: "someOtherPlaylist",
+          id: 1,
+          songs: [
+            {
+              id: 3,
+              name: "2",
+              artist: "2",
+              lyrics: "2",
+              cover: "2",
+              file: "2",
+              isFavorite: true
+            }
           ]}
-      ]));
+      ]);
       default: return Promise.resolve("error");
     }
   }
@@ -113,5 +126,10 @@ describe('MusicLoaderService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it("should get all musics", async () => {
+    let musics = await service.getAllMusics();
+    expect(musics.length).toEqual(2);
   });
 });
