@@ -18,6 +18,9 @@ import {Router, RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {GuardService} from "./guard.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot([]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     AuthService,

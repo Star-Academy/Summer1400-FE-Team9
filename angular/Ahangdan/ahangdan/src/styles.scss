@@ -1,8 +1,12 @@
+
+//@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 @import "colors.scss";
 
 * {
   margin: 0;
   padding: 0;
+  font-family: "B Yekan", sans-serif;
 }
 
 html {
@@ -199,13 +203,13 @@ header {
 }
 
 button {
-  position: relative;
-  overflow: hidden;
-  border: none;
-  background-color: transparent;
-  outline: none;
-  font-family: "B Yekan", sans-serif;
-  transition: all 0.5s;
+  //position: relative;
+  //overflow: hidden;
+  //border: none;
+  //background-color: transparent;
+  //outline: none;
+  //font-family: "B Yekan", sans-serif;
+  //transition: all 0.5s;
 }
 
 span.ripple {
@@ -471,6 +475,10 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.full-width {
+  width: 100%;
 }
 
 html, body { height: 100%; }
