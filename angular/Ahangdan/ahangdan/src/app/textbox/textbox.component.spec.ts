@@ -22,4 +22,12 @@ describe('TextboxComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set value', () => {
+    component.value = "new-value";
+    expect(component.innerValue).toEqual("new-value");
+
+    component.value = "";
+    expect(component.innerValue).toEqual("");
+  })
 });
