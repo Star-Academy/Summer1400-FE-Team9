@@ -22,6 +22,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { HttpClientModule } from '@angular/common/http';
+import { TextboxComponent } from './textbox/textbox.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginFormComponent,
     RegisterFormComponent,
     MusicListPageComponent,
-    MusicPageComponent
+    MusicPageComponent,
+    TextboxComponent
   ],
   imports: [
     BrowserModule,
