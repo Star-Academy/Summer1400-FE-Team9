@@ -1,6 +1,6 @@
-@import "../colors.scss";
+@import "../../colors";
 
-@mixin limited-text($lines){
+@mixin limited-text($lines) {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -32,14 +32,17 @@
 
   #music-details {
     box-shadow: none;
+
     ul {
       box-shadow: none;
+
       li {
         box-shadow: none;
       }
     }
   }
 }
+
 .overlay:target {
   visibility: visible;
   opacity: 1;
@@ -55,6 +58,7 @@
     li {
       //overflow: scroll;
     }
+
     //overflow: scroll;
   }
 }
@@ -264,7 +268,12 @@ input {
 }
 
 
-
+#ngx-audio-player-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 6%;
+}
 
 @media (min-width: 667px) {
   ul.music-list {

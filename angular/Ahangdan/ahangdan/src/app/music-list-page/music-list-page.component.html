@@ -6,7 +6,7 @@
 
   <section #allMusics id="all-musics">
     <div id="search">
-<!--      <app-textbox label="جست‌وجو..." placeholder="جست‌وجو..." [(value)]="searchPredicate"></app-textbox>-->
+      <!--      <app-textbox label="جست‌وجو..." placeholder="جست‌وجو..." [(value)]="searchPredicate"></app-textbox>-->
 
       <input id="search-input" type="search" name="search-music" placeholder="جست‌وجو..."
              [(ngModel)]="searchPredicate"/>
@@ -60,7 +60,8 @@
 
 <div #overlay id="overlay" class="overlay" (click)="makeOverlayHidden($event)" *ngIf="isOverlayOpen">
   <section #musicDetails id="music-details">
-    <ul #musicList id="music-list-ul" class="music-list" style="display: flex; justify-content: center; align-content: center">
+    <ul #musicList id="music-list-ul" class="music-list"
+        style="display: flex; justify-content: center; align-content: center">
       <li id="music-box">
                     <span class="music-cell-header">
                         <img [src]="openedMusic.cover" id="music-overlay-image" height="75" alt="عکس موزیک"/>
@@ -76,9 +77,16 @@
         <!--                                                                aria-hidden="true"></i></button>-->
         <!--                    </span>-->
 
-        <audio controls id="music">
-          <source id="music-playback-source" [src]="openedMusic.file" type="audio/mpeg">
-        </audio>
+        <!--        <audio controls id="music">-->
+        <!--          <source id="music-playback-source" [src]="openedMusic.file" type="audio/mpeg">-->
+        <!--        </audio>-->
+
+        <div id="ngx-audio-player-holder">
+          <ngx-audio-player [playlist]="playlist" [displayVolumeControls]="true" [displayRepeatControls]="true"
+                            [disablePositionSlider]="true"
+                            [displayDuration]="true" [expanded]="true"></ngx-audio-player>
+        </div>
+
         <div class="lyric-box">
           <p id="lyrics-text" class="lyric">{{openedMusic.lyrics}}</p>
         </div>

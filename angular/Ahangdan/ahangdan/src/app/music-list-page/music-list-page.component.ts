@@ -5,11 +5,12 @@ import {faShareAlt} from '@fortawesome/free-solid-svg-icons';
 import Music from "../models/MusicModel";
 import {ActivatedRoute} from "@angular/router";
 import {animate, style, transition, trigger} from "@angular/animations";
+import {Track} from "ngx-audio-player";
 
 @Component({
   selector: 'app-music-list-page',
   templateUrl: './music-list-page.component.html',
-  styleUrls: ['../music-list-page.component.scss', '../music-page.component.scss'],
+  styleUrls: ['./music-list-page.component.scss', '../music-page.component.scss'],
   animations: [
     trigger('inOut', [
       transition('void => *', [
@@ -42,6 +43,7 @@ export class MusicListPageComponent implements OnInit {
   onlyShowFavorites: boolean = false;
   openedMusic: Music = Music.default();
   isOverlayOpen: boolean = false;
+  playlist: Track[] = [];
 
   constructor(private musicLoaderService: MusicLoaderService, private route: ActivatedRoute) {
   }
@@ -102,7 +104,7 @@ export class MusicListPageComponent implements OnInit {
     // this.overlay.nativeElement.style.visibility = "visible";
     // this.overlay.nativeElement.style.opacity = 1;
     // this.overlay.nativeElement.style.transform = "scale(1) translate(0, -25%);"
-
+    this.playlist = [{ title: music.name, link: music.file }];
     this.allMusicsElement.nativeElement.style.opacity = "20%";
     this.isOverlayOpen = true;
   }
