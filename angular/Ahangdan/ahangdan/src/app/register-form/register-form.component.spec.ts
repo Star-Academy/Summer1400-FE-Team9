@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RegisterFormComponent } from './register-form.component';
+import {RegisterFormComponent} from './register-form.component';
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
@@ -32,24 +32,28 @@ describe('RegisterFormComponent', () => {
   let http = {
     post: (url: string, body?: object) => {
       switch (url) {
-        case "https://songs.code-star.ir/user/login": return Promise.resolve("test-token");
-        case "https://songs.code-star.ir/playlist/create": return Promise.resolve("success");
-        case "https://songs.code-star.ir/user/register": return Promise.resolve("success");
-        default: return Promise.resolve("error");
+        case "https://songs.code-star.ir/user/login":
+          return Promise.resolve("test-token");
+        case "https://songs.code-star.ir/playlist/create":
+          return Promise.resolve("success");
+        case "https://songs.code-star.ir/user/register":
+          return Promise.resolve("success");
+        default:
+          return Promise.resolve("error");
       }
     }
   }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterFormComponent ],
+      declarations: [RegisterFormComponent],
       providers: [
-        { provide: Router, useValue: router },
-        { provide: AuthService, useValue: authService },
+        {provide: Router, useValue: router},
+        {provide: AuthService, useValue: authService},
         {provide: HttpClient, useValue: http},
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -63,32 +67,20 @@ describe('RegisterFormComponent', () => {
   });
 
   it('should register', async () => {
-    let emailInput = document.createElement("input");
-    emailInput.setAttribute("value", "sss@sss.ss");
-    component.emailInput.nativeElement = emailInput;
-    let passwordInput = document.createElement("input");
-    passwordInput.setAttribute("value", "ss");
-    component.passwordInput.nativeElement = passwordInput;
-    let repeatedPasswordInput = document.createElement("input");
-    repeatedPasswordInput.setAttribute("value", "s");
-    component.repeatedPasswordInput.nativeElement = repeatedPasswordInput;
-
+    component.email = "sss@sss.ss";
+    component.password = "ss";
+    component.repeatedPassword = "s";
     await component.registerTapped();
 
-    repeatedPasswordInput.setAttribute("value", "ss");
-    component.repeatedPasswordInput.nativeElement = repeatedPasswordInput;
-
+    component.repeatedPassword = "ss";
     await component.registerTapped();
 
     expect(emailString).toEqual("sss@sss.ss");
     expect(passwordString).toEqual("ss");
     expect(navigatedString).toEqual("login-page");
 
-    passwordInput.setAttribute("value", "s");
-    component.passwordInput.nativeElement = passwordInput;
-    repeatedPasswordInput.setAttribute("value", "s");
-    component.repeatedPasswordInput.nativeElement = repeatedPasswordInput;
-
+    component.password = "s";
+    component.repeatedPassword = "s";
     await component.registerTapped();
   });
 });

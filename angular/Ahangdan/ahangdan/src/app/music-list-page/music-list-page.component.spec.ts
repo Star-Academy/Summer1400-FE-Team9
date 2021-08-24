@@ -228,12 +228,12 @@ describe('MusicListPageComponent', () => {
     component.musicDetailsElement.nativeElement = tag1;
     let event = {target: tag1};
     component.makeOverlayHidden(event);
-    expect(component.isOverlayOpen).toBeTruthy();
+    expect(component.isOverlayOpen).toBeFalsy();
     component.isOverlayOpen = false;
     component.musicListElement.nativeElement = tag2;
     event = {target: tag2};
     component.makeOverlayHidden(event);
-    expect(component.isOverlayOpen).toBeTruthy();
+    expect(component.isOverlayOpen).toBeFalsy();
 
     component.isOverlayOpen = false;
     event = {target: tag3};

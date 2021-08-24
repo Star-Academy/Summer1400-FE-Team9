@@ -65,20 +65,15 @@ describe('LoginFormComponent', () => {
   });
 
   it('should login', async () => {
-    let emailInput = document.createElement("input");
-    emailInput.setAttribute("value", "sss@sss.ss");
-    component.emailInput.nativeElement = emailInput;
-    let passwordInput = document.createElement("input");
-    passwordInput.setAttribute("value", "s");
-    component.passwordInput.nativeElement = passwordInput;
-
+    component.email = "sss@sss.ss";
+    component.password = "s";
     await component.loginTapped();
 
     expect(emailString).toEqual("sss@sss.ss");
     expect(passwordString).toEqual("s");
     expect(navigatedString).toEqual("home");
 
-    passwordInput.setAttribute("value", "ss");
+    component.password = "ss";
     await component.loginTapped();
   });
 });
