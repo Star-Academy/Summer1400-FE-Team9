@@ -10,6 +10,8 @@ import {AuthService} from "../auth.service";
 export class LoginFormComponent implements OnInit {
   @ViewChild('emailInput') emailInput!: ElementRef;
   @ViewChild('passwordInput') passwordInput!: ElementRef;
+  email = "";
+  password = "";
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -17,10 +19,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   public async loginTapped() {
-    const email = this.emailInput.nativeElement.value;
-    const password = this.passwordInput.nativeElement.value;
     try {
-      await this.authService.login(email, password);
+      await this.authService.login(this.email, this.password);
       await this.router.navigateByUrl("home");
     } catch {
       alert("An error has occurred. Please try again.");

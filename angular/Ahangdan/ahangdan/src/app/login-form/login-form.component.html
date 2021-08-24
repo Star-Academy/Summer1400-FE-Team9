@@ -10,8 +10,9 @@
     </h6>
   </div>
   <section>
-    <input #emailInput id="email-input" type="email" name="email" placeholder="ایمیل"> <br>
-    <input #passwordInput id="password-input" type="password" name="password" placeholder="رمز عبور"> <br>
+    <app-textbox label="ایمیل" placeholder="ایمیل" [(value)]="email" [isEmail]="true"></app-textbox>
+    <app-textbox label="رمز عبور" placeholder="رمز عبور" [(value)]="password" [isSecret]="true"></app-textbox>
+
     <div class="authenticate-button">
       <button id="submit-button" class="submit-button" (click)="loginTapped()">ورود</button>
     </div>
