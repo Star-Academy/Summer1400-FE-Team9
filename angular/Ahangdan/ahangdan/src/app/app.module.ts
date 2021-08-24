@@ -14,7 +14,7 @@ import { MusicPageComponent } from './music-page/music-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {AuthService} from "./auth.service";
 import {MusicLoaderService} from "./music-loader.service";
-import {Router, RouterModule} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {GuardService} from "./guard.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +23,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { HttpClientModule } from '@angular/common/http';
 import { TextboxComponent } from './textbox/textbox.component';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { TextboxComponent } from './textbox/textbox.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxAudioPlayerModule
   ],
   providers: [
     AuthService,
