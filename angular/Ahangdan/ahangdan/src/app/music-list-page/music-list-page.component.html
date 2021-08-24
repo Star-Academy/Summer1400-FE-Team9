@@ -33,10 +33,10 @@
         <span class="music-cell-controls">
           <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;"
                   (click)="toggleFavoriteStatus(music)">
-            <fa-icon [icon]="music.isFavorite ? faHeart : faHeartBroken"></fa-icon>
+            <mat-icon>{{ music.isFavorite ? "favorite" : "favorite_border" }}</mat-icon>
           </button>
           <button class="like-button-on-cell" style="height: 3.75rem; width: 3.75rem;" (click)="shareLinkTo(music)">
-            <fa-icon [icon]="faShareAlt"></fa-icon>
+            <mat-icon>share</mat-icon>
           </button>
         </span>
       </li>
@@ -63,24 +63,16 @@
     <ul #musicList id="music-list-ul" class="music-list"
         style="display: flex; justify-content: center; align-content: center">
       <li id="music-box">
-                    <span class="music-cell-header">
+        <span class="music-cell-header">
                         <img [src]="openedMusic.cover" id="music-overlay-image" height="75" alt="عکس موزیک"/>
                         <span class="music-title-and-singer">
                             <span id="music-title-text" class="music-title">{{openedMusic.name}}</span>
                             <span id="music-singer-text" class="music-singer">{{openedMusic.artist}}</span>
                         </span>
                     </span>
-
-        <!--                    <span class="music-cell-controls">-->
-        <!--                        <button id="two-x-button" onclick="changePlaybackRate()">2x</button>-->
-        <!--                        <button id="add-to-favorites-button"><i id="add-to-favorites-i" class="fa fa-heart-o"-->
-        <!--                                                                aria-hidden="true"></i></button>-->
-        <!--                    </span>-->
-
         <!--        <audio controls id="music">-->
         <!--          <source id="music-playback-source" [src]="openedMusic.file" type="audio/mpeg">-->
         <!--        </audio>-->
-
         <div id="ngx-audio-player-holder">
           <ngx-audio-player [playlist]="playlist" [displayVolumeControls]="true" [displayRepeatControls]="true"
                             [disablePositionSlider]="true"
