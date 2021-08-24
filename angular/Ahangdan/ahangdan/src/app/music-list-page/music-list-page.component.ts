@@ -35,9 +35,6 @@ export class MusicListPageComponent implements OnInit {
   @ViewChild('musicDetails') musicDetailsElement!: ElementRef;
 
   musics: Music[] = [];
-  faHeart = faHeart;
-  faHeartBroken = faHeartBroken;
-  faShareAlt = faShareAlt;
   isProgressIndicatorHidden: boolean = true;
   searchPredicate: string = "";
   onlyShowFavorites: boolean = false;
@@ -112,7 +109,7 @@ export class MusicListPageComponent implements OnInit {
   makeOverlayHidden(event: any) {
     if (event.target == this.musicDetailsElement.nativeElement || event.target == this.musicListElement.nativeElement) {
       this.allMusicsElement.nativeElement.style.opacity = "100%";
-      this.isOverlayOpen = true;
+      this.isOverlayOpen = false;
     }
   }
 }
