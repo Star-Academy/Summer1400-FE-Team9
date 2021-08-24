@@ -8,9 +8,10 @@ import {AuthService} from "../auth.service";
   styleUrls: ['./register-form.component.scss', '../login-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-  @ViewChild('emailInput') emailInput!: ElementRef;
-  @ViewChild('passwordInput') passwordInput!: ElementRef;
-  @ViewChild('repeatedPasswordInput') repeatedPasswordInput!: ElementRef;
+  username = "";
+  email = "";
+  password = "";
+  repeatedPassword = "";
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -18,15 +19,12 @@ export class RegisterFormComponent implements OnInit {
   }
 
   async registerTapped() {
-    const email = this.emailInput.nativeElement.value;
-    const password = this.passwordInput.nativeElement.value;
-    const repeatedPassword = this.repeatedPasswordInput.nativeElement.value;
-    if (password !== repeatedPassword) {
+    if (this.password !== this.repeatedPassword) {
       alert("Passwords don't match"); // TODO: Better alert
       return;
     }
     try {
-      await this.authService.register(email, password);
+      await this.authService.register(this.email, this.password);
       await this.router.navigateByUrl("login-page");
     } catch {
       alert("An error has occurred. Please try again."); // TODO: Better alert

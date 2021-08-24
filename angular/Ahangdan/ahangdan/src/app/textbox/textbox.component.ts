@@ -9,6 +9,7 @@ export class TextboxComponent implements OnInit {
 
   @Input() label = "";
   @Input() placeholder = "";
+  @Input() isEmail = false;
   @Input() isSecret = false;
   innerValue = "";
   @Output() valueChange = new EventEmitter();
