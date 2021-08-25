@@ -30,7 +30,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class MusicListPageComponent implements OnInit {
 
-  @ViewChild('allMusics') allMusicsElement!: ElementRef;
   @ViewChild('overlay') overlay!: ElementRef;
   @ViewChild('musicList') musicListElement!: ElementRef;
   @ViewChild('musicDetails') musicDetailsElement!: ElementRef;
@@ -104,13 +103,11 @@ export class MusicListPageComponent implements OnInit {
     // this.overlay.nativeElement.style.opacity = 1;
     // this.overlay.nativeElement.style.transform = "scale(1) translate(0, -25%);"
     this.playlist = [{ title: music.name, link: music.file }];
-    this.allMusicsElement.nativeElement.style.opacity = "20%";
     this.isOverlayOpen = true;
   }
 
   makeOverlayHidden(event: any): void {
     if (event.target == this.musicDetailsElement.nativeElement || event.target == this.musicListElement.nativeElement) {
-      this.allMusicsElement.nativeElement.style.opacity = "100%";
       this.isOverlayOpen = false;
     }
   }

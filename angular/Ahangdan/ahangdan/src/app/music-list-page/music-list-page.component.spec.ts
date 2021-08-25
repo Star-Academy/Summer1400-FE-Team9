@@ -175,7 +175,6 @@ describe('MusicListPageComponent', () => {
       isFavorite: false
     });
     let element = document.createElement("div");
-    component.allMusicsElement.nativeElement = element;
     component.openMusic(music);
     expect(element.style.opacity).toEqual("0.2");
     expect(component.isOverlayOpen).toBeTruthy();
