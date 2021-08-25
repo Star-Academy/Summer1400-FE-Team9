@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-class AuthResult {
+export class AuthResult {
   public token = "";
 }
 
-class PlaylistCreationResult {
+export class PlaylistCreationResult {
   public id = 0;
   public error = "";
 }

@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 
-import {AuthService} from './auth.service';
+import {AuthResult, AuthService, PlaylistCreationResult} from './auth.service';
 
 import 'jasmine-ajax';
 import {HttpClient} from "@angular/common/http";
@@ -63,4 +63,25 @@ describe('AuthService', () => {
     expect(localStorage.getItem("is-logged-in")).toEqual("true");
     // expect(token).toEqual("test-token");
   });
+
+  it("should save token correctly", () => {
+    let authResult = new AuthResult();
+    authResult.token = "test-token";
+    expect(authResult.token).toEqual("test-token");
+  });
+
+  it("should save id and error correctly", () => {
+    let playlistCreationResult = new PlaylistCreationResult();
+    playlistCreationResult.id = 2;
+    playlistCreationResult.error = "test-error";
+    expect(playlistCreationResult.id).toEqual(2);
+    expect(playlistCreationResult.error).toEqual("test-error");
+  });
+
+  it("should return correct answer from isLoggedIn", () => {
+    localStorage.setItem("is-logged-in", "true");
+    expect(service.isLoggedIn()).toBeTruthy();
+    localStorage.setItem("is-logged-in", "false");
+    expect(service.isLoggedIn()).toBeFalse();
+  })
 });

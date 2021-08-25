@@ -28,6 +28,9 @@ describe('TextboxComponent', () => {
     component.value = "new-value";
     expect(component.innerValue).toEqual("new-value");
 
+    component.value = "new-value";
+    expect(component.innerValue).toEqual("new-value");
+
     component.value = "";
     expect(component.innerValue).toEqual("");
   })
