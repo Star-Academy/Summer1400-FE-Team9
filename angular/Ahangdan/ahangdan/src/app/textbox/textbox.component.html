@@ -2,5 +2,5 @@
   <mat-label>
     {{ label }}
   </mat-label>
-  <input matInput [type]='isEmail ? "email" : (isSecret ? "password" : "text")' [placeholder]="placeholder" [(ngModel)]="value">
+  <input matInput [type]='type' [placeholder]="placeholder" [(ngModel)]="value">
 </mat-form-field>

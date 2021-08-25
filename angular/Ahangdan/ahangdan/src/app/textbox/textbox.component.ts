@@ -9,8 +9,7 @@ export class TextboxComponent {
 
   @Input() label = "";
   @Input() placeholder = "";
-  @Input() isEmail = false;
-  @Input() isSecret = false;
+  @Input() type = "text"; // text / email / password
   innerValue = "";
   @Output() valueChange = new EventEmitter();
 
