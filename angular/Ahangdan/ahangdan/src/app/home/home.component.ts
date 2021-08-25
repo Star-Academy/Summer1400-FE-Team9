@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,10 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent {
 
-  constructor(private router: Router) { }
-
-  public localStorageItem(id: string): string {
-    return localStorage.getItem(id) ?? "";
-  }
+  constructor(public authService: AuthService, private router: Router) { }
 
   async primaryButtonTapped(): Promise<void> {
-    if (this.localStorageItem('is-logged-in') == 'true') {
+    if (this.authService.isLoggedIn()) {
       await this.router.navigateByUrl("music-list-page");
     } else {
       await this.router.navigateByUrl("../register-form");

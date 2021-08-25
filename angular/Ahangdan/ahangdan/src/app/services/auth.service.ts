@@ -42,4 +42,8 @@ export class AuthService {
       password: password
     }, {headers: {'Content-Type': 'application/json'}}).toPromise();
   }
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem("is-logged-in") == "true";
+  }
 }

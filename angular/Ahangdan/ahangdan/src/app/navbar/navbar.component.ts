@@ -8,15 +8,11 @@ import {AuthService} from "../services/auth.service";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor(private authService: AuthService, private router: Router) {
-  }
-
-  public localStorageItem(id: string): string {
-    return localStorage.getItem(id) ?? "";
+  constructor(public authService: AuthService, private router: Router) {
   }
 
   async registerButtonTapped(): Promise<void> {
-    if (this.localStorageItem('is-logged-in') == 'true') {
+    if (this.authService.isLoggedIn()) {
       this.authService.logout();
       await this.router.navigateByUrl("home");
     } else {
