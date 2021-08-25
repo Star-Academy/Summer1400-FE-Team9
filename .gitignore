@@ -134,3 +134,5 @@ fabric.properties
 /.idea/
 /node_modules/
 /angular/Ahangdan/ahangdan/node_modules/
+package-lock.json
+/angular/Ahangdan/ahangdan/package-lock.json
