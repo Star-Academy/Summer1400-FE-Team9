@@ -7,16 +7,13 @@ import {AuthService} from "../auth.service";
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.scss', '../login-form.component.scss']
 })
-export class RegisterFormComponent implements OnInit {
+export class RegisterFormComponent {
   username = "";
   email = "";
   password = "";
   repeatedPassword = "";
 
   constructor(private router: Router, private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
 
   async registerTapped() {
     if (this.password !== this.repeatedPassword) {

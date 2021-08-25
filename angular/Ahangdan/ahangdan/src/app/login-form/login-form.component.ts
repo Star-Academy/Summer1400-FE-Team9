@@ -7,16 +7,13 @@ import {AuthService} from "../auth.service";
   templateUrl: './login-form.component.html',
   styleUrls: ['../login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
   @ViewChild('emailInput') emailInput!: ElementRef;
   @ViewChild('passwordInput') passwordInput!: ElementRef;
   email = "";
   password = "";
 
   constructor(private router: Router, private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
 
   public async loginTapped() {
     try {

@@ -7,11 +7,8 @@ import {AuthService} from "../auth.service";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   constructor(private authService: AuthService, private router: Router) {
-  }
-
-  ngOnInit(): void {
   }
 
   public localStorageItem(id: string): string {

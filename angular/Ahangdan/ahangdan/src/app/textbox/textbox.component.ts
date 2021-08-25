@@ -5,7 +5,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   templateUrl: './textbox.component.html',
   styleUrls: ['./textbox.component.scss']
 })
-export class TextboxComponent implements OnInit {
+export class TextboxComponent {
 
   @Input() label = "";
   @Input() placeholder = "";
@@ -25,8 +25,4 @@ export class TextboxComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
