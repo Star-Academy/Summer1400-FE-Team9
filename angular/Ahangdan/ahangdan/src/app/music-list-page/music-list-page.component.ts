@@ -6,6 +6,7 @@ import Music from "../models/music-model";
 import {ActivatedRoute} from "@angular/router";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {Track} from "ngx-audio-player";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-music-list-page',
@@ -42,7 +43,7 @@ export class MusicListPageComponent implements OnInit {
   isOverlayOpen: boolean = false;
   playlist: Track[] = [];
 
-  constructor(private musicLoaderService: MusicLoaderService, private route: ActivatedRoute) {
+  constructor(private musicLoaderService: MusicLoaderService, private route: ActivatedRoute, private snackBar: MatSnackBar) {
   }
 
   getMusicsToRender(): Music[] {
@@ -65,7 +66,7 @@ export class MusicListPageComponent implements OnInit {
   async shareLinkTo(music: Music): Promise<void> {
     let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
     await navigator.clipboard.writeText(link);
-    alert('لینک آهنگ در حافظه Clipboard کپی شد' + "؛ " + 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.');
+    this.snackBar.open('لینک آهنگ در حافظه Clipboard کپی شد', "OK");
   }
 
   async removeFavoriteStatus(music: Music): Promise<void> {
