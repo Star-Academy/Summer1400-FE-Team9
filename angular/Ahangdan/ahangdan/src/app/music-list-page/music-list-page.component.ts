@@ -62,9 +62,10 @@ export class MusicListPageComponent implements OnInit {
     this.route.params.subscribe((params) => {this.onlyShowFavorites = params['onlyShowFavorites'] == "favorites";});
   }
 
-  shareLinkTo(music: Music): void {
+  async shareLinkTo(music: Music): Promise<void> {
     let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
-    navigator.clipboard.writeText(link).then(() => alert('لینک آهنگ در حافظه Clipboard کپی شد' + "؛ " + 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.'), null);
+    await navigator.clipboard.writeText(link);
+    alert('لینک آهنگ در حافظه Clipboard کپی شد' + "؛ " + 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.');
   }
 
   async removeFavoriteStatus(music: Music): Promise<void> {

@@ -25,6 +25,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {TextboxComponent} from './textbox/textbox.component';
 import {NgxAudioPlayerModule} from 'ngx-audio-player';
 import {MatIconModule} from '@angular/material/icon'
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {MatIconModule} from '@angular/material/icon'
   providers: [
     AuthService,
     MusicLoaderService,
-    GuardService
+    GuardService,
+    MatSnackBar
   ],
   bootstrap: [AppComponent]
 })
