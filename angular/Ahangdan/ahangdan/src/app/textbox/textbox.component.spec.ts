@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { TextboxComponent } from './textbox.component';
 
@@ -29,5 +30,11 @@ describe('TextboxComponent', () => {
 
     component.value = "";
     expect(component.innerValue).toEqual("");
+  })
+
+  it('should set value if html element has changed', () => {
+    const value = 'test';
+    (fixture.debugElement.nativeElement.query(By.css('input')) as HTMLInputElement).value = value;
+    expect(component.value).toEqual(value);
   })
 });
