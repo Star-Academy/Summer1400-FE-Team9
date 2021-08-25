@@ -3,23 +3,32 @@ import {HttpClient} from "@angular/common/http";
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 
+class AuthResult {
+  public token = "";
+}
+
+class PlaylistCreationResult {
+  public id = 0;
+  public error = "";
+}
+
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  public async sendRequest(url: string, body?: object): Promise<any> {
-    return this.http.post<any>(url, body, {headers: {'Content-Type': 'application/json'}}).toPromise();
-  }
-
   async login(email: string, password: string): Promise<string> {
-    const result = await this.sendRequest("https://songs.code-star.ir/user/login",
-      {email: email, password: password});
+    const result = await this.http.post<AuthResult>("https://songs.code-star.ir/user/login", {
+      email: email,
+      password: password
+    }, {headers: {'Content-Type': 'application/json'}}).toPromise();
     const token = result.token;
     localStorage.setItem("token", token.toString());
     localStorage.setItem("is-logged-in", "true");
-    await this.sendRequest("https://songs.code-star.ir/playlist/create",
-      {token: token, name: "favorites"});
+    await this.http.post<PlaylistCreationResult>("https://songs.code-star.ir/playlist/create", {
+      token: token,
+      name: "favorites"
+    }, {headers: {'Content-Type': 'application/json'}}).toPromise();
     return token.toString();
   }
 
@@ -30,7 +39,9 @@ export class AuthService {
   }
 
   async register(email: string, password: string): Promise<void> {
-    await this.sendRequest("https://songs.code-star.ir/user/register",
-      {email: email, password: password});
+    await this.http.post<AuthResult>("https://songs.code-star.ir/user/register", {
+      email: email,
+      password: password
+    }, {headers: {'Content-Type': 'application/json'}}).toPromise();
   }
 }
