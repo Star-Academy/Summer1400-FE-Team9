@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import Music from "../models/MusicModel";
+import Music from "../models/music-model";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()

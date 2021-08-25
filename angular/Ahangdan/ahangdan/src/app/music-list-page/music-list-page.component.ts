@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MusicLoaderService} from "../services/music-loader.service";
 import {faHeart, faHeartBroken} from '@fortawesome/free-solid-svg-icons';
 import {faShareAlt} from '@fortawesome/free-solid-svg-icons';
-import Music from "../models/MusicModel";
+import Music from "../models/music-model";
 import {ActivatedRoute} from "@angular/router";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {Track} from "ngx-audio-player";

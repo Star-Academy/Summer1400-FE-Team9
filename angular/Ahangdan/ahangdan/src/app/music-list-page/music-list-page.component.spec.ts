@@ -4,7 +4,7 @@ import {MusicListPageComponent} from './music-list-page.component';
 import {MusicLoaderService} from "../services/music-loader.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subject} from 'rxjs';
-import Music from "../models/MusicModel";
+import Music from "../models/music-model";
 import {ElementRef} from "@angular/core";
 
 class MyParams {
