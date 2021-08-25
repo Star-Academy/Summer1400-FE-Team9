@@ -58,10 +58,10 @@ article .authenticate-button .submit-button {
 article .authenticate-button .submit-button:hover {
   opacity: 80%;
 }
-article .header h1 {
+article .header-class h1 {
   font-size: 2.5rem;
 }
-article .header h6 {
+article .header-class h6 {
   font-size: 1.5rem;
 }
 article h6 {
@@ -91,10 +91,10 @@ article h6 a:hover {
 }
 
 @media (min-width: 420px) {
-  article .header h1 {
+  article .header-class h1 {
     font-size: 4rem;
   }
-  article .header h6 {
+  article .header-class h6 {
     font-size: 2rem;
   }
 }

@@ -1,4 +1,4 @@
-@import "colors.scss";
+@import "../colors.scss";
 
 @mixin margin-top-and-bottom($n: 4%) {
   margin-top: $n;
@@ -19,7 +19,6 @@ article {
   input {
     @include margin-top-and-bottom(4%);
     width: 100%;
-    padding: 2%;
     border-radius: 0.25em;
     border-style: none;
     font-family: "B Yekan", sans-serif;

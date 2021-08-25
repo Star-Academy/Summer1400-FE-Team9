@@ -1,0 +1,20 @@
+<article>
+  <div class="header-class">
+    <h1>ورود</h1>
+    <h6>
+      اکانت ندارید؟
+      <br>
+      <a routerLink="register-form">
+        از این‌جا ثبت نام کنید.
+      </a>
+    </h6>
+  </div>
+  <section>
+    <app-textbox label="ایمیل" placeholder="ایمیل" [(value)]="email" type="email"></app-textbox>
+    <app-textbox label="رمز عبور" placeholder="رمز عبور" [(value)]="password" type="password"></app-textbox>
+
+    <div class="authenticate-button">
+      <button id="submit-button" class="submit-button" (click)="loginTapped()">ورود</button>
+    </div>
+  </section>
+</article>

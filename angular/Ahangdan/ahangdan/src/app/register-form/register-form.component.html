@@ -1,0 +1,24 @@
+<article>
+  <div class="header-class">
+    <h1>ثبت‌نام رایگان</h1>
+    <h6>
+      آیا یک حساب کاربری از قبل دارید؟
+      <br>
+      <a routerLink="login-form">
+        ورود
+      </a>
+    </h6>
+  </div>
+  <section>
+
+    <app-textbox label="نام کاربری" placeholder="نام کاربری" [(value)]="username"></app-textbox>
+    <app-textbox label="ایمیل" placeholder="ایمیل" [(value)]="email" type="email"></app-textbox>
+    <app-textbox label="رمز عبور" placeholder="رمز عبور" [(value)]="password" type="password"></app-textbox>
+    <app-textbox label="تکرار رمز عبور" placeholder="تکرار رمز عبور" [(value)]="repeatedPassword" type="password"></app-textbox>
+
+    <div class="authenticate-button">
+      <button id="submit-button" class="submit-button" (click)="registerTapped()">ثبت‌نام</button>
+<!--      <button mat-raised-button color="accent">Primary</button>-->
+    </div>
+  </section>
+</article>
