@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-register-form',
@@ -13,18 +14,18 @@ export class RegisterFormComponent {
   password = "";
   repeatedPassword = "";
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private snackBar: MatSnackBar) { }
 
   async registerTapped(): Promise<void> {
     if (this.password !== this.repeatedPassword) {
-      alert("Passwords don't match"); // TODO: Better alert
+      this.snackBar.open("Passwords don't match", "OK");
       return;
     }
     try {
       await this.authService.register(this.email, this.password);
       await this.router.navigateByUrl("login-page");
     } catch {
-      alert("An error has occurred. Please try again."); // TODO: Better alert
+      this.snackBar.open("An error has occurred. Please try again.", "OK");
     }
   }
 }
