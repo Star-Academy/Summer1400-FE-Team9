@@ -9,8 +9,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['../login-form.component.scss']
 })
 export class LoginFormComponent {
-  email = "";
-  password = "";
+  public email = "";
+  public password = "";
 
   constructor(private router: Router, private authService: AuthService, private snackBar: MatSnackBar) { }
 

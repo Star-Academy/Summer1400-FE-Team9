@@ -34,13 +34,13 @@ export class MusicListPageComponent implements OnInit {
   @ViewChild('musicList') musicListElement!: ElementRef;
   @ViewChild('musicDetails') musicDetailsElement!: ElementRef;
 
-  musics: Music[] = [];
-  isProgressIndicatorHidden: boolean = true;
-  searchPredicate: string = "";
-  onlyShowFavorites: boolean = false;
-  openedMusic: Music = Music.default();
-  isOverlayOpen: boolean = false;
-  playlist: Track[] = [];
+  public musics: Music[] = [];
+  public isProgressIndicatorHidden: boolean = true;
+  public searchPredicate: string = "";
+  public onlyShowFavorites: boolean = false;
+  public openedMusic: Music = Music.default();
+  public isOverlayOpen: boolean = false;
+  public playlist: Track[] = [];
 
   constructor(private musicLoaderService: MusicLoaderService, private route: ActivatedRoute, private snackBar: MatSnackBar) {
   }

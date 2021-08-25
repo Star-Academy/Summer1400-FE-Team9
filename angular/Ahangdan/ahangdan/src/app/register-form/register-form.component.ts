@@ -9,10 +9,10 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['./register-form.component.scss', '../login-form.component.scss']
 })
 export class RegisterFormComponent {
-  username = "";
-  email = "";
-  password = "";
-  repeatedPassword = "";
+  public username = "";
+  public email = "";
+  public password = "";
+  public repeatedPassword = "";
 
   constructor(private router: Router, private authService: AuthService, private snackBar: MatSnackBar) { }
 
