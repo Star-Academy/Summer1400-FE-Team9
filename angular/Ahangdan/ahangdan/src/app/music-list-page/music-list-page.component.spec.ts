@@ -165,7 +165,7 @@ describe('MusicListPageComponent', () => {
   })
 
   it("should open music", () => {
-    let music = new Music({
+    const music = new Music({
       id: 1,
       name: "1",
       artist: "1",
@@ -183,7 +183,7 @@ describe('MusicListPageComponent', () => {
   });
 
   it("should share link", async () => {
-    let music = new Music({
+    const music = new Music({
       id: 1,
       name: "1",
       artist: "1",
@@ -197,7 +197,7 @@ describe('MusicListPageComponent', () => {
   });
 
   it("should toggle favorite status", async () => {
-    let music = new Music({
+    const music = new Music({
       id: 1,
       name: "1",
       artist: "1",
@@ -220,9 +220,9 @@ describe('MusicListPageComponent', () => {
   });
 
   it("should make overlay hidden", () => {
-    let tag1 = document.createElement("div");
-    let tag2 = document.createElement("div");
-    let tag3 = document.createElement("div");
+    const tag1 = document.createElement("div");
+    const tag2 = document.createElement("div");
+    const tag3 = document.createElement("div");
     component.musicDetailsElement = new ElementRef<any>("div");
     component.musicListElement = new ElementRef<any>("div");
     component.musicDetailsElement.nativeElement = tag1;
