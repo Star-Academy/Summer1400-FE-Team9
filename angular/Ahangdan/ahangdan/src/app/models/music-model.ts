@@ -1,12 +1,11 @@
 export default class Music {
-  id: number;
-  name: string;
-  artist: string;
-  lyrics: string;
-  cover: string;
-  file: string;
-  isFavorite: boolean;
-
+  id = 0;
+  name = "";
+  artist = "";
+  lyrics = "";
+  cover = "";
+  file = "";
+  isFavorite = false;
 
   constructor(json: any) {
     this.id = json.id;
