@@ -19,7 +19,9 @@ export class TextboxComponent {
   }
 
   set value(newValue) {
-    this.innerValue = newValue;
-    this.valueChange.emit(this.innerValue);
+    if (this.innerValue != newValue) {
+      this.innerValue = newValue;
+      this.valueChange.emit(this.innerValue);
+    }
   }
 }
