@@ -23,6 +23,4 @@ export class TextboxComponent {
     this.innerValue = newValue;
     this.valueChange.emit(this.innerValue);
   }
-
-  constructor() { }
 }

@@ -6,7 +6,4 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../music-page.component.scss']
 })
 export class MusicPageComponent {
-
-  constructor() { }
-
 }

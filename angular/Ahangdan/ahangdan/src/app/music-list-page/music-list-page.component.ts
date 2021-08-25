@@ -62,12 +62,12 @@ export class MusicListPageComponent implements OnInit {
     this.route.params.subscribe((params) => {this.onlyShowFavorites = params['onlyShowFavorites'] == "favorites";});
   }
 
-  shareLinkTo(music: Music) {
+  shareLinkTo(music: Music): void {
     let link = "https://star-academy.github.io/Summer1400-FE-Team9/music.html?id=" + music.id;
     navigator.clipboard.writeText(link).then(() => alert('لینک آهنگ در حافظه Clipboard کپی شد' + "؛ " + 'می‌توانید این لینک را در مکان دل‌‌خواه paste کرده و به دوستان خود ارسال کنید.'), null);
   }
 
-  async removeFavoriteStatus(music: Music) {
+  async removeFavoriteStatus(music: Music): Promise<void> {
     await this.musicLoaderService.sendRequest("https://songs.code-star.ir/playlist/remove-song",
       'POST',
       {
@@ -78,7 +78,7 @@ export class MusicListPageComponent implements OnInit {
     music.isFavorite = false;
   }
 
-  async makeFavorite(music: Music) {
+  async makeFavorite(music: Music): Promise<void> {
     await this.musicLoaderService.sendRequest("https://songs.code-star.ir/playlist/add-song",
       'POST',
       {
@@ -89,14 +89,14 @@ export class MusicListPageComponent implements OnInit {
     music.isFavorite = true;
   }
 
-  async toggleFavoriteStatus(music: Music) {
+  async toggleFavoriteStatus(music: Music): Promise<void> {
     this.isProgressIndicatorHidden = false;
     if (music.isFavorite) await this.removeFavoriteStatus(music);
     else await this.makeFavorite(music);
     this.isProgressIndicatorHidden = true;
   }
 
-  openMusic(music: Music) {
+  openMusic(music: Music): void {
     this.openedMusic = music;
     // this.overlay.nativeElement.style.visibility = "visible";
     // this.overlay.nativeElement.style.opacity = 1;
@@ -106,7 +106,7 @@ export class MusicListPageComponent implements OnInit {
     this.isOverlayOpen = true;
   }
 
-  makeOverlayHidden(event: any) {
+  makeOverlayHidden(event: any): void {
     if (event.target == this.musicDetailsElement.nativeElement || event.target == this.musicListElement.nativeElement) {
       this.allMusicsElement.nativeElement.style.opacity = "100%";
       this.isOverlayOpen = false;

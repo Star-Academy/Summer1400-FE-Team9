@@ -15,7 +15,7 @@ export class RegisterFormComponent {
 
   constructor(private router: Router, private authService: AuthService) { }
 
-  async registerTapped() {
+  async registerTapped(): Promise<void> {
     if (this.password !== this.repeatedPassword) {
       alert("Passwords don't match"); // TODO: Better alert
       return;

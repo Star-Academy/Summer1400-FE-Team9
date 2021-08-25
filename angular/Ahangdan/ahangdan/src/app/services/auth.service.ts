@@ -23,13 +23,13 @@ export class AuthService {
     return token.toString();
   }
 
-  logout() {
+  logout(): void {
     localStorage.setItem("is-logged-in", "false");
     localStorage.setItem("token", "");
     localStorage.setItem("favorites-playlist-id", "0");
   }
 
-  async register(email: string, password: string) {
+  async register(email: string, password: string): Promise<void> {
     await this.sendRequest("https://songs.code-star.ir/user/register",
       {email: email, password: password});
   }

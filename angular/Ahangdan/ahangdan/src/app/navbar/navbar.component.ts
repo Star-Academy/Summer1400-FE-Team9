@@ -15,7 +15,7 @@ export class NavbarComponent {
     return localStorage.getItem(id) ?? "";
   }
 
-  async registerButtonTapped() {
+  async registerButtonTapped(): Promise<void> {
     if (this.localStorageItem('is-logged-in') == 'true') {
       this.authService.logout();
       await this.router.navigateByUrl("home");

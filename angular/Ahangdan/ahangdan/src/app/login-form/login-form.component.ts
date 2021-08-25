@@ -15,7 +15,7 @@ export class LoginFormComponent {
 
   constructor(private router: Router, private authService: AuthService) { }
 
-  public async loginTapped() {
+  public async loginTapped(): Promise<void> {
     try {
       await this.authService.login(this.email, this.password);
       await this.router.navigateByUrl("home");

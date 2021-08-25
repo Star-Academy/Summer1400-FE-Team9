@@ -14,7 +14,7 @@ export class HomeComponent {
     return localStorage.getItem(id) ?? "";
   }
 
-  async primaryButtonTapped() {
+  async primaryButtonTapped(): Promise<void> {
     if (this.localStorageItem('is-logged-in') == 'true') {
       await this.router.navigateByUrl("music-list-page");
     } else {

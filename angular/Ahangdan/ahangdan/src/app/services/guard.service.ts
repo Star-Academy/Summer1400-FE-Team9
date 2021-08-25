@@ -3,10 +3,6 @@ import {CanActivate} from "@angular/router";
 
 @Injectable()
 export class GuardService implements CanActivate {
-
-  constructor() {
-  }
-
   public canActivate(): boolean {
     return localStorage.getItem("is-logged-in") === "true";
   }
