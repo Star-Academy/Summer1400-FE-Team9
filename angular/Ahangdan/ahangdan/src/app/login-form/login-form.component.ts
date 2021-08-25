@@ -9,8 +9,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['../login-form.component.scss']
 })
 export class LoginFormComponent {
-  @ViewChild('emailInput') emailInput!: ElementRef;
-  @ViewChild('passwordInput') passwordInput!: ElementRef;
   email = "";
   password = "";
 
