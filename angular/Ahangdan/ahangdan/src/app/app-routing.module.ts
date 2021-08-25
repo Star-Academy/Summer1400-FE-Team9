@@ -5,7 +5,7 @@ import {HomeComponent} from "./home/home.component";
 import {LoginFormComponent} from "./login-form/login-form.component";
 import {MusicListPageComponent} from "./music-list-page/music-list-page.component";
 import {RegisterFormComponent} from "./register-form/register-form.component";
-import {GuardService} from "./guard.service";
+import {GuardService} from "./services/guard.service";
 
 const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},

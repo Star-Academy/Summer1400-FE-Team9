@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {NavbarComponent} from './navbar.component';
-import {AuthService} from "../auth.service";
+import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
 describe('NavbarComponent', () => {

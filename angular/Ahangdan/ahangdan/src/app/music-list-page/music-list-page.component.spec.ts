@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MusicListPageComponent} from './music-list-page.component';
-import {MusicLoaderService} from "../music-loader.service";
+import {MusicLoaderService} from "../services/music-loader.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subject} from 'rxjs';
 import Music from "../models/MusicModel";

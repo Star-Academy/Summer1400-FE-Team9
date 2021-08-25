@@ -1,9 +1,9 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoginFormComponent} from './login-form.component';
-import {AuthService} from "../auth.service";
+import {AuthService} from "../services/auth.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {MusicLoaderService} from "../music-loader.service";
+import {MusicLoaderService} from "../services/music-loader.service";
 import {Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 

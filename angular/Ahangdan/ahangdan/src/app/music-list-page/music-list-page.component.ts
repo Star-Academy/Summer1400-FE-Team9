@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MusicLoaderService} from "../music-loader.service";
+import {MusicLoaderService} from "../services/music-loader.service";
 import {faHeart, faHeartBroken} from '@fortawesome/free-solid-svg-icons';
 import {faShareAlt} from '@fortawesome/free-solid-svg-icons';
 import Music from "../models/MusicModel";

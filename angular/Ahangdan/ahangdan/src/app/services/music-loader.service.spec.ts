@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { MusicLoaderService } from './music-loader.service';
 import {AuthService} from "./auth.service";
 import {Router} from "@angular/router";
-import Music from "./models/MusicModel";
+import Music from "../models/MusicModel";
 import {HttpClient} from "@angular/common/http";
 
 class HTTPMusicLoaderPromiseHelper {
