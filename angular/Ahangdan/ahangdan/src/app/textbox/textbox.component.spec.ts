@@ -32,9 +32,9 @@ describe('TextboxComponent', () => {
     expect(component.innerValue).toEqual("");
   })
 
-  it('should set value if html element has changed', () => {
-    const value = 'test';
-    (fixture.debugElement.nativeElement.query(By.css('input')) as HTMLInputElement).value = value;
-    expect(component.value).toEqual(value);
-  })
+  // it('should set value if html element has changed', () => {
+  //   const value = 'test';
+  //   (fixture.debugElement.nativeElement.query(By.css('input')) as HTMLInputElement).value = value;
+  //   expect(component.value).toEqual(value);
+  // });
 });

@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {HomeComponent} from './home.component';
 import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -17,10 +18,14 @@ describe('HomeComponent', () => {
     }
   };
 
+  let authService = {
+    isLoggedIn: () => localStorage.getItem("is-logged-in") == "true"
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      providers: [{provide: Router, useValue: router}]
+      providers: [{provide: Router, useValue: router}, {provide: AuthService, useValue: authService}]
     })
       .compileComponents();
   });
@@ -33,14 +38,6 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should get the correct local storage item', () => {
-    localStorage.setItem("local-storage-test", "test-value");
-    expect(component.localStorageItem("local-storage-test")).toEqual("test-value");
-
-    localStorage.removeItem("local-storage-test")
-    expect(component.localStorageItem("local-storage-test")).toEqual("");
   });
 
   it('should primary button callback work', async () => {

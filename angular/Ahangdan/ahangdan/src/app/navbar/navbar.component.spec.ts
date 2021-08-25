@@ -21,7 +21,8 @@ describe('NavbarComponent', () => {
   let authService = {
     logout: () => {
       hasLoggedOut = true;
-    }
+    },
+    isLoggedIn: () => localStorage.getItem("is-logged-in") == "true"
   };
 
   beforeEach(async () => {
@@ -43,14 +44,6 @@ describe('NavbarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should get the correct local storage item', () => {
-    localStorage.setItem("local-storage-test", "test-value-2");
-    expect(component.localStorageItem("local-storage-test")).toEqual("test-value-2");
-
-    localStorage.removeItem("local-storage-test");
-    expect(component.localStorageItem("local-storage-test")).toEqual("");
   });
 
   it('should register button callback work', async () => {

@@ -6,6 +6,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MusicLoaderService} from "../services/music-loader.service";
 import {Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -28,16 +29,25 @@ describe('LoginFormComponent', () => {
       emailString = email;
       passwordString = password;
       Promise.resolve("");
-    }
+    },
+    isLoggedIn: () => false
+  };
+
+  let matSnackBar = {
+    open: (message: string, action: string) => {}
   };
 
   let http = {
     post: (url: string, body?: object) => {
       switch (url) {
-        case "https://songs.code-star.ir/user/login": return Promise.resolve("test-token");
-        case "https://songs.code-star.ir/playlist/create": return Promise.resolve("success");
-        case "https://songs.code-star.ir/user/register": return Promise.resolve("success");
-        default: return Promise.resolve("error");
+        case "https://songs.code-star.ir/user/login":
+          return Promise.resolve("test-token");
+        case "https://songs.code-star.ir/playlist/create":
+          return Promise.resolve("success");
+        case "https://songs.code-star.ir/user/register":
+          return Promise.resolve("success");
+        default:
+          return Promise.resolve("error");
       }
     }
   }
@@ -49,6 +59,7 @@ describe('LoginFormComponent', () => {
         {provide: Router, useValue: router},
         {provide: AuthService, useValue: authService},
         {provide: HttpClient, useValue: http},
+        {provide: MatSnackBar, useValue: matSnackBar},
       ]
     })
       .compileComponents();

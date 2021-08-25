@@ -6,6 +6,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Subject} from 'rxjs';
 import Music from "../models/music-model";
 import {ElementRef} from "@angular/core";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 class MyParams {
   subscribe(func: any) {
@@ -33,12 +34,17 @@ describe('MusicListPageComponent', () => {
     }
   };
 
+  let matSnackBar = {
+    show: (message: string, action: string) => {}
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MusicListPageComponent],
       providers: [
         {provide: ActivatedRoute, useValue: activatedRoute},
-        {provide: MusicLoaderService, useValue: musicService}
+        {provide: MusicLoaderService, useValue: musicService},
+        {provide: MatSnackBar, useValue: matSnackBar},
       ]
     })
       .compileComponents();
@@ -174,9 +180,7 @@ describe('MusicListPageComponent', () => {
       file: "1",
       isFavorite: false
     });
-    let element = document.createElement("div");
     component.openMusic(music);
-    expect(element.style.opacity).toEqual("0.2");
     expect(component.isOverlayOpen).toBeTruthy();
     expect(component.openedMusic.id).toEqual(music.id);
   });

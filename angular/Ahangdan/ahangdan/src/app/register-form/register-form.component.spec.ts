@@ -4,6 +4,7 @@ import {RegisterFormComponent} from './register-form.component';
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 describe('RegisterFormComponent', () => {
   let component: RegisterFormComponent;
@@ -26,7 +27,12 @@ describe('RegisterFormComponent', () => {
       emailString = email;
       passwordString = password;
       Promise.resolve("");
-    }
+    },
+    isLoggedIn: () => false
+  };
+
+  let matSnackBar = {
+    open: (message: string, action: string) => {}
   };
 
   let http = {
@@ -51,6 +57,7 @@ describe('RegisterFormComponent', () => {
         {provide: Router, useValue: router},
         {provide: AuthService, useValue: authService},
         {provide: HttpClient, useValue: http},
+        {provide: MatSnackBar, useValue: matSnackBar},
       ]
     })
       .compileComponents();
